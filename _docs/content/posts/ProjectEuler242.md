@@ -1,5 +1,6 @@
 ---
 title: "Project Euler #242"
+description: This post
 slug: project-euler-242
 description: null
 date: 2019-11-29T12:15:14+08:00
@@ -58,7 +59,6 @@ And now, for the computational part. Compute the final sum for every prime facto
 The computation of the divisors of $m$ and all its mobius and euler totient values can be computed in $O(\sqrt m)$
 
 Therefore, the overall complexity is $O(\sqrt m + \log M \log n)$.
-
 
 
 

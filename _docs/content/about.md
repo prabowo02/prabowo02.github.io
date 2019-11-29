@@ -3,6 +3,7 @@ title: "About"
 slug: about
 date: 2019-11-29T12:08:03+08:00
 draft: false
+disqus: false
 menu:
   main:
     name: About
