@@ -1,0 +1,50 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Notes</title>
+		<link>https://prabowo02.github.io/posts/</link>
+		<description>Recent content in Posts on Notes</description>
+		<generator>Hugo 0.60.0 -- gohugo.io</generator>
+		<language>en-us</language>
+		<lastBuildDate>Fri, 29 Nov 2019 12:15:14 +0800</lastBuildDate>
+		<atom:link href="https://prabowo02.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Project Euler #242</title>
+			<link>https://prabowo02.github.io/posts/project-euler-242/</link>
+			<pubDate>Fri, 29 Nov 2019 12:15:14 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/project-euler-242/</guid>
+			<description>&lt;p&gt;This post will give the analysis to &lt;a href=&#34;https://www.hackerrank.com/contests/projecteuler/challenges/euler242/problem&#34;&gt;Project Euler #242&lt;/a&gt; from hackerrank, which is an extended version from the &lt;a href=&#34;https://projecteuler.net/problem=242&#34;&gt;original&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;problem-statement&#34;&gt;Problem Statement&lt;/h3&gt;
+&lt;p&gt;Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\{1, 2, \ldots, n\}$ such that the sum of the subset is $r \mod m$. Let the answer be $S$, output $S \times m$ modulo $M$.&lt;/p&gt;
+&lt;h4 id=&#34;constraints&#34;&gt;Constraints&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;$2 \leq m \leq 10^{11}$&lt;/li&gt;
+&lt;li&gt;$0 \leq r \leq m$&lt;/li&gt;
+&lt;li&gt;$1 \leq k \leq n \leq 10^{18}$&lt;/li&gt;
+&lt;li&gt;For each positive divisor $d$ of $m$: $n \mod d \leq k \mod d$&lt;/li&gt;
+&lt;li&gt;$2 \leq M \leq 2^{62}$&lt;/li&gt;
+&lt;li&gt;The largest prime factor of $M$ is less than $10^5$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+&lt;p&gt;This is actually an extended version of &lt;a href=&#34;https://www.imo-official.org/year_info.aspx?year=1995&#34;&gt;IMO 1995 P6&lt;/a&gt; (having $m = p$, $n = 2p$, $k = p$, $r = 0$). A discussion to this problem can be found in &lt;a href=&#34;https://artofproblemsolving.com/community/c6h15112p107230&#34;&gt;AOPS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Back to the original problem, consider the generating function $(1 + xq)(1 + xq^2) \ldots (1 + xq^n)$. Our answer will be the sum of coefficients of $x^k y^r, x^k y^{r+m}, x^k y^{r+2m}, \ldots$.&lt;/p&gt;
+&lt;p&gt;To get this sum, we use the &lt;a href=&#34;https://en.wikipedia.org/wiki/Series_multisection&#34;&gt;Series Multisection&lt;/a&gt; formula on the y coefficients, then our generating function become:&lt;/p&gt;
+&lt;p&gt;$$\frac{1}{m} \sum_{l=0}^{m-1} \left( \omega^{-lr} \prod_{i=1}^n (1 + x\omega^{li}) \right)$$&lt;/p&gt;
+&lt;p&gt;where $\omega$ is the primitive $m$-th root of unity. Since the final answer will be multiplied by $m$, the $\frac{1}{m}$ will be ignored for the rest of this post. Now our goal is to find the coefficient of $x^k$ from that equation.&lt;/p&gt;
+&lt;p&gt;Using the &lt;a href=&#34;http://mathworld.wolfram.com/CauchyBinomialTheorem.html&#34;&gt;Cauchy Binomial Theorem&lt;/a&gt;, we convert our equation above to:&lt;/p&gt;
+&lt;p&gt;$$\sum_{l=0}^{m-1} \left( \omega^{-lr} \sum_{i=0}^n x^i \omega^{li(i+1)/2} {n \brack i}_{\omega^l} \right)$$&lt;/p&gt;
+&lt;p&gt;Since we only care with the $x^k$ coefficient, then the answer to our original problem is the evaluation of:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{i=0}^{m-1} \left( (\omega^{i})^{k(k+1)/2 - r} {n \brack k}_{\omega^i} \right) $$&lt;/p&gt;
+&lt;p&gt;We will compute the sum for each primitive of $\omega^i$ separately. Denote $\omega_d$ as the primitive $d$-th root of unity. Also note the &lt;a href=&#34;https://www.math.upenn.edu/~peal/polynomials/q-analogues.htm#prelimQanaloguesQLucas&#34;&gt;q-Lucas theorem&lt;/a&gt;: ${n \brack k}_{\omega_d} = {\lfloor n/d \rfloor \choose \lfloor k/d \rfloor } {n \mod d \brack k \mod d}_{\omega_d}$.&lt;br&gt;
+Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k (\mod d)$, $0$ otherwise.&lt;br&gt;
+With these in mind, we rewrite our equation to:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose k}[n \equiv k \mod d] \right) $$&lt;/p&gt;
+&lt;p&gt;where $[]$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Iverson_bracket&#34;&gt;Iverson bracket&lt;/a&gt;. Recall that the sum of $k$-th power of the $d$-th root of unity is $\mu(d / \gcd(k, d)) \varphi(d) / \varphi(d / \gcd(k, d))$, where $\mu$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/M%C3%B6bius_function&#34;&gt;Möbius function&lt;/a&gt; and $\varphi$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Euler%27s_totient_function&#34;&gt;Euler&#39;s Totient function&lt;/a&gt;.&lt;br&gt;
+Therefore, our final answer is:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \mod d] \right) $$&lt;/p&gt;
+&lt;p&gt;And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using &lt;a href=&#34;https://en.wikipedia.org/wiki/Chinese_remainder_theorem&#34;&gt;Chinese Remainder Theorem&lt;/a&gt;. The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which may be described in another post.&lt;br&gt;
+The computation of the divisors of $m$ and all its mobius and euler totient values can be computed in $O(\sqrt m)$&lt;/p&gt;
+&lt;p&gt;Therefore, the overall complexity is $O(\sqrt m + \log M \log n)$.&lt;/p&gt;
+</description>
+		</item>
+	</channel>
+</rss>

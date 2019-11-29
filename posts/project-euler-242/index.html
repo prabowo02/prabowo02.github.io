@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Euler #242 | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="This post will give the analysis to Project Euler #242 from hackerrank, which is an extended version from the original.
+Problem Statement Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\{1, 2, \ldots, n\}$ such that the sum of the subset is $r \mod m$. Let the answer be $S$, output $S \times m$ modulo $M$.
+Constraints  $2 \leq m \leq 10^{11}$ $0 \leq r \leq m$ $1 \leq k \leq n \leq 10^{18}$ For each positive divisor $d$ of $m$: $n \mod d \leq k \mod d$ $2 \leq M \leq 2^{62}$ The largest prime factor of $M$ is less than $10^5$  Solution This is actually an extended version of IMO 1995 P6 (having $m = p$, $n = 2p$, $k = p$, $r = 0$)." />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.60.0" />
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
+  <!--<![endif]-->
+  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      Project Euler #242
+    </h2>
+    
+
+  </div>
+  <div>
+    <p>This post will give the analysis to <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler242/problem">Project Euler #242</a> from hackerrank, which is an extended version from the <a href="https://projecteuler.net/problem=242">original</a>.</p>
+<h3 id="problem-statement">Problem Statement</h3>
+<p>Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\{1, 2, \ldots, n\}$ such that the sum of the subset is $r \mod m$. Let the answer be $S$, output $S \times m$ modulo $M$.</p>
+<h4 id="constraints">Constraints</h4>
+<ul>
+<li>$2 \leq m \leq 10^{11}$</li>
+<li>$0 \leq r \leq m$</li>
+<li>$1 \leq k \leq n \leq 10^{18}$</li>
+<li>For each positive divisor $d$ of $m$: $n \mod d \leq k \mod d$</li>
+<li>$2 \leq M \leq 2^{62}$</li>
+<li>The largest prime factor of $M$ is less than $10^5$</li>
+</ul>
+<h3 id="solution">Solution</h3>
+<p>This is actually an extended version of <a href="https://www.imo-official.org/year_info.aspx?year=1995">IMO 1995 P6</a> (having $m = p$, $n = 2p$, $k = p$, $r = 0$). A discussion to this problem can be found in <a href="https://artofproblemsolving.com/community/c6h15112p107230">AOPS</a>.</p>
+<p>Back to the original problem, consider the generating function $(1 + xq)(1 + xq^2) \ldots (1 + xq^n)$. Our answer will be the sum of coefficients of $x^k y^r, x^k y^{r+m}, x^k y^{r+2m}, \ldots$.</p>
+<p>To get this sum, we use the <a href="https://en.wikipedia.org/wiki/Series_multisection">Series Multisection</a> formula on the y coefficients, then our generating function become:</p>
+<p>$$\frac{1}{m} \sum_{l=0}^{m-1} \left( \omega^{-lr} \prod_{i=1}^n (1 + x\omega^{li}) \right)$$</p>
+<p>where $\omega$ is the primitive $m$-th root of unity. Since the final answer will be multiplied by $m$, the $\frac{1}{m}$ will be ignored for the rest of this post. Now our goal is to find the coefficient of $x^k$ from that equation.</p>
+<p>Using the <a href="http://mathworld.wolfram.com/CauchyBinomialTheorem.html">Cauchy Binomial Theorem</a>, we convert our equation above to:</p>
+<p>$$\sum_{l=0}^{m-1} \left( \omega^{-lr} \sum_{i=0}^n x^i \omega^{li(i+1)/2} {n \brack i}_{\omega^l} \right)$$</p>
+<p>Since we only care with the $x^k$ coefficient, then the answer to our original problem is the evaluation of:</p>
+<p>$$ \sum_{i=0}^{m-1} \left( (\omega^{i})^{k(k+1)/2 - r} {n \brack k}_{\omega^i} \right) $$</p>
+<p>We will compute the sum for each primitive of $\omega^i$ separately. Denote $\omega_d$ as the primitive $d$-th root of unity. Also note the <a href="https://www.math.upenn.edu/~peal/polynomials/q-analogues.htm#prelimQanaloguesQLucas">q-Lucas theorem</a>: ${n \brack k}_{\omega_d} = {\lfloor n/d \rfloor \choose \lfloor k/d \rfloor } {n \mod d \brack k \mod d}_{\omega_d}$.<br>
+Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k (\mod d)$, $0$ otherwise.<br>
+With these in mind, we rewrite our equation to:</p>
+<p>$$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose k}[n \equiv k \mod d] \right) $$</p>
+<p>where $[]$ is the <a href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson bracket</a>. Recall that the sum of $k$-th power of the $d$-th root of unity is $\mu(d / \gcd(k, d)) \varphi(d) / \varphi(d / \gcd(k, d))$, where $\mu$ is the <a href="https://en.wikipedia.org/wiki/M%C3%B6bius_function">Möbius function</a> and $\varphi$ is the <a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function">Euler's Totient function</a>.<br>
+Therefore, our final answer is:</p>
+<p>$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \mod d] \right) $$</p>
+<p>And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using <a href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem">Chinese Remainder Theorem</a>. The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which may be described in another post.<br>
+The computation of the divisors of $m$ and all its mobius and euler totient values can be computed in $O(\sqrt m)$</p>
+<p>Therefore, the overall complexity is $O(\sqrt m + \log M \log n)$.</p>
+
+  </div>
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+      ]
+    });
+  });
+</script>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+</body>
+</html>
