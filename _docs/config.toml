@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Notes"
 theme = "slick"
 disqusShortname = "prabowo-djonatan"
+googleAnalytics = "UA-153503979-1"
 
 [params]
     showFullContent = true
