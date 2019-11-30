@@ -10,7 +10,10 @@
   <div>
     {{ .Content }}
   </div>
+  {{ if and (isset .Params "disqus") (not .Params.disqus) }}
 
-  {{ partial "comment.html" . }}
+  {{ else }}
+    {{ partial "comment.html" . }}
+  {{ end }}
 </div>
 {{- end }}

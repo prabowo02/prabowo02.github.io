@@ -28,7 +28,7 @@ Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $
 
 This is actually an extended version of [IMO 1995 P6](https://www.imo-official.org/year_info.aspx?year=1995) (having $m = p$, $n = 2p$, $k = p$, $r = 0$). A discussion to this problem can be found in [AOPS](https://artofproblemsolving.com/community/c6h15112p107230).
 
-Back to the original problem, consider the generating function $(1 + xq)(1 + xq^2) \ldots (1 + xq^n)$. Our answer will be the sum of coefficients of $x^k y^r, x^k y^{r+m}, x^k y^{r+2m}, \ldots$.
+Back to the original problem, consider the generating function $(1 + xy)(1 + xy^2) \ldots (1 + xy^n)$. Our answer will be the sum of coefficients of $x^k y^r, x^k y^{r+m}, x^k y^{r+2m}, \ldots$.
 
 To get this sum, we use the [Series Multisection](https://en.wikipedia.org/wiki/Series_multisection) formula on the y coefficients, then our generating function become:
 
@@ -53,7 +53,7 @@ $$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose
 where $[]$ is the [Iverson bracket](https://en.wikipedia.org/wiki/Iverson_bracket). Recall that the sum of $k$-th power of the $d$-th root of unity is $\mu(d / \gcd(k, d)) \varphi(d) / \varphi(d / \gcd(k, d))$, where $\mu$ is the [Möbius function](https://en.wikipedia.org/wiki/M%C3%B6bius_function) and $\varphi$ is the [Euler's Totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function). \
 Therefore, our final answer is:
 
-$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \mod d] \right) $$
+$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\varphi\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \mod d] \right) $$
 
 And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem). The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which may be described in another post. \
 The computation of the divisors of $m$ and all its mobius and euler totient values can be computed in $O(\sqrt m)$
