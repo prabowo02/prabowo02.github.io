@@ -5,8 +5,75 @@
 		<description>Recent content on Notes</description>
 		<generator>Hugo 0.60.0 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Fri, 29 Nov 2019 12:15:14 +0800</lastBuildDate>
+		<lastBuildDate>Wed, 04 Dec 2019 16:03:30 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Binomial Modulo Prime Power</title>
+			<link>https://prabowo02.github.io/posts/binomial-mod-pe/</link>
+			<pubDate>Wed, 04 Dec 2019 16:03:30 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/binomial-mod-pe/</guid>
+			<description>&lt;p&gt;This is an attempt to translate &lt;a href=&#34;https://min-25.hatenablog.com/entry/2017/11/01/185400&#34;&gt;min_25&#39;s article&lt;/a&gt; with the help of Google Translate, and with a bit of modification.&lt;/p&gt;
+&lt;p&gt;Our goal is to solve ${n \choose m} \mod p^e$, ($n, m, p^e &amp;lt; 10^{300}$, $p$: prime number).&lt;/p&gt;
+&lt;p&gt;The method differ from Andrew Granville&#39;s Binomial Coefficients modulo prime powers (&lt;a href=&#34;https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf&#34;&gt;BinCoeff.pdf&lt;/a&gt;).&lt;br&gt;
+After precomputation, the number of operation to compute ${n \choose m} \mod p^e$ is reduced from $O\left(e^2\left(\frac{\log n}{\log p} + \min(\log n, \log p)\right)\right)$ to $O(e \log n)$.&lt;/p&gt;
+&lt;p&gt;For the rest of the article, denote ${n \brack m}$ as &lt;a href=&#34;https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind&#34;&gt;Stirling number of the first kind&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;computation-method&#34;&gt;Computation Method&lt;/h3&gt;
+&lt;p&gt;Define $(n!)_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. Our goal is to compute $(n!)_p \mod p^e$.&lt;/p&gt;
+&lt;p&gt;Let $n = up + v$ where $u, v$ non-negative integers and $0 \leq v &amp;lt; p$.&lt;/p&gt;
+&lt;p&gt;For simplicity, we assume that $e &amp;lt; p$,&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align*}
+((up+v)!)_p &amp;amp;= \left( \prod_{i=0}^{u-1} \prod_{j=1}^{p-1} (ip+j) \right) \cdot \prod_{j=1}^v (up + j) \\\&lt;br&gt;
+&amp;amp;\equiv \left(\prod_{i=0}^{u-1} \left( \sum_{k=0}^{e-1} (ip)^k {p \brack {k+1}}\right)\right) \cdot \left(\sum_{k=0}^{e-1}(up)^k {{v+1} \brack {k+1}}\right) \pmod {p^e} \\\&lt;br&gt;
+&amp;amp;= {p \brack 1}^u \left(\prod_{i=0}^{u-1}\left( 1 + \sum_{k=1}^{e-1} \frac{{p \brack {k+1}}}{{p \brack 1}}(ip)^k \right) \right) \cdot \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right) \\\&lt;br&gt;
+&amp;amp;= {p \brack 1}^u f_{p,e}(u) \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right)
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;It can be shown that $f_{p, e}$ is a polynomial of degree $(2e - 2)$ (proven below). By calculating the value of $f_{p, e}(0), \ldots, f_{p, e}(2e-2)$, the value of $f_{p, e}(u)$ can be computed in $O(e \log n)$ using &lt;a href=&#34;https://en.wikipedia.org/wiki/Lagrange_polynomial&#34;&gt;Lagrange interpolation&lt;/a&gt; (in $O(e)$ if you precompute the modular inverses).&lt;/p&gt;
+&lt;h4 id=&#34;implementation-and-time-complexity&#34;&gt;Implementation and Time Complexity&lt;/h4&gt;
+&lt;p&gt;First, compute the &lt;a href=&#34;https://en.wikipedia.org/wiki/P-adic_order&#34;&gt;$p$-adic valuation&lt;/a&gt; of ${n \choose m}$. If it is not less than $e$, then the modulo is 0. Otherwise, we factor out all the $p$ factors in $n!, m!, (n-m)!$ then we compute the factorials, and multiply with the $p$ factors at the end of the ${n \choose m}$ computation below.&lt;/p&gt;
+&lt;p&gt;After the 0 case handling, we do the steps as follow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;${n \brack m} (1 \leq n \leq p, 1 \leq m \leq \min(p, e))$ is precomputed in $O(p \cdot \min(p, e))$&lt;/li&gt;
+&lt;li&gt;$f_{p, e}(0), \ldots, f_{p, e}(2e-2)$ for interpolation are precomputed in $O(e \cdot \min(p, e) + e \log p)$&lt;/li&gt;
+&lt;li&gt;Computation of $n!$ without the factor $p$ can be done by $\sum_{k=0}^\infty \left(\left\lfloor\frac{n}{p^k}\right\rfloor_p\right)!$ in $O(e \log n)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In total, there are around $O(pe + e^2 + e \log n)$ time complexity to compute ${n \choose m}$&lt;/p&gt;
+&lt;h4 id=&#34;proof-that-fp-e-is-a-polynomial&#34;&gt;Proof that $f_{p, e}$ is a polynomial&lt;/h4&gt;
+&lt;p&gt;For any $e, p$ $(e \geq 1, p \geq 2)$, let $a_k$ be a rational number that exists under modulo $p$. Let,&lt;/p&gt;
+&lt;p&gt;$$ g(x, u) := \prod_{i=0}^{u-1} \left( 1 + \sum_{k=1}^{e-1} a_k (xi)^k \right) $$&lt;/p&gt;
+&lt;p&gt;Let $b_k$ be some other rational number satisfying:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align*}
+\log(g(x, u)) &amp;amp;= \sum_{i=0}^{u-1} \log\left( 1 + \sum_{k=1}^{e-1} a_k(xi)^k \right) \\\&lt;br&gt;
+&amp;amp;= \sum_{i=0}^{u-1} \sum_{k=0}^\infty b_k x^k i^k \\\&lt;br&gt;
+&amp;amp;= \sum_{k=1}^\infty b_k x^k s_k(u)
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;where $s_k(x) = \sum_{i=0}^x i^k$ is a polynomial of degree $k+1$. Continuing from above,&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align*}
+g(x, u) &amp;amp;= \exp\left( \sum_{k=1}^\infty b_k x^k s_k(u) \right) \\\&lt;br&gt;
+&amp;amp;= 1 + \sum_{k=1}^\infty t_k(u) x^k
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;where $t_k(u)$ is a polynomial of degree $2k$, because the highest polynomial degree obtained at $x^k$ is from $(b_1 x s_1(u))^k$. The coefficients of $t_k(u)$ are also rational number which exists under modulo $p$.&lt;/p&gt;
+&lt;p&gt;Substituting $x = p$ gives us the polynomial of $f_{p, e}(u)$:&lt;/p&gt;
+&lt;p&gt;$$ g(p, u) \equiv 1 + \sum_{k=1}^{e-1} t_k(u) \cdot p^k \pmod{p^e} $$&lt;/p&gt;
+&lt;p&gt;Therefore, $f_{p, e}(x)$ is a polynomial of degree $(2e - 2)$.&lt;/p&gt;
+&lt;h3 id=&#34;remark&#34;&gt;Remark&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If $p$ is prime, ${p \brack i}$ $(2 \leq i &amp;lt; p)$ is divisible by $p$.&lt;/li&gt;
+&lt;li&gt;If $p \geq 5$, ${p \brack 2}$ is divisible by $p^2$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using these properties, looks like it is possible to further reduce the degree of $f_{p, e}(x)$.&lt;/p&gt;
+&lt;h3 id=&#34;source-codes&#34;&gt;Source Codes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;min_25&#39;s implementation using &lt;a href=&#34;https://gist.github.com/min-25/a5496354e10064a581d6b0c52c727a26&#34;&gt;Python&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;My implementation using &lt;a href=&#34;https://github.com/prabowo02/CP/blob/master/binomial_mod_pe.cpp&#34;&gt;C++&lt;/a&gt; (but it is not using big integer, only &lt;code&gt;__int128&lt;/code&gt;, so it can only support for $n$ up to $10^{18}$).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+		</item>
 		<item>
 			<title>Project Euler #242</title>
 			<link>https://prabowo02.github.io/posts/project-euler-242/</link>
@@ -14,7 +81,7 @@
 			<guid isPermaLink="true">https://prabowo02.github.io/posts/project-euler-242/</guid>
 			<description>&lt;p&gt;This post will give the analysis to &lt;a href=&#34;https://www.hackerrank.com/contests/projecteuler/challenges/euler242/problem&#34;&gt;Project Euler #242&lt;/a&gt; from hackerrank, which is an extended version from the &lt;a href=&#34;https://projecteuler.net/problem=242&#34;&gt;original&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;problem-statement&#34;&gt;Problem Statement&lt;/h3&gt;
-&lt;p&gt;Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\{1, 2, \ldots, n\}$ such that the sum of the subset is $r \mod m$. Let the answer be $S$, output $S \times m$ modulo $M$.&lt;/p&gt;
+&lt;p&gt;Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\{1, 2, \ldots, n\}$ such that the sum of the subset is $r \pmod m$. Let the answer be $S$, output $S \times m$ modulo $M$.&lt;/p&gt;
 &lt;h4 id=&#34;constraints&#34;&gt;Constraints&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;$2 \leq m \leq 10^{11}$&lt;/li&gt;
@@ -35,13 +102,13 @@
 &lt;p&gt;Since we only care with the $x^k$ coefficient, then the answer to our original problem is the evaluation of:&lt;/p&gt;
 &lt;p&gt;$$ \sum_{i=0}^{m-1} \left( (\omega^{i})^{k(k+1)/2 - r} {n \brack k}_{\omega^i} \right) $$&lt;/p&gt;
 &lt;p&gt;We will compute the sum for each primitive of $\omega^i$ separately. Denote $\omega_d$ as the primitive $d$-th root of unity. Also note the &lt;a href=&#34;https://www.math.upenn.edu/~peal/polynomials/q-analogues.htm#prelimQanaloguesQLucas&#34;&gt;q-Lucas theorem&lt;/a&gt;: ${n \brack k}_{\omega_d} = {\lfloor n/d \rfloor \choose \lfloor k/d \rfloor } {n \mod d \brack k \mod d}_{\omega_d}$.&lt;br&gt;
-Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k (\mod d)$, $0$ otherwise.&lt;br&gt;
+Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k \pmod d$, $0$ otherwise.&lt;br&gt;
 With these in mind, we rewrite our equation to:&lt;/p&gt;
-&lt;p&gt;$$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose k}[n \equiv k \mod d] \right) $$&lt;/p&gt;
-&lt;p&gt;where $[]$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Iverson_bracket&#34;&gt;Iverson bracket&lt;/a&gt;. Recall that the sum of $k$-th power of the $d$-th root of unity is $\mu(d / \gcd(k, d)) \varphi(d) / \varphi(d / \gcd(k, d))$, where $\mu$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/M%C3%B6bius_function&#34;&gt;Möbius function&lt;/a&gt; and $\varphi$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Euler%27s_totient_function&#34;&gt;Euler&#39;s Totient function&lt;/a&gt;.&lt;br&gt;
+&lt;p&gt;$$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose k}[n \equiv k \pmod d] \right) $$&lt;/p&gt;
+&lt;p&gt;where $[]$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Iverson_bracket&#34;&gt;Iverson bracket&lt;/a&gt;. Recall that the sum of $k$-th power of the $d$-th root of unity is $\frac{\mu(d / \gcd(k, d)) \varphi(d)}{\varphi(d / \gcd(k, d))}$, where $\mu$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/M%C3%B6bius_function&#34;&gt;Möbius function&lt;/a&gt; and $\varphi$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Euler%27s_totient_function&#34;&gt;Euler&#39;s Totient function&lt;/a&gt;.&lt;br&gt;
 Therefore, our final answer is:&lt;/p&gt;
-&lt;p&gt;$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\varphi\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \mod d] \right) $$&lt;/p&gt;
-&lt;p&gt;And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using &lt;a href=&#34;https://en.wikipedia.org/wiki/Chinese_remainder_theorem&#34;&gt;Chinese Remainder Theorem&lt;/a&gt;. The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which may be described in another post.&lt;br&gt;
+&lt;p&gt;$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\varphi\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \pmod d] \right) $$&lt;/p&gt;
+&lt;p&gt;And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using &lt;a href=&#34;https://en.wikipedia.org/wiki/Chinese_remainder_theorem&#34;&gt;Chinese Remainder Theorem&lt;/a&gt;. The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which is described in this &lt;a href=&#34;https://prabowo02.github.io/posts/binomial-mod-pe&#34;&gt;post&lt;/a&gt;.&lt;br&gt;
 The computation of the divisors of $m$ and all its mobius and euler totient values can be computed in $O(\sqrt m)$&lt;/p&gt;
 &lt;p&gt;Therefore, the overall complexity is $O(\sqrt m + \log M \log n)$.&lt;/p&gt;
 </description>
@@ -51,8 +118,15 @@ The computation of the divisors of $m$ and all its mobius and euler totient valu
 			<link>https://prabowo02.github.io/about/</link>
 			<pubDate>Fri, 29 Nov 2019 12:08:03 +0800</pubDate>
 			<guid isPermaLink="true">https://prabowo02.github.io/about/</guid>
-			<description>&lt;p&gt;World: *exists*&lt;br&gt;
-Programmer: Hello&lt;/p&gt;
+			<description>&lt;p&gt;The real name is Prabowo Djonatan, and no, I am not Indonesia&#39;s current Ministry of Defence.&lt;br&gt;
+I usually go by the username prabowo on several online judges:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/profile/Prabowo&#34;&gt;Codeforces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://atcoder.jp/users/prabowo&#34;&gt;AtCoder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hackerrank.com/Prabowo&#34;&gt;Hackerrank&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open.kattis.com/users/prabowo&#34;&gt;Kattis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;About the content of this blog, I will mostly talk about algorithms.&lt;/p&gt;
 </description>
 		</item>
 	</channel>
