@@ -13,7 +13,7 @@ This post will give the analysis to [Project Euler #242](https://www.hackerrank.
 
 ### Problem Statement
 
-Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\\{1, 2, \ldots, n\\}$ such that the sum of the subset is $r \mod m$. Let the answer be $S$, output $S \times m$ modulo $M$.
+Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\\{1, 2, \ldots, n\\}$ such that the sum of the subset is $r \pmod m$. Let the answer be $S$, output $S \times m$ modulo $M$.
 
 #### Constraints
 
@@ -45,26 +45,17 @@ Since we only care with the $x^k$ coefficient, then the answer to our original p
 $$ \sum_{i=0}^{m-1} \left( (\omega^{i})^{k(k+1)/2 - r} {n \brack k}\_{\omega^i} \right) $$
 
 We will compute the sum for each primitive of $\omega^i$ separately. Denote $\omega_d$ as the primitive $d$-th root of unity. Also note the [q-Lucas theorem](https://www.math.upenn.edu/~peal/polynomials/q-analogues.htm#prelimQanaloguesQLucas): ${n \brack k}\_{\omega_d} = {\lfloor n/d \rfloor \choose \lfloor k/d \rfloor } {n \mod d \brack k \mod d}\_{\omega_d}$. \
-Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k (\mod d)$, $0$ otherwise. \
+Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k \pmod d$, $0$ otherwise. \
 With these in mind, we rewrite our equation to:
 
-$$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose k}[n \equiv k \mod d] \right) $$
+$$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose k}[n \equiv k \pmod d] \right) $$
 
-where $[]$ is the [Iverson bracket](https://en.wikipedia.org/wiki/Iverson_bracket). Recall that the sum of $k$-th power of the $d$-th root of unity is $\mu(d / \gcd(k, d)) \varphi(d) / \varphi(d / \gcd(k, d))$, where $\mu$ is the [Möbius function](https://en.wikipedia.org/wiki/M%C3%B6bius_function) and $\varphi$ is the [Euler's Totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function). \
+where $[]$ is the [Iverson bracket](https://en.wikipedia.org/wiki/Iverson_bracket). Recall that the sum of $k$-th power of the $d$-th root of unity is $\frac{\mu(d / \gcd(k, d)) \varphi(d)}{\varphi(d / \gcd(k, d))}$, where $\mu$ is the [Möbius function](https://en.wikipedia.org/wiki/M%C3%B6bius_function) and $\varphi$ is the [Euler's Totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function). \
 Therefore, our final answer is:
 
-$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\varphi\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \mod d] \right) $$
+$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\varphi\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \pmod d] \right) $$
 
-And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem). The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which may be described in another post. \
+And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem). The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which is described in this [post](/posts/binomial-mod-pe). \
 The computation of the divisors of $m$ and all its mobius and euler totient values can be computed in $O(\sqrt m)$
 
 Therefore, the overall complexity is $O(\sqrt m + \log M \log n)$.
-
-
-
-
-
-
-
-
-
