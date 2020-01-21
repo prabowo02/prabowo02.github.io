@@ -4,23 +4,24 @@ slug: binomial-mod-pe
 description: null
 date: 2019-12-04T16:03:30+08:00
 type: posts
-draft: false
+summary: Our goal is to solve ${n \choose m} \pmod {p^e}$, ($n, m, p^e < 10^{300}$, $p$ prime number). After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is $O(e \log n)$. Define $(n!)\_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. We are to to compute $(n!)\_p \pmod{p^e}$.
+draft: false.
 
 ---
 
 
 This is an attempt to translate [min_25's article](https://min-25.hatenablog.com/entry/2017/11/01/185400) with the help of Google Translate, and with a bit of modification.
 
-Our goal is to solve ${n \choose m} \mod p^e$, ($n, m, p^e < 10^{300}$, $p$: prime number).
+Our goal is to solve ${n \choose m} \pmod{p^e}$, ($n, m, p^e < 10^{300}$, $p$: prime number).
 
 The method differ from Andrew Granville's Binomial Coefficients modulo prime powers ([BinCoeff.pdf](https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf)). \
-After precomputation, the number of operation to compute ${n \choose m} \mod p^e$ is reduced from $O\left(e^2\left(\frac{\log n}{\log p} + \min(\log n, \log p)\right)\right)$ to $O(e \log n)$.
+After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is reduced from $O\left(e^2\left(\frac{\log n}{\log p} + \min(\log n, \log p)\right)\right)$ to $O(e \log n)$.
 
 For the rest of the article, denote ${n \brack m}$ as [Stirling number of the first kind](https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind).
 
 ### Computation Method
 
-Define $(n!)\_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. Our goal is to compute $(n!)\_p \mod p^e$.
+Define $(n!)\_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. Our goal is to compute $(n!)\_p \pmod {p^e}$.
 
 Let $n = up + v$ where $u, v$ non-negative integers and $0 \leq v < p$.
 

@@ -5,6 +5,7 @@ slug: project-euler-242
 description: null
 date: 2019-11-29T12:15:14+08:00
 type: posts
+summary: This post will give the analysis to Project Euler 242 from hackerrank, which is an extended version from the original Project Euler. Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\\{1, 2, \ldots, n\\}$ such that the sum of the subset is $r \pmod m$. This is actually an extended version of IMO 1995 P6 (having $m = p$, $n = 2p$, $k = p$, $r = 0$). A discussion to this problem can be found in AOPS.
 draft: false
 
 ---
@@ -13,7 +14,7 @@ This post will give the analysis to [Project Euler #242](https://www.hackerrank.
 
 ### Problem Statement
 
-Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\\{1, 2, \ldots, n\\}$ such that the sum of the subset is $r \pmod m$. Let the answer be $S$, output $S \times m$ modulo $M$.
+Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\\{1, 2, \ldots, n\\}$ such that the sum of the subset is $r \pmod m$. Let the answer be $S$, output $S \times m$ modulo $M$. 
 
 #### Constraints
 

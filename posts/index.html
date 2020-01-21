@@ -47,13 +47,32 @@
 
   
 <div>
-  <p>Posts:</p>
-  <ul>
-    <li>
-      <div class="post-title">
-        <a href="/posts/binomial-mod-pe/">Binomial Modulo Prime Power</a>
-      </div>
+  <div>
+    <h2 class="post-title">
       
+      <a href="/posts/prime-counting/">On Prime Counting in Sublinear Time</a>
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2019-12-22T14:00:39&#43;08:00">
+      22 Dec 19 14:00 &#43;08
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    We are to count how many prime numbers are there up to $N$ ($N \leq 10^{11}$). Let $\pi(N)$ be the number of primes up to $N$, and $f(n, p)$ be the number of integers $x$, for $2 \leq x \leq N$, such that it contains no prime factor $&lt; p$. If $p$ is not prime, then $f(n, p) = f(n, p-1)$. Otherwise $$f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) - \pi(p-1)\right)$$ Our goal is to compute $\pi(N) = f(N, \sqrt N)$.
+  </div>
+</div>
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      <a href="/posts/binomial-mod-pe/">Binomial Modulo Prime Power</a>
+    </h2>
+    
 <div class="post-meta">
   <span>Date</span> &#x5b;
     <time datetime="2019-12-04T16:03:30&#43;08:00">
@@ -62,12 +81,18 @@
   &#x5d;
 </div>
 
-    </li>
-    <li>
-      <div class="post-title">
-        <a href="/posts/project-euler-242/">Project Euler #242</a>
-      </div>
+  </div>
+  <div>
+    Our goal is to solve ${n \choose m} \pmod {p^e}$, ($n, m, p^e &lt; 10^{300}$, $p$ prime number). After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is $O(e \log n)$. Define $(n!)_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. We are to to compute $(n!)_p \pmod{p^e}$.
+  </div>
+</div>
+<div>
+  <div>
+    <h2 class="post-title">
       
+      <a href="/posts/project-euler-242/">Project Euler #242</a>
+    </h2>
+    
 <div class="post-meta">
   <span>Date</span> &#x5b;
     <time datetime="2019-11-29T12:15:14&#43;08:00">
@@ -76,8 +101,10 @@
   &#x5d;
 </div>
 
-    </li>
-  </ul>
+  </div>
+  <div>
+    This post will give the analysis to Project Euler 242 from hackerrank, which is an extended version from the original Project Euler. Given 5 integers $m$, $r$, $n$, $k$, and $M$, count the number of k-subsets of $\{1, 2, \ldots, n\}$ such that the sum of the subset is $r \pmod m$. This is actually an extended version of IMO 1995 P6 (having $m = p$, $n = 2p$, $k = p$, $r = 0$). A discussion to this problem can be found in AOPS.
+  </div>
 </div>
 
 

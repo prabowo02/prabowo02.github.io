@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>On Prime Counting in Sublinear Time | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="We are to count how many prime numbers are there up to $N$ ($N \leq 10^{11}$). Let $\pi(N)$ be the number of primes up to $N$, and $f(n, p)$ be the number of integers $x$, for $2 \leq x \leq N$, such that it contains no prime factor $&lt; p$. If $p$ is not prime, then $f(n, p) = f(n, p-1)$. Otherwise $$f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) - \pi(p-1)\right)$$ Our goal is to compute $\pi(N) = f(N, \sqrt N)$." />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.60.0" />
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
+  <!--<![endif]-->
+  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      On Prime Counting in Sublinear Time
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2019-12-22T14:00:39&#43;08:00">
+      22 Dec 19 14:00 &#43;08
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    <p>We are to count how many prime numbers are there up to $N$ ($N \leq 10^{11}$).</p>
+<h2 id="computation">Computation</h2>
+<p>Let $\pi(N)$ be the number of primes up to $N$, and $f(n, p)$ be the number of integers $x$, for $2 \leq x \leq N$, such that it contains no prime factor $&lt; p$.</p>
+<p>If $p$ is not prime, then $f(n, p) = f(n, p-1)$. Otherwise:</p>
+<p>\begin{align}
+f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) - \pi(p-1)\right)
+\tag{1}
+\end{align}</p>
+<p>The value $f(\lfloor\frac{n}{p} \rfloor, p-1) - \pi(p-1)$ gives the number of integer $\leq N$ that has $p$ as its prime factor but no prime factor $&lt; p$. In other words, it is subtracting $|\{pk | 1 \leq k \leq n/p, \forall_{\text{prime }q  &lt; p} q \nmid k \}|$ from $f(n, p-1)$.</p>
+<p>Our goal is to compute $\pi(N) = f(N, \sqrt N)$.</p>
+<h3 id="implementation">Implementation</h3>
+<p>The idea is similar to the standard prime sieving: eliminate all numbers that is multiple of $2, 3, 5, \ldots, \sqrt N$.</p>
+<ol>
+<li>Denote <code>dp[n]</code> as an array to store the number of primes up to $n$, and initiate the array <code>dp[n]</code> $= f(n, 1) = n-1$ for all unique values of $\lfloor \frac{N}{i} \rfloor$ (there are $O(\sqrt N) $such values).</li>
+<li>For every prime $p$ in the range $[2, N]$, update <code>dp[n] -= dp[n/p] - dp[p-1]</code>, for all unique values of $n = \lfloor \frac{N}{i} \rfloor$ and $n \geq p^2$.
+<ul>
+<li>This is because when iterating prime $p$, all values of <code>dp[n]</code> is storing $f(n, p-1)$. In particular, for $n &lt; p^2$, it is already storing the number of primes up to <code>n</code>.</li>
+<li>Therefore, the operation <code>dp[n] -= dp[n/p] - dp[p-1]</code> is actually performing the equation from $(1)$.</li>
+<li>By the end of this iteration, <code>dp[n]</code> will store $f(n, p)$.</li>
+</ul>
+</li>
+<li>Return <code>dp[N]</code> as our answer.</li>
+</ol>
+<h3 id="pseudo-code">Pseudo Code</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">primeCounting</span>(<span style="color:#66d9ef">int</span> N) {
+  Ni <span style="color:#f92672">=</span> sort_descending(unique([N<span style="color:#f92672">/</span>i <span style="color:#66d9ef">for</span> i in [<span style="color:#ae81ff">1</span> .. N]]))
+  <span style="color:#66d9ef">for</span> (n: Ni) {
+    dp[n] <span style="color:#f92672">=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+  }
+
+  <span style="color:#66d9ef">for</span> (p <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; p<span style="color:#f92672">*</span>p <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> N; <span style="color:#f92672">+</span><span style="color:#f92672">+</span>p) {
+    <span style="color:#66d9ef">if</span> (dp[p] <span style="color:#f92672">=</span><span style="color:#f92672">=</span> dp[p<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#66d9ef">continue</span>; <span style="color:#75715e">// p is not a prime
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (n: Ni) {
+      <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">*</span>i) <span style="color:#66d9ef">break</span>;
+      dp[n] <span style="color:#f92672">-</span><span style="color:#f92672">=</span> dp[n<span style="color:#f92672">/</span>p] <span style="color:#f92672">-</span> dp[p];
+    }
+  }
+
+  <span style="color:#66d9ef">return</span> dp[N];
+}
+</code></pre></div><h3 id="complexity">Complexity</h3>
+<p>It can be seen that the transition operation of $(1)$ is $O(1)$. Therefore, we just need to compute the space of $f(n, p)$.</p>
+<p>There are two cases:</p>
+<h4 id="case-1-n-leq-sqrt-n">Case 1: $n \leq \sqrt N$</h4>
+<p>All values of $n \leq \sqrt N$ exists in the set $\{ \lfloor \frac{N}{i} \rfloor \}$, and for each $n$, only $p^2 \leq n$ will be considered.</p>
+<p>Therefore the overall time complexity for this case:</p>
+<p>$$ \sum_{i=1}^{\sqrt N} \sqrt i = O\left( \int_1^{\sqrt N} \sqrt x \, dx \right) = O(N^{3/4})$$</p>
+<h4 id="case-2-n--sqrt-n">Case 2: $n &gt; \sqrt N$</h4>
+<p>The values of $n$ in this case is $\frac{N}{1}, \frac{N}{2}, \ldots, \frac{N}{\sqrt N}$. Since every $n$ needs to consider all $p^2 \leq n$, the time complexity for this case is:</p>
+<p>$$ \sum_{i=1}^{\sqrt N} \sqrt{\frac{N}{i}} = O\left(\sqrt N \int_1^{\sqrt N} \frac{1}{\sqrt x} \, dx \right) = O(N^{3/4})$$</p>
+<h4 id="total-complexity">Total Complexity</h4>
+<p>Since the complexity for both cases are the same, the total complexity is $O(N^{3/4})$</p>
+<h2 id="remarks">Remarks</h2>
+<h3 id="speeding-up-computation">Speeding Up Computation</h3>
+<p>It seems that we can speed up the computation by precomputing the first few prime numbers using the standard sieve of eratosthenes. Precompute the first $f(n, p)$ for $n \leq N^{2/3}$, then for the rest of the $n$, use the same iteration as above. This should run in a little more than $O(N^{2/3})$.</p>
+<h3 id="other-usages">Other Usages</h3>
+<p>With a few tweaks, we can compute the following with the same method:</p>
+<ul>
+<li>Sum of prime up to $n$.</li>
+<li>Sum of prime of the form $4k + 1$ up to $n$.</li>
+<li>Totient summatory function up to $n$.</li>
+</ul>
+<p>Looks like it is also possible to further generalize this method using the Dirichlet Hyperbola method.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Prime-counting_function#The_Meissel%E2%80%93Lehmer_algorithm">The Meissel-Lehmer algorithm</a></li>
+<li><a href="https://math.stackexchange.com/questions/316376/how-to-calculate-these-totient-summation-sums-efficiently">Efficient Totient Summatory Function</a></li>
+<li><a href="https://math.stackexchange.com/questions/1378286/find-the-sum-of-all-primes-smaller-than-a-big-number">Sum of primes smaller than a big number</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dirichlet_hyperbola_method">Dirichlet Hyperbola Method</a></li>
+</ul>
+
+  </div>
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prabowo-djonatan" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+});
+</script>
+
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+</body>
+</html>

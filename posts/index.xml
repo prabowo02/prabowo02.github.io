@@ -5,20 +5,97 @@
 		<description>Recent content in Posts on Notes</description>
 		<generator>Hugo 0.60.0 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Wed, 04 Dec 2019 16:03:30 +0800</lastBuildDate>
+		<lastBuildDate>Sun, 22 Dec 2019 14:00:39 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>On Prime Counting in Sublinear Time</title>
+			<link>https://prabowo02.github.io/posts/prime-counting/</link>
+			<pubDate>Sun, 22 Dec 2019 14:00:39 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/prime-counting/</guid>
+			<description>&lt;p&gt;We are to count how many prime numbers are there up to $N$ ($N \leq 10^{11}$).&lt;/p&gt;
+&lt;h2 id=&#34;computation&#34;&gt;Computation&lt;/h2&gt;
+&lt;p&gt;Let $\pi(N)$ be the number of primes up to $N$, and $f(n, p)$ be the number of integers $x$, for $2 \leq x \leq N$, such that it contains no prime factor $&amp;lt; p$.&lt;/p&gt;
+&lt;p&gt;If $p$ is not prime, then $f(n, p) = f(n, p-1)$. Otherwise:&lt;/p&gt;
+&lt;p&gt;\begin{align}
+f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) - \pi(p-1)\right)
+\tag{1}
+\end{align}&lt;/p&gt;
+&lt;p&gt;The value $f(\lfloor\frac{n}{p} \rfloor, p-1) - \pi(p-1)$ gives the number of integer $\leq N$ that has $p$ as its prime factor but no prime factor $&amp;lt; p$. In other words, it is subtracting $|\{pk | 1 \leq k \leq n/p, \forall_{\text{prime }q  &amp;lt; p} q \nmid k \}|$ from $f(n, p-1)$.&lt;/p&gt;
+&lt;p&gt;Our goal is to compute $\pi(N) = f(N, \sqrt N)$.&lt;/p&gt;
+&lt;h3 id=&#34;implementation&#34;&gt;Implementation&lt;/h3&gt;
+&lt;p&gt;The idea is similar to the standard prime sieving: eliminate all numbers that is multiple of $2, 3, 5, \ldots, \sqrt N$.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Denote &lt;code&gt;dp[n]&lt;/code&gt; as an array to store the number of primes up to $n$, and initiate the array &lt;code&gt;dp[n]&lt;/code&gt; $= f(n, 1) = n-1$ for all unique values of $\lfloor \frac{N}{i} \rfloor$ (there are $O(\sqrt N) $such values).&lt;/li&gt;
+&lt;li&gt;For every prime $p$ in the range $[2, N]$, update &lt;code&gt;dp[n] -= dp[n/p] - dp[p-1]&lt;/code&gt;, for all unique values of $n = \lfloor \frac{N}{i} \rfloor$ and $n \geq p^2$.
+&lt;ul&gt;
+&lt;li&gt;This is because when iterating prime $p$, all values of &lt;code&gt;dp[n]&lt;/code&gt; is storing $f(n, p-1)$. In particular, for $n &amp;lt; p^2$, it is already storing the number of primes up to &lt;code&gt;n&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Therefore, the operation &lt;code&gt;dp[n] -= dp[n/p] - dp[p-1]&lt;/code&gt; is actually performing the equation from $(1)$.&lt;/li&gt;
+&lt;li&gt;By the end of this iteration, &lt;code&gt;dp[n]&lt;/code&gt; will store $f(n, p)$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Return &lt;code&gt;dp[N]&lt;/code&gt; as our answer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;pseudo-code&#34;&gt;Pseudo Code&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;primeCounting&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; N) {
+  Ni &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sort_descending(unique([N&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;i &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; .. N]]))
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (n: Ni) {
+    dp[n] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+  }
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;; p&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;p &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; N; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;p) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (dp[p] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dp[p&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]) &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// p is not a prime
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (n: Ni) {
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; i&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;i) &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+      dp[n] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dp[n&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;p] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; dp[p];
+    }
+  }
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; dp[N];
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;complexity&#34;&gt;Complexity&lt;/h3&gt;
+&lt;p&gt;It can be seen that the transition operation of $(1)$ is $O(1)$. Therefore, we just need to compute the space of $f(n, p)$.&lt;/p&gt;
+&lt;p&gt;There are two cases:&lt;/p&gt;
+&lt;h4 id=&#34;case-1-n-leq-sqrt-n&#34;&gt;Case 1: $n \leq \sqrt N$&lt;/h4&gt;
+&lt;p&gt;All values of $n \leq \sqrt N$ exists in the set $\{ \lfloor \frac{N}{i} \rfloor \}$, and for each $n$, only $p^2 \leq n$ will be considered.&lt;/p&gt;
+&lt;p&gt;Therefore the overall time complexity for this case:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{i=1}^{\sqrt N} \sqrt i = O\left( \int_1^{\sqrt N} \sqrt x \, dx \right) = O(N^{3/4})$$&lt;/p&gt;
+&lt;h4 id=&#34;case-2-n--sqrt-n&#34;&gt;Case 2: $n &amp;gt; \sqrt N$&lt;/h4&gt;
+&lt;p&gt;The values of $n$ in this case is $\frac{N}{1}, \frac{N}{2}, \ldots, \frac{N}{\sqrt N}$. Since every $n$ needs to consider all $p^2 \leq n$, the time complexity for this case is:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{i=1}^{\sqrt N} \sqrt{\frac{N}{i}} = O\left(\sqrt N \int_1^{\sqrt N} \frac{1}{\sqrt x} \, dx \right) = O(N^{3/4})$$&lt;/p&gt;
+&lt;h4 id=&#34;total-complexity&#34;&gt;Total Complexity&lt;/h4&gt;
+&lt;p&gt;Since the complexity for both cases are the same, the total complexity is $O(N^{3/4})$&lt;/p&gt;
+&lt;h2 id=&#34;remarks&#34;&gt;Remarks&lt;/h2&gt;
+&lt;h3 id=&#34;speeding-up-computation&#34;&gt;Speeding Up Computation&lt;/h3&gt;
+&lt;p&gt;It seems that we can speed up the computation by precomputing the first few prime numbers using the standard sieve of eratosthenes. Precompute the first $f(n, p)$ for $n \leq N^{2/3}$, then for the rest of the $n$, use the same iteration as above. This should run in a little more than $O(N^{2/3})$.&lt;/p&gt;
+&lt;h3 id=&#34;other-usages&#34;&gt;Other Usages&lt;/h3&gt;
+&lt;p&gt;With a few tweaks, we can compute the following with the same method:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sum of prime up to $n$.&lt;/li&gt;
+&lt;li&gt;Sum of prime of the form $4k + 1$ up to $n$.&lt;/li&gt;
+&lt;li&gt;Totient summatory function up to $n$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Looks like it is also possible to further generalize this method using the Dirichlet Hyperbola method.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Prime-counting_function#The_Meissel%E2%80%93Lehmer_algorithm&#34;&gt;The Meissel-Lehmer algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://math.stackexchange.com/questions/316376/how-to-calculate-these-totient-summation-sums-efficiently&#34;&gt;Efficient Totient Summatory Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://math.stackexchange.com/questions/1378286/find-the-sum-of-all-primes-smaller-than-a-big-number&#34;&gt;Sum of primes smaller than a big number&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Dirichlet_hyperbola_method&#34;&gt;Dirichlet Hyperbola Method&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+		</item>
 		<item>
 			<title>Binomial Modulo Prime Power</title>
 			<link>https://prabowo02.github.io/posts/binomial-mod-pe/</link>
 			<pubDate>Wed, 04 Dec 2019 16:03:30 +0800</pubDate>
 			<guid isPermaLink="true">https://prabowo02.github.io/posts/binomial-mod-pe/</guid>
 			<description>&lt;p&gt;This is an attempt to translate &lt;a href=&#34;https://min-25.hatenablog.com/entry/2017/11/01/185400&#34;&gt;min_25&#39;s article&lt;/a&gt; with the help of Google Translate, and with a bit of modification.&lt;/p&gt;
-&lt;p&gt;Our goal is to solve ${n \choose m} \mod p^e$, ($n, m, p^e &amp;lt; 10^{300}$, $p$: prime number).&lt;/p&gt;
+&lt;p&gt;Our goal is to solve ${n \choose m} \pmod{p^e}$, ($n, m, p^e &amp;lt; 10^{300}$, $p$: prime number).&lt;/p&gt;
 &lt;p&gt;The method differ from Andrew Granville&#39;s Binomial Coefficients modulo prime powers (&lt;a href=&#34;https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf&#34;&gt;BinCoeff.pdf&lt;/a&gt;).&lt;br&gt;
-After precomputation, the number of operation to compute ${n \choose m} \mod p^e$ is reduced from $O\left(e^2\left(\frac{\log n}{\log p} + \min(\log n, \log p)\right)\right)$ to $O(e \log n)$.&lt;/p&gt;
+After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is reduced from $O\left(e^2\left(\frac{\log n}{\log p} + \min(\log n, \log p)\right)\right)$ to $O(e \log n)$.&lt;/p&gt;
 &lt;p&gt;For the rest of the article, denote ${n \brack m}$ as &lt;a href=&#34;https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind&#34;&gt;Stirling number of the first kind&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;computation-method&#34;&gt;Computation Method&lt;/h3&gt;
-&lt;p&gt;Define $(n!)_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. Our goal is to compute $(n!)_p \mod p^e$.&lt;/p&gt;
+&lt;p&gt;Define $(n!)_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. Our goal is to compute $(n!)_p \pmod {p^e}$.&lt;/p&gt;
 &lt;p&gt;Let $n = up + v$ where $u, v$ non-negative integers and $0 \leq v &amp;lt; p$.&lt;/p&gt;
 &lt;p&gt;For simplicity, we assume that $e &amp;lt; p$,&lt;/p&gt;
 &lt;p&gt;$$

@@ -6,7 +6,7 @@ disqusShortname = "prabowo-djonatan"
 googleAnalytics = "UA-153624663-1"
 
 [params]
-    showFullContent = true
+    showFullContent = false
     showMetaDates = true
 
 [menu]
