@@ -6,6 +6,7 @@ date: 2019-12-04T16:03:30+08:00
 type: posts
 summary: Our goal is to solve ${n \choose m} \pmod {p^e}$, ($n, m, p^e < 10^{300}$, $p$ prime number). After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is $O(e \log n)$. Define $(n!)\_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. We are to to compute $(n!)\_p \pmod{p^e}$.
 draft: false.
+mathjax: true
 
 ---
 
