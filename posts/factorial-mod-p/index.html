@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>Factorial mod prime | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="We are to compute $n! \bmod p$ in $O(\sqrt{p} \log p)$." />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.60.0" />
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
+  <!--<![endif]-->
+  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      Factorial mod prime
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2020-11-02T18:00:15&#43;08:00">
+      02 Nov 20 18:00 &#43;08
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    <p>We are to compute $n! \bmod p$ in $O(\sqrt{p} \log p)$.</p>
+<h2 id="basic-idea">Basic Idea</h2>
+<p>If we define the polynomial $f(x) := \prod_{i=1}^n (x + i)$, then we can write $n! = f(0)$.</p>
+<p>Let $v := \lfloor \sqrt n \rfloor$ and $g(x) := \prod_{i=1}^v (x+i)$, then</p>
+<p>$$ n! = \left( \prod_{i=0}^{v-1} g(vi) \right) \prod_{i=v^2 + 1}^n i $$</p>
+<p>The latter part of the product can be computed in $O(\sqrt p)$. We will try to find a fast way to compute
+$g(0), g(v), \dots, g(v(v-1))$.</p>
+<h2 id="method">Method</h2>
+<h3 id="1-osqrt-p-log-p2">1. $O(\sqrt p (\log p)^2)$</h3>
+<p>Using FFT multipoint evaluation, we can compute $g(0), \dots, g(v(v+1))$ simultaneously. However, this algorithm uses a lot of polynomial division, which has heavy constant factor, and the speed will not be much faster than $O(p)$.</p>
+<h3 id="2-osqrt-p-log-p">2. $O(\sqrt p \log p)$</h3>
+<p>$g(x)$ has roots $-1, -2, \dots, -v$ which is an arithmetic progression, and we want to evaluate $g(x)$ at $0, v, \dots, v(v-1)$ which is also an arithmetic progression. In this case, we will make use of Lagrange Interpolation.</p>
+<p>Next, for a fixed $d$, we define $g_d(x) := \prod_{i=1}^d (x+i)$. Suppose we are able to compute $g_d(0), g_d(v), \dots, g_d(dv)$, then we can compute $g_{2d}(0), g_{2d}(v), \dots, g_{2d}(2dv)$ in $O(d \log d)$. If we are able to achieve this, then we can achieve the desired complexity.</p>
+<p>Notice that $g_{2d}(x) = g_d(x) \cdot g_d(x + d)$. Let $G_d(i) := (g_d(i), g_d(v+i), \dots, g_d(dv + i))$, then from $G_d(0)$, we want to interpolate $G_d(d), G_d(dv), G_d(dv + d)$. This can be achieved using Lagrange Interpolation and FFT (NTT) in $O(d \log d)$ as described below.</p>
+<p>Let there be a polynomial $h(x)$ and the values $h(0), h(1), \dots, h(d)$ are known, then the value $h(m + k)$ can be computed using Lagrange Interpolation (assuming $m + k - j$ has an inverse):</p>
+<p>$$
+\begin{align*}
+h(m + k) &amp;= \sum_{i = 0}^d h(i) \prod_{j=0, i \neq j}^d \frac{m+k-j}{i-j} \\\<br>
+&amp;= \left(\prod_{j=0}^d (m + k - j) \right) \left( \sum_{i=0}^d \frac{h(i)}{i! (d-i)! (-1)^{d-i}} \cdot \frac{1}{m + k - 1} \right)
+\end{align*}
+$$</p>
+<p>Notice that the right parenthesis is actually a convolution, so $h(m), h(m+1), \dots, h(m+d)$ can be computed in $O(d \log d)$. To interpolate $G_d(a)$ from $G_d(0)$, it is enough to substitute $m := av^{-1}$.</p>
+<p>From the above, $n! \bmod p$ can be computed in $O(\sqrt p \log p)$.</p>
+
+  </div>
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prabowo-djonatan" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+});
+</script>
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-153624663-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</body>
+</html>
