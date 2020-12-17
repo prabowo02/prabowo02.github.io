@@ -133,6 +133,14 @@ In NAND, you perform AND, then do the bit inverting (i.e. swap coefficients of b
 <p>An example problem that uses various binary gates can be found in <a href="https://codeforces.com/contest/1033/problem/F">Codeforces</a></p>
 <h3 id="must-dft-be-operated-in-complex">Must DFT be operated in complex?</h3>
 <p>DFT works over an arbitrary ring, as long as you are using the principal $n$-th root of unity as the sampled points. Primitive $n$-th root is also principal $n$-th root. Since primitive roots are roots of the $n$-th cyclotomic polynomial, by ensuring your points satisfy $\Phi(x) = 0$, then DFT should work. <a href="https://codeforces.com/problemset/problem/1103/E">An example problem</a>.</p>
+<h3 id="can-we-compute-the-product-of-multiple-polynomials">Can we compute the product of multiple polynomials?</h3>
+<p>Suppose that the sum of degrees of the given polynomials is $N$, then we can do either of the following:</p>
+<ul>
+<li>Use priority queue, and compute the multiplication of every two polynomials with the lowest degrees.</li>
+<li>Use Divide and Conquer, then split the polynomials to sum of degrees approximately N/2, then recurse</li>
+<li>Divide and Conquer, then split half of the polynomials, regardless of the degrees</li>
+</ul>
+<p>All of these run in $O(N \log^2 N)$. <a href="https://codeforces.com/problemset/problem/1257/G">This problem</a> require this technique.</p>
 
   </div>
   

@@ -119,3 +119,13 @@ An example problem that uses various binary gates can be found in [Codeforces](h
 ### Must DFT be operated in complex?
 
 DFT works over an arbitrary ring, as long as you are using the principal $n$-th root of unity as the sampled points. Primitive $n$-th root is also principal $n$-th root. Since primitive roots are roots of the $n$-th cyclotomic polynomial, by ensuring your points satisfy $\Phi(x) = 0$, then DFT should work. [An example problem](https://codeforces.com/problemset/problem/1103/E).
+
+### Can we compute the product of multiple polynomials?
+
+Suppose that the sum of degrees of the given polynomials is $N$, then we can do either of the following:
+
+- Use priority queue, and compute the multiplication of every two polynomials with the lowest degrees.
+- Use Divide and Conquer, then split the polynomials to sum of degrees approximately N/2, then recurse
+- Divide and Conquer, then split half of the polynomials, regardless of the degrees
+
+All of these run in $O(N \log^2 N)$. [This problem](https://codeforces.com/problemset/problem/1257/G) require this technique.
