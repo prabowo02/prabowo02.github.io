@@ -33,7 +33,7 @@ Yes, that's when FFT comes in.
 
 ### How to FFT?
 
-The most commonly used algorithm is Cooley-Tukey algorithm, and the DFT size is usually taken in the form of $2^k$. It is basically a Divide and Conquer algorithm, by separating the odd and even terms, and does FFT recursively. By doing some reordering using bit reversal, you can actually does an iterative version of it. Final complexity is $O(N log N)$ without any additional space.
+The most commonly used algorithm is Cooley-Tukey algorithm, and the DFT size is usually taken in the form of $2^k$. It is basically a Divide and Conquer algorithm, by separating the odd and even terms, and does FFT recursively. By doing some reordering using bit reversal, you can actually does an iterative version of it. Final complexity is $O(N \log N)$ without any additional space.
 Details on FFT can be found in this [Codeforces blog](https://codeforces.com/blog/entry/43499).
 
 ### How does FFT help to solve problems?
@@ -53,14 +53,17 @@ Talking about generating functions, there is also something called Exponential G
 
 ### What are some popular generating functions?
 
+- $(1 + x)^n$. OGF for binomial coefficients $(\binom{n}{0}, \binom{n}{1}, \dots, \binom{n}{n})$.
 - $\frac{1}{1 - x}$. OGF for $(1, 1, \dots)$. This is handy if you want to get the "prefix sum" of a GF by simply divides it by $(1 - x)$.
+- $\frac{1}{(1 - x)^k}$. OGF for $(\kern-.5em(\genfrac{}{}{0pt}{}{n}{k})\kern-.5em) = \binom{n + k - 1}{k - 1}$. Used for counting multisets.
+- $\frac{x^k}{(1 - x)^{k + 1}}$. OGF for $\binom{n}{k}$. The "column" of binomial cofficients.
 - $y = xy + xy^2 + 1 \implies y = \frac{1}{1 - x - x^2}$. OGF for Fibonacci number.
 - $y = 1 + xy^2 \implies y = \frac{2}{1 + \sqrt{1 - 4x}}$. OGF for Catalan number.
-- $\exp(x)$. EGF for (1, 1, ...).
+- $\exp(x)$. EGF for $(1, 1, \dots)$.
 - $\exp(\exp(x) - 1)$. EGF for Bell numbers. It can be used to count number of set partitions.
-- $\frac{-\log(1 - x))^k}{k!}$. EGF for "column" Stirling number first kind. Note that $-\log(1 - x) = \sum \frac{x^i}{i}$.
+- $\frac{(-\log(1 - x))^k}{k!}$. EGF for "column" Stirling number first kind. Note that $-\log(1 - x) = \sum \frac{x^i}{i}$.
 - $\frac{(\exp(x) - 1)^k}{k!}$. EGF for "column" Stirling number second kind.
-- $y \exp(y) = x$. Lambert W function. Also EGF for number of rooted enumerated trees. Inverse can be computed using Lagrange–Bürmann formula.
+- $y \exp(y) = x$. Lambert W function. Also EGF for number of rooted enumerated trees. Can be computed using Lagrange–Bürmann formula.
 
 ### Why are there divisions and exponent?
 
@@ -72,7 +75,7 @@ $Q := Q - \frac{Q^{-1} - P}{-Q^{-2}} = Q + (Q - PQ) = 2Q - PQ^2$
 Another example, computing $Q = \sqrt{P} \implies Q^2 - P = 0 \implies f(Q) = Q^2 - P$ \
 $Q := Q - \frac{Q^2 - P}{2Q} = \frac{1}{2}(Q + \frac{P}{Q})$
 
-In every iteration of the Newton's method, the precision is double, i.e. the degree of Q is improved from $n$ to $2n + 1$, and initially $Q$ is only a constant.
+In every iteration of the Newton's method, the precision is doubled, i.e. the degree of $Q$ is improved from $n$ to $2n + 1$, and initially $Q$ is only a constant.
 
 And here are several operations along with their tricks:
 
@@ -81,7 +84,7 @@ And here are several operations along with their tricks:
 - Differentiation and integral are straightforward.
 - $\frac{1}{P}$, $\sqrt{P}$, $\exp(P)$ can be done using Newton's method.
 - $\log(P) = \int \frac{P'}{P}$
-- $P(x)^a = \exp(a * \log(P(x)))$
+- $P(x)^a = \exp(a \log(P(x)))$
 - $\arctan(P) = \int \frac{1}{1 + P^2}$
 - Generally, inverse trigonometric function can be computed from [their derivatives](https://en.wikipedia.org/wiki/Inverse_trigonometric_functions#Derivatives_of_inverse_trigonometric_functions).
 - $P^{-1}(x)$ i.e. the inverse function, can be done using Lagrange–Bürmann formula
@@ -97,11 +100,11 @@ Hence, $\sum(a_i z^{ik}) = \sum \left(a_i z^{-\binom{i}{2}} z^{\binom{i + k}{2}}
 
 ### Can we compute any size DFT quickly?
 
-Yes, by using CZT, and $z$ such that $z^n = 1$ where $n$ is the DFT size. One example problem that use DFT any size can be found in [Codeforces](https://codeforces.com/contest/901/problem/E).
+Yes, by using CZT, and $z$ such that $z$ is primitive $n$-th root of unity where $n$ is the DFT size. One example problem that use DFT any size can be found in [Codeforces](https://codeforces.com/contest/901/problem/E).
 
 ### Must the polynomial be monic? 
 
-Yes, by performing DFT on each dimension one by one. An example problem can be found [here](https://codeforces.com/gym/102441/problem/E). In this problem, <span style="color:white">you will need bot sum-convolution for one variable, and xor-convolution for the other in a single polynomial</span> (spoiler in white text).
+Yes, by performing DFT on each dimension one by one. An example problem can be found [here](https://codeforces.com/gym/102441/problem/E). In this problem, <span style="color:white">you will need both sum-convolution for one variable, and xor-convolution for the other in a single polynomial</span> (spoiler in white text).
 
 ### Xor-convolution?
 
@@ -109,16 +112,16 @@ Xor convolution means that $a_i b_j$ is contributed to $c_{i \oplus j}$. It is b
 
 ### Can we have other bitwise convolutions?
 
-In XOR, you tranform $(u, v)$ to $(u + v, u - v)$.
-In AND, you tranform $(u, v)$ to $(u + v, v)$. After performing AND-tranform, you actually ends up with sum of supermasks.
-In OR, you tranform $(u, v)$ to $(u, u + v)$. After performin OR-tranform, you actually ends up with sum of submasks.
+In XOR, you tranform $(u, v)$ to $(u + v, u - v)$. \
+In AND, you tranform $(u, v)$ to $(u + v, v)$. After performing AND-tranform, you actually ends up with sum of supermasks. \
+In OR, you tranform $(u, v)$ to $(u, u + v)$. After performing OR-tranform, you actually ends up with sum of submasks. \
 In NAND, you perform AND, then do the bit inverting (i.e. swap coefficients of bit 0 and bit 1).
 
 An example problem that uses various binary gates can be found in [Codeforces](https://codeforces.com/contest/1033/problem/F)
 
 ### Must DFT be operated in complex?
 
-DFT works over an arbitrary ring, as long as you are using the principal $n$-th root of unity as the sampled points. Primitive $n$-th root is also principal $n$-th root. Since primitive roots are roots of the $n$-th cyclotomic polynomial, by ensuring your points satisfy $\Phi(x) = 0$, then DFT should work. [An example problem](https://codeforces.com/problemset/problem/1103/E).
+DFT works over an arbitrary ring, as long as you are using the principal $n$-th root of unity as the sampled points. Primitive $n$-th root is also principal $n$-th root. Since primitive roots are roots of the $n$-th cyclotomic polynomial, by ensuring your points satisfy $\Phi_n(x) = 0$, then DFT should work. [An example problem](https://codeforces.com/problemset/problem/1103/E).
 
 ### Can we compute the product of multiple polynomials?
 
