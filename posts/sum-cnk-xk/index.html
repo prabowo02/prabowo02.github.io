@@ -73,13 +73,13 @@
 <p>$$f_K(x) = \sum_{i=0}^N \binom{N}{i} i^K x^i$$</p>
 <p>Evaluate $f_K(1)$ then you will get the answer to the original question.</p>
 <p>The value of $f_K$ is actually:</p>
-<p>$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot 2^{N-i} \cdot x^i$$</p>
+<p>$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot (1 + x)^{N-i}$$</p>
 <p>where $S$ is the Stirling number of the second kind.
 The formula can be easily shown using induction following the property $S(N, K) = K \cdot S(N - 1, K) + S(N - 1, K - 1)$.</p>
 <p>The computation of $\binom{N}{i} i!$ for all $0 \le i \le K$ can be easily computed in $O(K)$, and the computation of $S(K, i)$ can be done using FFT (<a href="https://en.wikipedia.org/wiki/Touchard_polynomials">Touchard Polynomial</a>) in $O(K \log K)$.</p>
 <p>In case you need something more general:</p>
-<p>$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot A^i \cdot (1 + B)^{N - i}$$</p>
-<p>which can actually be obtained by starting the initial equation from $(B + x)^N$ and substitute $x = A$.</p>
+<p>$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot A^i \cdot (A + B)^{N - i}$$</p>
+<p>which can actually be obtained by starting the initial equation from $(Ax + B)^N$.</p>
 <p>You can now solve <a href="https://codeforces.com/problemset/problem/1278/F">this problem</a> for $K \le 10^5$.</p>
 
   </div>

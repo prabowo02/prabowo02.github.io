@@ -30,7 +30,7 @@ Evaluate $f_K(1)$ then you will get the answer to the original question.
 
 The value of $f_K$ is actually:
 
-$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot 2^{N-i} \cdot x^i$$
+$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot (1 + x)^{N-i}$$
 
 where $S$ is the Stirling number of the second kind.
 The formula can be easily shown using induction following the property $S(N, K) = K \cdot S(N - 1, K) + S(N - 1, K - 1)$.
@@ -39,8 +39,8 @@ The computation of $\binom{N}{i} i!$ for all $0 \le i \le K$ can be easily compu
 
 In case you need something more general:
 
-$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot A^i \cdot (1 + B)^{N - i}$$
+$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot A^i \cdot (A + B)^{N - i}$$
 
-which can actually be obtained by starting the initial equation from $(B + x)^N$ and substitute $x = A$.
+which can actually be obtained by starting the initial equation from $(Ax + B)^N$.
 
 You can now solve [this problem](https://codeforces.com/problemset/problem/1278/F) for $K \le 10^5$.
