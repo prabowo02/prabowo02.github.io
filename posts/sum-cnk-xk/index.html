@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>Sum of $C(N, i) \times i^K$ | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Given $N \le 10^9$, $K \le 10^5$, find $$\sum_{i=0}^N \binom{N}{i} i^K$$" />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.60.0" />
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
+  <!--<![endif]-->
+  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      Sum of $C(N, i) \times i^K$
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2021-06-01T23:08:09&#43;08:00">
+      01 Jun 21 23:08 &#43;08
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    <p>Have you ever been doing your grocery then suddenly felt the need to compute:</p>
+<p>$$\sum_{i=0}^N \binom{N}{i} i^K $$</p>
+<p>where $N \le 10^9$ and $K \le 10^5$? Well you are in luck, because I'm about to show you how.</p>
+<p>Consider the binomial expansion:</p>
+<p>$$f_0(x) := (1 + x)^N = \sum_{i=0}^N \binom{N}{i} x^i$$</p>
+<p>If you differentiate then multiply by $x$, you will get:</p>
+<p>$$f_1(x) := x \frac{d}{dx}(1 + x)^N = \sum_{i=0}^N \binom{N}{i}\cdot i \cdot x^i$$</p>
+<p>Then repeatedly differentiate and multiply by $x$ (i.e. $f_k(x) = x \frac{d}{dx} f_{k - 1}(x)$), then you will end up with:</p>
+<p>$$f_K(x) = \sum_{i=0}^N \binom{N}{i} i^K x^i$$</p>
+<p>Evaluate $f_K(1)$ then you will get the answer to the original question.</p>
+<p>The value of $f_K$ is actually:</p>
+<p>$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot 2^{N-i} \cdot x^i$$</p>
+<p>where $S$ is the Stirling number of the second kind.
+The formula can be easily shown using induction following the property $S(N, K) = K \cdot S(N - 1, K) + S(N - 1, K - 1)$.</p>
+<p>The computation of $\binom{N}{i} i!$ for all $0 \le i \le K$ can be easily computed in $O(K)$, and the computation of $S(K, i)$ can be done using FFT (<a href="https://en.wikipedia.org/wiki/Touchard_polynomials">Touchard Polynomial</a>) in $O(K \log K)$.</p>
+<p>In case you need something more general:</p>
+<p>$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot A^i \cdot (1 + B)^{N - i}$$</p>
+<p>which can actually be obtained by starting the initial equation from $(B + x)^N$ and substitute $x = A$.</p>
+<p>You can now solve <a href="https://codeforces.com/problemset/problem/1278/F">this problem</a> for $K \le 10^5$.</p>
+
+  </div>
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prabowo-djonatan" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+      ]
+    });
+  });
+</script>
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-153624663-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</body>
+</html>

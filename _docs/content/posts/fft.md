@@ -10,6 +10,7 @@ mathjax: false
 ---
 
 This is not a tutorial. It's just an overview for those who already (hopefully) understood FFT.
+(Actually, more of a personal note to myself)
 
 ### So what is FFT?
 
@@ -21,7 +22,7 @@ Converts a polynomial into point value forms where the points sampled are princi
 
 ### Can you inverse the transformation?
 
-Yes, by doing the exact same thing as DFT but the sampled points are inverted too, then divide the final result by n.
+Yes, by doing the exact same thing as DFT but the sampled points are inverted too, then divide the final result by $n$.
 
 ### How to do DFT?
 
@@ -61,6 +62,8 @@ Talking about generating functions, there is also something called Exponential G
 - $y = 1 + xy^2 \implies y = \frac{2}{1 + \sqrt{1 - 4x}}$. OGF for Catalan number.
 - $\exp(x)$. EGF for $(1, 1, \dots)$.
 - $\exp(\exp(x) - 1)$. EGF for Bell numbers. It can be used to count number of set partitions.
+- $\prod_{i=0}^{n-1}(x + i)$. OGF for Stirling number first kind.
+- $\exp(-x) \sum_{i=0}^n \frac{i^n x^i}{i!}$. OGF for Stirling number second kind, also known as Touchard polynomial.
 - $\frac{(-\log(1 - x))^k}{k!}$. EGF for "column" Stirling number first kind. Note that $-\log(1 - x) = \sum \frac{x^i}{i}$.
 - $\frac{(\exp(x) - 1)^k}{k!}$. EGF for "column" Stirling number second kind.
 - $y \exp(y) = x$. Lambert W function. Also EGF for number of rooted enumerated trees. Can be computed using Lagrange–Bürmann formula.
@@ -100,11 +103,11 @@ Hence, $\sum(a_i z^{ik}) = \sum \left(a_i z^{-\binom{i}{2}} z^{\binom{i + k}{2}}
 
 ### Can we compute any size DFT quickly?
 
-Yes, by using CZT, and $z$ such that $z$ is primitive $n$-th root of unity where $n$ is the DFT size. One example problem that use DFT any size can be found in [Codeforces](https://codeforces.com/contest/901/problem/E).
+Yes, by using CZT, and $z$ such that $z$ is primitive $n$-th root of unity where $n$ is the DFT size. One example problem that use DFT any size can be found on [Codeforces](https://codeforces.com/contest/901/problem/E).
 
 ### Must the polynomial be monic? 
 
-Yes, by performing DFT on each dimension one by one. An example problem can be found [here](https://codeforces.com/gym/102441/problem/E). In this problem, <span style="color:white">you will need both sum-convolution for one variable, and xor-convolution for the other in a single polynomial</span> (spoiler in white text).
+Multidimentional DFT can be done by performing DFT on each dimension one by one. An example problem can be found [here](https://codeforces.com/gym/102441/problem/E). In this problem, <span style="color:white">you will need both sum-convolution for one variable, and xor-convolution for the other in a single polynomial</span> (spoiler in white text).
 
 ### Xor-convolution?
 
@@ -117,7 +120,7 @@ In AND, you tranform $(u, v)$ to $(u + v, v)$. After performing AND-tranform, yo
 In OR, you tranform $(u, v)$ to $(u, u + v)$. After performing OR-tranform, you actually ends up with sum of submasks. \
 In NAND, you perform AND, then do the bit inverting (i.e. swap coefficients of bit 0 and bit 1).
 
-An example problem that uses various binary gates can be found in [Codeforces](https://codeforces.com/contest/1033/problem/F)
+An example problem that uses various binary gates can be found on [Codeforces](https://codeforces.com/contest/1033/problem/F)
 
 ### Must DFT be operated in complex?
 
