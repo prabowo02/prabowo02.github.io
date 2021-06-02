@@ -18,19 +18,39 @@
 &lt;p&gt;Consider the binomial expansion:&lt;/p&gt;
 &lt;p&gt;$$f_0(x) := (1 + x)^N = \sum_{i=0}^N \binom{N}{i} x^i$$&lt;/p&gt;
 &lt;p&gt;If you differentiate then multiply by $x$, you will get:&lt;/p&gt;
-&lt;p&gt;$$f_1(x) := x \frac{d}{dx}(1 + x)^N = \sum_{i=0}^N \binom{N}{i}\cdot i \cdot x^i$$&lt;/p&gt;
-&lt;p&gt;Then repeatedly differentiate and multiply by $x$ (i.e. $f_k(x) = x \frac{d}{dx} f_{k - 1}(x)$), then you will end up with:&lt;/p&gt;
+&lt;p&gt;$$f_1(x) := x \frac{\mathrm{d}}{\mathrm{d}x}(1 + x)^N = \sum_{i=0}^N \binom{N}{i}\cdot i \cdot x^i$$&lt;/p&gt;
+&lt;p&gt;Then repeatedly differentiate and multiply by $x$ (i.e. $f_k(x) = x \frac{\mathrm{d}}{\mathrm{d}x} f_{k - 1}(x)$), then you will end up with:&lt;/p&gt;
 &lt;p&gt;$$f_K(x) = \sum_{i=0}^N \binom{N}{i} i^K x^i$$&lt;/p&gt;
 &lt;p&gt;Evaluate $f_K(1)$ then you will get the answer to the original question.&lt;/p&gt;
 &lt;p&gt;The value of $f_K$ is actually:&lt;/p&gt;
-&lt;p&gt;$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot (1 + x)^{N-i}$$&lt;/p&gt;
-&lt;p&gt;where $S$ is the Stirling number of the second kind.
+&lt;p&gt;$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot (N)_i \cdot (1 + x)^{N-i}$$&lt;/p&gt;
+&lt;p&gt;where $S$ is the Stirling number of the second kind and $(N)_i$ is the falling factorial $N(N - 1) \ldots (N - i + 1)$.
 The formula can be easily shown using induction following the property $S(N, K) = K \cdot S(N - 1, K) + S(N - 1, K - 1)$.&lt;/p&gt;
-&lt;p&gt;The computation of $\binom{N}{i} i!$ for all $0 \le i \le K$ can be easily computed in $O(K)$, and the computation of $S(K, i)$ can be done using FFT (&lt;a href=&#34;https://en.wikipedia.org/wiki/Touchard_polynomials&#34;&gt;Touchard Polynomial&lt;/a&gt;) in $O(K \log K)$.&lt;/p&gt;
+&lt;p&gt;The computation of $(N)_i$ for all $0 \le i \le K$ can be easily computed in $O(K)$, and the computation of $S(K, i)$ can be done using FFT (&lt;a href=&#34;https://en.wikipedia.org/wiki/Touchard_polynomials&#34;&gt;Touchard Polynomial&lt;/a&gt;) in $O(K \log K)$.&lt;/p&gt;
 &lt;p&gt;In case you need something more general:&lt;/p&gt;
-&lt;p&gt;$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot A^i \cdot (A + B)^{N - i}$$&lt;/p&gt;
+&lt;p&gt;$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot (N)_i \cdot A^i \cdot (A + B)^{N - i}$$&lt;/p&gt;
 &lt;p&gt;which can actually be obtained by starting the initial equation from $(Ax + B)^N$.&lt;/p&gt;
-&lt;p&gt;You can now solve &lt;a href=&#34;https://codeforces.com/problemset/problem/1278/F&#34;&gt;this problem&lt;/a&gt; for $K \le 10^5$.&lt;/p&gt;
+&lt;p&gt;You can now solve &lt;a href=&#34;https://codeforces.com/problemset/problem/1278/F&#34;&gt;Codeforces edu round problem Cards&lt;/a&gt; for $K \le 10^5$.&lt;/p&gt;
+&lt;h2 id=&#34;moment-generating-function&#34;&gt;Moment Generating Function&lt;/h2&gt;
+&lt;p&gt;Another way (and perhaps more elegant way) to arrive at that equation is to use the moment generating function. Let&lt;/p&gt;
+&lt;p&gt;$$M_X(t) = \mathrm{E}(\exp(tX)) = \sum_{i=0}^\infty \frac{t^i \mathrm{E}(X^i)}{i!}$$&lt;/p&gt;
+&lt;p&gt;Now, if you differentiate $M_X(t)$ for $k$ times, and substitute $t = 0$, you will end up with $\mathrm{E}(X^k)$.&lt;/p&gt;
+&lt;p&gt;So if you start from $(A \exp(x) + B)^N$, then you differentiate $K$ times, you will obtain:&lt;/p&gt;
+&lt;p&gt;$$\frac{\mathrm{d}^K}{\mathrm{d}x^K} (A \exp(x) + B)^N = \sum_{i = 0}^K S(K, i) \cdot (N)_i \cdot A^i \cdot (A \exp(x) + B)^{N - i} \cdot \exp(ix)$$&lt;/p&gt;
+&lt;p&gt;Again, the formula above can be easily shown (roughly shown below) using induction following the recursion property of the Stirling second kind.&lt;/p&gt;
+&lt;p&gt;Substituting $x = 0$, then you will arrive at the same equation.&lt;/p&gt;
+&lt;h3 id=&#34;some-kind-of-proof&#34;&gt;Some kind of proof&lt;/h3&gt;
+&lt;p&gt;We will prove that equation from the moment generating function section.&lt;/p&gt;
+&lt;p&gt;Let $f(i) = (N)_i \cdot A^i \cdot (A \exp(x) + B)^{N - i} \cdot \exp(ix)$, which in particular $f(0) = (A \exp(x) + B)^N$.&lt;/p&gt;
+&lt;p&gt;Then,&lt;/p&gt;
+&lt;p&gt;$$\frac{\mathrm{d}f(i)}{\mathrm{d}x} = (N)_{i + 1} \cdot A^{i + 1} (A \exp(x) + B)^{N - i - 1} \exp((i+1)x) + i \cdot (N)_i \cdot A^i \cdot (A \exp(x) + B)^{N - i} \cdot \exp(ix)$$&lt;/p&gt;
+&lt;p&gt;Substitute them back using $f$:&lt;/p&gt;
+&lt;p&gt;$$\frac{\mathrm{d}f(i)}{\mathrm{d}x} = f(i + 1) + i \cdot f(i)$$&lt;/p&gt;
+&lt;p&gt;Now write:&lt;/p&gt;
+&lt;p&gt;$$\frac{\mathrm{d}^k}{\mathrm{d}x^k} (A \exp(x) + B)^N = \sum_{i = 0}^k c_{k, i} \cdot f(i)$$&lt;/p&gt;
+&lt;p&gt;Differentiate it once, then you will get:&lt;/p&gt;
+&lt;p&gt;$$\frac{\mathrm{d}^{k+1}}{\mathrm{d}x^{k+1}} (A \exp(x) + B)^N = \sum_{i = 0}^{k+1} (c_{k, i - 1} + i \cdot c_{k, i}) \cdot f(i)$$&lt;/p&gt;
+&lt;p&gt;And notice that $c_{k + 1, i} = c_{k, i - 1} + i \cdot c_{k, i}$ is actually the same recurrence as the Stirling number of the second kind, which roughly end the proof.&lt;/p&gt;
 </description>
 		</item>
 		<item>

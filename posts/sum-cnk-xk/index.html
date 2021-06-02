@@ -68,19 +68,39 @@
 <p>Consider the binomial expansion:</p>
 <p>$$f_0(x) := (1 + x)^N = \sum_{i=0}^N \binom{N}{i} x^i$$</p>
 <p>If you differentiate then multiply by $x$, you will get:</p>
-<p>$$f_1(x) := x \frac{d}{dx}(1 + x)^N = \sum_{i=0}^N \binom{N}{i}\cdot i \cdot x^i$$</p>
-<p>Then repeatedly differentiate and multiply by $x$ (i.e. $f_k(x) = x \frac{d}{dx} f_{k - 1}(x)$), then you will end up with:</p>
+<p>$$f_1(x) := x \frac{\mathrm{d}}{\mathrm{d}x}(1 + x)^N = \sum_{i=0}^N \binom{N}{i}\cdot i \cdot x^i$$</p>
+<p>Then repeatedly differentiate and multiply by $x$ (i.e. $f_k(x) = x \frac{\mathrm{d}}{\mathrm{d}x} f_{k - 1}(x)$), then you will end up with:</p>
 <p>$$f_K(x) = \sum_{i=0}^N \binom{N}{i} i^K x^i$$</p>
 <p>Evaluate $f_K(1)$ then you will get the answer to the original question.</p>
 <p>The value of $f_K$ is actually:</p>
-<p>$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot (1 + x)^{N-i}$$</p>
-<p>where $S$ is the Stirling number of the second kind.
+<p>$$f_K(x) = \sum_{i=0}^K S(K, i) \cdot (N)_i \cdot (1 + x)^{N-i}$$</p>
+<p>where $S$ is the Stirling number of the second kind and $(N)_i$ is the falling factorial $N(N - 1) \ldots (N - i + 1)$.
 The formula can be easily shown using induction following the property $S(N, K) = K \cdot S(N - 1, K) + S(N - 1, K - 1)$.</p>
-<p>The computation of $\binom{N}{i} i!$ for all $0 \le i \le K$ can be easily computed in $O(K)$, and the computation of $S(K, i)$ can be done using FFT (<a href="https://en.wikipedia.org/wiki/Touchard_polynomials">Touchard Polynomial</a>) in $O(K \log K)$.</p>
+<p>The computation of $(N)_i$ for all $0 \le i \le K$ can be easily computed in $O(K)$, and the computation of $S(K, i)$ can be done using FFT (<a href="https://en.wikipedia.org/wiki/Touchard_polynomials">Touchard Polynomial</a>) in $O(K \log K)$.</p>
 <p>In case you need something more general:</p>
-<p>$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot \binom{N}{i} \cdot i! \cdot A^i \cdot (A + B)^{N - i}$$</p>
+<p>$$\sum_{i=0}^N \binom{N}{i} \cdot i^K \cdot A^i \cdot B^{N - i} = \sum_{i=0}^K S(K, i) \cdot (N)_i \cdot A^i \cdot (A + B)^{N - i}$$</p>
 <p>which can actually be obtained by starting the initial equation from $(Ax + B)^N$.</p>
-<p>You can now solve <a href="https://codeforces.com/problemset/problem/1278/F">this problem</a> for $K \le 10^5$.</p>
+<p>You can now solve <a href="https://codeforces.com/problemset/problem/1278/F">Codeforces edu round problem Cards</a> for $K \le 10^5$.</p>
+<h2 id="moment-generating-function">Moment Generating Function</h2>
+<p>Another way (and perhaps more elegant way) to arrive at that equation is to use the moment generating function. Let</p>
+<p>$$M_X(t) = \mathrm{E}(\exp(tX)) = \sum_{i=0}^\infty \frac{t^i \mathrm{E}(X^i)}{i!}$$</p>
+<p>Now, if you differentiate $M_X(t)$ for $k$ times, and substitute $t = 0$, you will end up with $\mathrm{E}(X^k)$.</p>
+<p>So if you start from $(A \exp(x) + B)^N$, then you differentiate $K$ times, you will obtain:</p>
+<p>$$\frac{\mathrm{d}^K}{\mathrm{d}x^K} (A \exp(x) + B)^N = \sum_{i = 0}^K S(K, i) \cdot (N)_i \cdot A^i \cdot (A \exp(x) + B)^{N - i} \cdot \exp(ix)$$</p>
+<p>Again, the formula above can be easily shown (roughly shown below) using induction following the recursion property of the Stirling second kind.</p>
+<p>Substituting $x = 0$, then you will arrive at the same equation.</p>
+<h3 id="some-kind-of-proof">Some kind of proof</h3>
+<p>We will prove that equation from the moment generating function section.</p>
+<p>Let $f(i) = (N)_i \cdot A^i \cdot (A \exp(x) + B)^{N - i} \cdot \exp(ix)$, which in particular $f(0) = (A \exp(x) + B)^N$.</p>
+<p>Then,</p>
+<p>$$\frac{\mathrm{d}f(i)}{\mathrm{d}x} = (N)_{i + 1} \cdot A^{i + 1} (A \exp(x) + B)^{N - i - 1} \exp((i+1)x) + i \cdot (N)_i \cdot A^i \cdot (A \exp(x) + B)^{N - i} \cdot \exp(ix)$$</p>
+<p>Substitute them back using $f$:</p>
+<p>$$\frac{\mathrm{d}f(i)}{\mathrm{d}x} = f(i + 1) + i \cdot f(i)$$</p>
+<p>Now write:</p>
+<p>$$\frac{\mathrm{d}^k}{\mathrm{d}x^k} (A \exp(x) + B)^N = \sum_{i = 0}^k c_{k, i} \cdot f(i)$$</p>
+<p>Differentiate it once, then you will get:</p>
+<p>$$\frac{\mathrm{d}^{k+1}}{\mathrm{d}x^{k+1}} (A \exp(x) + B)^N = \sum_{i = 0}^{k+1} (c_{k, i - 1} + i \cdot c_{k, i}) \cdot f(i)$$</p>
+<p>And notice that $c_{k + 1, i} = c_{k, i - 1} + i \cdot c_{k, i}$ is actually the same recurrence as the Stirling number of the second kind, which roughly end the proof.</p>
 
   </div>
   
