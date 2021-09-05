@@ -3,7 +3,6 @@
 import csv
 import datetime
 import json
-import os
 
 
 FIRST_CONTEST_DATE = datetime.datetime(year=2020, month=3, day=2)
@@ -13,7 +12,7 @@ def get_rating_history():
     rating_history = []
     old_rating = 0
     current_day = FIRST_CONTEST_DATE
-    with open(os.path.join('covid', 'data.tsv')) as fp:
+    with open('data.tsv') as fp:
         reader = csv.DictReader(fp, delimiter='\t')
         for row in reader:
             new_rating = int(row['Meninggal (baru)'].replace(',', ''))
