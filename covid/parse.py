@@ -5,7 +5,7 @@ import datetime
 import json
 
 
-FIRST_CONTEST_DATE = datetime.datetime(year=2020, month=3, day=2)
+FIRST_CONTEST_DATE = datetime.datetime(year=2020, month=3, day=3)
 
 
 def get_rating_history():
@@ -49,16 +49,37 @@ def get_html():
     return f'''<html>
   <head>
     <title>COVID-19</title>
-    <link href="https://fonts.googleapis.com/css?family=Squada+One" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://img.atcoder.jp/public/7cd93c2/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="https://img.atcoder.jp/public/5c0d9a6/css/base.css" />
-    <script type="text/javascript" src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
     <script type="text/javascript" src="https://img.atcoder.jp/public/5c0d9a6/js/lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://img.atcoder.jp/public/5c0d9a6/js/lib/bootstrap.min.js"></script>
     <script>const rating_history = {rating_history}</script>
   </head>
   <body style="display: flex; justify-content: center; align-items: center;">
-    <div style="text-align: center">
-      <h3>Indonesia COVID-19 Death Cases</h3>
+    <div id="main-container" class="container" >
+    <div class="row">
+
+    <div class="col-md-3 col-sm-12">
+      <h3>
+        <b>President</b><br>
+        <img src="assets/flag32_ID.png"> <img src="assets/crown_champion.png"> <a href="#" class="username"><span class="user-red">jokowi</span></a> <img class="fav-btn" src="assets/fav.png" width="16px" data-name="jokowi">
+      </h3>
+      <img class="avatar" src="assets/jokowi.jpg" width="128" height="128">
+
+        <table class="dl-table">
+        <tbody><tr><th class="no-break">Country/Region</th><td><img src="assets/flag_ID.png"> Indonesia</td></tr>
+        <tr><th class="no-break">Birth Year</th><td>1961</td></tr>
+        <tr><th class="no-break">Twitter ID</th><td><a href="https://twitter.com/jokowi" target="_blank">@jokowi</a></td></tr>
+        <tr><th class="no-break">Affiliation</th><td class="break-all">Pancasila</td></tr>
+        </tbody></table>
+
+        <p><b>Win</b><span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-html="true" data-toggle="tooltip" title="" data-original-title="Only contests without rating upperbound"></span> 2</p>
+        <img class="avatar" src="assets/jokowi.jpg" width="32" height="32"><img class="avatar" src="assets/jokowi.jpg" width="32" height="32">
+    </div>
+
+    <div class="col-md-9 col-sm-12">
+      <h3>COVID-19 Death Status</h3>
       <hr/>
       <table class="dl-table">
         <tbody>
@@ -71,13 +92,19 @@ def get_html():
       </table>
 
       <div class="mt-2 mb-2" style="line-height: 0;">
+        <link href="https://fonts.googleapis.com/css?family=Squada+One" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
         <canvas id="ratingStatus" width="640" height="80"></canvas><br>
         <canvas id="ratingGraph" width="640" height="360"></canvas><br>
       </div>
+    </div>
 
+    </div>
     </div>
 
     <script type="text/javascript" src="https://img.atcoder.jp/public/5c0d9a6/js/rating-graph.js"></script>
+    <script>$('[data-toggle="tooltip"]').tooltip();</script>
+
     <script type="application/javascript">
     var doNotTrack = false;
     if (!doNotTrack) {{
@@ -91,7 +118,8 @@ def get_html():
     }}
     </script>
   </body>
-</html>'''
+</html>
+'''
 
 
 if __name__ == '__main__':
