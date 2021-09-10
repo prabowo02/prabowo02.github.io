@@ -1,50 +1,101 @@
-# Data from https://docs.google.com/spreadsheets/d/1ma1T9hWbec1pXlwZ89WakRk-OfVUQZsOCFl4FwZxzVw/htmlview#
+# Data from https://covid.ourworldindata.org/data/owid-covid-data.csv
 
 import csv
 import datetime
 import json
+import os
 
 
-FIRST_CONTEST_DATE = datetime.datetime(year=2020, month=3, day=3)
+MANUAL_FIX_DATA = {
+    'IDN': {
+        '2021-09-02': 680,
+        '2021-09-03': 574,
+    }
+}
+
+USER_PROFILE = {
+    'IDN': {
+        'region': 'Indonesia',
+        'flag': 'ID',
+        'rank': 'President',
+        'birth': 1961,
+        'covid_status': 'new_deaths',
+        'contest_name': 'Indonesia New COVID-19 Deaths',
+        'username': 'jokowi',
+        'wins': 2,
+        'affiliation': 'Istana Negara',
+        'current_rank': '1 Dan',
+        'to_promote': '131',
+    },
+    'SGP': {
+        'region': 'Singapore',
+        'flag': 'SG',
+        'rank': 'Prime Minister',
+        'birth': 1952,
+        'covid_status': 'new_cases',
+        'contest_name': 'Singapore New COVID-19 Cases',
+        'username': 'leehsienloong',
+        'wins': 5,
+        'affiliation': 'The Istana',
+        'current_rank': '3 Kyu',
+        'to_promote': '174',
+    }
+}
+
+RATING_COLOR = ((0, 'gray'), (400, 'brown'), (800, 'green'), (1200, 'cyan'), (1600, 'blue'), (2000, 'yellow'), (2400, 'orange'), (2800, 'red'))
+
+def get_rating_color(rating):
+    res = None
+    for bound, color in RATING_COLOR:
+        if rating >= bound:
+            res = color
+    return res
 
 
-def get_rating_history():
+def get_rating_history(country, covid_status, contest_name):
     rating_history = []
     old_rating = 0
-    current_day = FIRST_CONTEST_DATE
-    with open('data.tsv') as fp:
-        reader = csv.DictReader(fp, delimiter='\t')
+    manual_fix_data = MANUAL_FIX_DATA.get(country, {})
+    with open('owid-covid-data.csv') as fp:
+        reader = csv.DictReader(fp)
         for row in reader:
-            new_rating = int(row['Meninggal (baru)'].replace(',', ''))
+            if row['iso_code'] != country:
+                continue
+
+            new_rating = row[covid_status].replace(',', '')
+            if not new_rating:
+                continue
+            new_rating = int(float(new_rating))
+
+            if row['date'] in manual_fix_data:
+                new_rating = manual_fix_data[row['date']]
+
             rating_history.append({
-                'ContestName': 'Indonesia New COVID-19 Death',
+                'ContestName': contest_name,
                 'OldRating': old_rating,
                 'NewRating': new_rating,
-                'EndTime': int(datetime.datetime.timestamp(current_day)),
+                'EndTime': int(datetime.datetime.timestamp(datetime.datetime.strptime(row['date'], '%Y-%m-%d'))),
                 'Place': 1,
                 'StandingsUrl': '#',
             })
             old_rating = new_rating
-            current_day += datetime.timedelta(days=1)
 
     return rating_history
 
 
 def get_rating_stats(rating_history):
-    stats = {
+    return {
         'CurrentRating': rating_history[-1]['NewRating'],
         'HighestRating': max(rating['NewRating'] for rating in rating_history),
         'RatedMatches': len(rating_history),
+        'LastCompeted': datetime.datetime.fromtimestamp(rating_history[-1]['EndTime']).strftime('%Y/%m/%d'),
     }
-    last_competed = FIRST_CONTEST_DATE + datetime.timedelta(days=stats['RatedMatches'] - 1)
-    last_competed = '{:04d}/{:02d}/{:02d}'.format(last_competed.year, last_competed.month, last_competed.day)
-    stats['LastCompeted'] = last_competed
-    return stats
 
 
-def get_html():
+def get_html(country):
     # These still need to be manually modified: current rating color, highest rating color, rank, delta needed to promote
-    rating_history = get_rating_history()
+    profile = USER_PROFILE[country]
+    rating_history = get_rating_history(country, profile['covid_status'], profile['contest_name'])
     rating_stats = get_rating_stats(rating_history)
     return f'''<html>
   <head>
@@ -56,36 +107,36 @@ def get_html():
     <script type="text/javascript" src="https://img.atcoder.jp/public/5c0d9a6/js/lib/bootstrap.min.js"></script>
     <script>const rating_history = {rating_history}</script>
   </head>
-  <body style="display: flex; justify-content: center; align-items: center;">
+  <body>
     <div id="main-container" class="container" >
     <div class="row">
 
     <div class="col-md-3 col-sm-12">
       <h3>
-        <b>President</b><br>
-        <img src="assets/flag32_ID.png"> <img src="assets/crown_champion.png"> <a href="#" class="username"><span class="user-red">jokowi</span></a> <img class="fav-btn" src="assets/fav.png" width="16px" data-name="jokowi">
+        <b>{profile['rank']}</b><br>
+        <img src="../assets/flag32_{profile['flag']}.png"> <img src="../assets/crown_champion.png"> <a href="#" class="username"><span class="user-red">{profile['username']}</span></a> <img class="fav-btn" src="../assets/fav.png" width="16px" data-name="jokowi">
       </h3>
-      <img class="avatar" src="assets/jokowi.jpg" width="128" height="128">
+      <img class="avatar" src="../assets/{profile['username']}.jpg" width="128" height="128">
 
         <table class="dl-table">
-        <tbody><tr><th class="no-break">Country/Region</th><td><img src="assets/flag_ID.png"> Indonesia</td></tr>
-        <tr><th class="no-break">Birth Year</th><td>1961</td></tr>
-        <tr><th class="no-break">Twitter ID</th><td><a href="https://twitter.com/jokowi" target="_blank">@jokowi</a></td></tr>
-        <tr><th class="no-break">Affiliation</th><td class="break-all">Pancasila</td></tr>
+        <tbody><tr><th class="no-break">Country/Region</th><td><img src="../assets/flag_{profile['flag']}.png"> {profile['region']}</td></tr>
+        <tr><th class="no-break">Birth Year</th><td>{profile['birth']}</td></tr>
+        <tr><th class="no-break">Twitter ID</th><td><a href="https://twitter.com/{profile['username']}" target="_blank">@{profile['username']}</a></td></tr>
+        <tr><th class="no-break">Affiliation</th><td class="break-all">{profile['affiliation']}</td></tr>
         </tbody></table>
 
-        <p><b>Win</b><span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-html="true" data-toggle="tooltip" title="" data-original-title="Only contests without rating upperbound"></span> 2</p>
-        <img class="avatar" src="assets/jokowi.jpg" width="32" height="32"><img class="avatar" src="assets/jokowi.jpg" width="32" height="32">
+        <p><b>Win</b><span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-html="true" data-toggle="tooltip" title="" data-original-title="Only contests without rating upperbound"></span> {profile['wins']}</p>
+        {'<img class="avatar" src="../assets/{}.jpg" width="32" height="32">'.format(profile['username']) * profile['wins']}
     </div>
 
     <div class="col-md-9 col-sm-12">
-      <h3>COVID-19 Death Status</h3>
+      <h3>COVID-19 Status</h3>
       <hr/>
       <table class="dl-table">
         <tbody>
           <tr><th class="no-break">Rank</th><td>1st</td></tr>
-          <tr><th class="no-break">Rating</th><td><span class="user-gray">{rating_stats['CurrentRating']}</span></td></tr>
-          <tr><th class="no-break">Highest Rating</th><td><span class="user-yellow">{rating_stats['HighestRating']}</span><span class="gray"> &mdash; </span><span class="bold">1 Dan</span><span class="gray">(+131 to promote)</span></td></tr>
+          <tr><th class="no-break">Rating</th><td><span class="user-{get_rating_color(rating_stats['CurrentRating'])}">{rating_stats['CurrentRating']}</span></td></tr>
+          <tr><th class="no-break">Highest Rating</th><td><span class="user-{get_rating_color(rating_stats['HighestRating'])}">{rating_stats['HighestRating']}</span><span class="gray"> &mdash; </span><span class="bold">{profile['current_rank']}</span><span class="gray"> (+{profile['to_promote']} to promote)</span></td></tr>
           <tr><th class="no-break">Rated Matches <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-html="true" data-toggle="tooltip" title="" data-original-title="Counts only rated contests"></span></th><td>{rating_stats['RatedMatches']}</td></tr>
           <tr><th class="no-break">Last Competed</th><td>{rating_stats['LastCompeted']}</td></tr>
         </tbody>
@@ -123,5 +174,8 @@ def get_html():
 
 
 if __name__ == '__main__':
-    with open('index.html', 'w') as fp:
-        fp.write(get_html())
+    for country in ('SGP', 'IDN'):
+        if not os.path.exists(country):
+            os.makedirs(country)
+        with open(os.path.join(country, 'index.html'), 'w') as fp:
+            fp.write(get_html(country))
