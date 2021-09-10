@@ -107,7 +107,7 @@ def get_html(country):
     <script type="text/javascript" src="https://img.atcoder.jp/public/5c0d9a6/js/lib/bootstrap.min.js"></script>
     <script>const rating_history = {rating_history}</script>
   </head>
-  <body>
+  <body style="display: flex; align-items: center;">
     <div id="main-container" class="container" >
     <div class="row">
 
