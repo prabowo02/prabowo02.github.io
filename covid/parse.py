@@ -24,8 +24,6 @@ USER_PROFILE = {
         'username': 'jokowi',
         'wins': 2,
         'affiliation': 'Istana Negara',
-        'current_rank': '1 Dan',
-        'to_promote': '131',
     },
     'SGP': {
         'region': 'Singapore',
@@ -37,12 +35,25 @@ USER_PROFILE = {
         'username': 'leehsienloong',
         'wins': 5,
         'affiliation': 'The Istana',
-        'current_rank': '3 Kyu',
-        'to_promote': '174',
+    },
+    'USA': {
+        'region': 'United States of America',
+        'flag': 'US',
+        'rank': 'President',
+        'birth': 1942,
+        'covid_status': 'new_deaths',
+        'contest_name': 'USA New COVID-19 Deaths',
+        'username': 'JoeBiden',
+        'wins': 1,
+        'affiliation': 'White House',
     }
 }
 
 RATING_COLOR = ((0, 'gray'), (400, 'brown'), (800, 'green'), (1200, 'cyan'), (1600, 'blue'), (2000, 'yellow'), (2400, 'orange'), (2800, 'red'))
+RATING_CLASS = ((0, '20 Kyu'), (2, '19 Kyu'), (3, '18 Kyu'), (5, '17 Kyu'), (8, '16 Kyu'), (13, '15 Kyu'), (20, '14 Kyu'), (33, '13 Kyu'), (54, '12 Kyu'), (90, '11 Kyu'), (147, '10 Kyu'), (243, '9 Kyu'),
+                (400, '8 Kyu'), (600, '7 Kyu'), (800, '6 Kyu'), (1000, '5 Kyu'), (1200, '4 Kyu'), (1400, '3 Kyu'), (1600, '2 Kyu'), (1800, '1 Kyu'),
+                (2000, '1 Dan'), (2200, '2 Dan'), (2400, '3 Dan'), (2600, '4 Dan'), (2800, '5 Dan'), (3000, '6 Dan'), (3200, '7 Dan'), (3400, '8 Dan'), (3600, '9 Dan'), (3800, '10 Dan'), (4000, 'Legend'), (4200, 'King'))
+
 
 def get_rating_color(rating):
     res = None
@@ -50,6 +61,23 @@ def get_rating_color(rating):
         if rating >= bound:
             res = color
     return res
+
+
+def get_rating_class(rating):
+    res = None
+    for bound, c in RATING_CLASS:
+        if rating >= bound:
+            res = c
+    return res
+
+
+def get_to_promote_rating(max_rating):
+    if max_rating < 400:
+        return ''
+    for bound, _ in RATING_CLASS:
+        if bound > max_rating:
+            return f'(+{bound - max_rating} to promote)'
+    return ''
 
 
 def get_rating_history(country, covid_status, contest_name):
@@ -99,6 +127,7 @@ def get_html(country):
     rating_stats = get_rating_stats(rating_history)
     return f'''<html>
   <head>
+    <meta http-equiv="cache-control" content="max-age=300">
     <title>COVID-19</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://img.atcoder.jp/public/7cd93c2/css/bootstrap.min.css" />
@@ -136,7 +165,7 @@ def get_html(country):
         <tbody>
           <tr><th class="no-break">Rank</th><td>1st</td></tr>
           <tr><th class="no-break">Rating</th><td><span class="user-{get_rating_color(rating_stats['CurrentRating'])}">{rating_stats['CurrentRating']}</span></td></tr>
-          <tr><th class="no-break">Highest Rating</th><td><span class="user-{get_rating_color(rating_stats['HighestRating'])}">{rating_stats['HighestRating']}</span><span class="gray"> &mdash; </span><span class="bold">{profile['current_rank']}</span><span class="gray"> (+{profile['to_promote']} to promote)</span></td></tr>
+          <tr><th class="no-break">Highest Rating</th><td><span class="user-{get_rating_color(rating_stats['HighestRating'])}">{rating_stats['HighestRating']}</span><span class="gray"> &mdash; </span><span class="bold">{get_rating_class(rating_stats['HighestRating'])}</span><span class="gray"> {get_to_promote_rating(rating_stats['HighestRating'])}</span></td></tr>
           <tr><th class="no-break">Rated Matches <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-html="true" data-toggle="tooltip" title="" data-original-title="Counts only rated contests"></span></th><td>{rating_stats['RatedMatches']}</td></tr>
           <tr><th class="no-break">Last Competed</th><td>{rating_stats['LastCompeted']}</td></tr>
         </tbody>
@@ -174,7 +203,7 @@ def get_html(country):
 
 
 if __name__ == '__main__':
-    for country in ('SGP', 'IDN'):
+    for country in ('SGP', 'IDN', 'USA'):
         if not os.path.exists(country):
             os.makedirs(country)
         with open(os.path.join(country, 'index.html'), 'w') as fp:
