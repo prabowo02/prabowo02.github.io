@@ -1,3 +1,4 @@
+cd $(dirname "$0")
 rm owid-covid-data.csv
 wget https://covid.ourworldindata.org/data/owid-covid-data.csv
 python3 parse.py
