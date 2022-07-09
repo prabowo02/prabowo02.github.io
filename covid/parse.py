@@ -143,19 +143,19 @@ def get_html(country):
     <div class="col-md-3 col-sm-12">
       <h3>
         <b>{profile['rank']}</b><br>
-        <img src="../assets/flag32_{profile['flag']}.png"> <img src="../assets/crown_champion.png"> <a href="#" class="username"><span class="user-red">{profile['username']}</span></a> <img class="fav-btn" src="../assets/fav.png" width="16px" data-name="jokowi">
+        <img src="assets/flag32_{profile['flag']}.png"> <img src="assets/crown_champion.png"> <a href="#" class="username"><span class="user-red">{profile['username']}</span></a> <img class="fav-btn" src="assets/fav.png" width="16px" data-name="jokowi">
       </h3>
-      <img class="avatar" src="../assets/{profile['username']}.jpg" width="128" height="128">
+      <img class="avatar" src="assets/{profile['username']}.jpg" width="128" height="128">
 
         <table class="dl-table">
-        <tbody><tr><th class="no-break">Country/Region</th><td><img src="../assets/flag_{profile['flag']}.png"> {profile['region']}</td></tr>
+        <tbody><tr><th class="no-break">Country/Region</th><td><img src="assets/flag_{profile['flag']}.png"> {profile['region']}</td></tr>
         <tr><th class="no-break">Birth Year</th><td>{profile['birth']}</td></tr>
         <tr><th class="no-break">Twitter ID</th><td><a href="https://twitter.com/{profile['username']}" target="_blank">@{profile['username']}</a></td></tr>
         <tr><th class="no-break">Affiliation</th><td class="break-all">{profile['affiliation']}</td></tr>
         </tbody></table>
 
         <p><b>Win</b><span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-html="true" data-toggle="tooltip" title="" data-original-title="Only contests without rating upperbound"></span> {profile['wins']}</p>
-        {'<img class="avatar" src="../assets/{}.jpg" width="32" height="32">'.format(profile['username']) * profile['wins']}
+        {'<img class="avatar" src="assets/{}.jpg" width="32" height="32">'.format(profile['username']) * profile['wins']}
     </div>
 
     <div class="col-md-9 col-sm-12">
