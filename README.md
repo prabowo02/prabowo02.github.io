@@ -16,3 +16,5 @@ cd _docs/
 hugo
 ```
 then move everything inside `_docs/public/` to repo root.
+
+In case the submodules is no longer available, replace the `themes` in the `_docs` with `themes_backup`.
