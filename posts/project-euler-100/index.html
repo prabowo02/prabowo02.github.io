@@ -7,15 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="Given $P$, $Q$, and $M$, find smallest $n$ such that $\frac{b(b-1)}{n(n-1)} = \frac{P}{Q}$, where $b$ and $n$ are positive integers and $n &gt; M$." />
   <meta name="author" content="" />
-  <meta name="generator" content="Hugo 0.60.0" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
-  <!--<![endif]-->
-  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
 </head>
 <body>
 <div class="pure-g">
@@ -55,7 +50,7 @@
 <div class="post-meta">
   <span>Date</span> &#x5b;
     <time datetime="2020-07-10T00:24:26&#43;08:00">
-      10 Jul 20 00:24 &#43;08
+      Fri, 10 Jul 2020 00:24:26 &#43;0800
     </time>
   &#x5d;
 </div>
@@ -99,11 +94,11 @@ $$x + dy = b$$</p>
 </ul>
 <h4 id="solving-x2--pq-mod-q">Solving $x^2 = Pq \mod q$</h4>
 <p>It is obvious that $Pq = 0 \mod q$ because $q | Pq$. The congruence became $x^2 = 0 mod q$. Since q is squarefree, there is only one solution to $x$, which is $0$ (how convenient). This is the reason why we are not using the equation $x^2 - PQ = Q(Q-P)$, because solving $x^2 = 0 \mod Q$ may yield tens or hundreds of solutions.</p>
-<h4 id="solving-x2--pq-mod-qp">Solving $x^2 = Pq \mod (Q-P)$</h4>
+<h4 id="solving-x2--pq-mod-q-p">Solving $x^2 = Pq \mod (Q-P)$</h4>
 <p>First, rewrite the congruence:</p>
-<p>$ \ \ \ \ \ \ \  x^2 = Pq \pmod{Q-P}$<br>
-$\Longrightarrow x^2 = Pq + q(Q-P) \pmod{Q-P}$<br>
-$\Longrightarrow x^2 = Qq \pmod {Q-P}$<br>
+<p>$ \ \ \ \ \ \ \  x^2 = Pq \pmod{Q-P}$ <br>
+$\Longrightarrow x^2 = Pq + q(Q-P) \pmod{Q-P}$ <br>
+$\Longrightarrow x^2 = Qq \pmod {Q-P}$ <br>
 $\Longrightarrow x^2 = (qr)^2 \pmod{Q-P}$</p>
 <p>This also works when the modulo is $\frac{Q-P}{f^2}$, we will obtain the same congruence $x^2 = (qr)^2 \pmod{\frac{Q-P}{f^2}}$.</p>
 <p>Since we already know one solution to $x$ (which is $qr$), then the other solutions can be determined quite easily.</p>
@@ -129,7 +124,7 @@ With these, the solution to the original equation can be found.</p>
   
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -199,6 +194,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 </body>
 </html>

@@ -7,15 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="Our goal is to solve ${n \choose m} \pmod {p^e}$, ($n, m, p^e &lt; 10^{300}$, $p$ prime number). After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is $O(e \log n)$. Define $(n!)_p$ as the product of all positive integers $i \not\equiv 0 \pmod p$ for all $1 \leq i \leq n$. We are to to compute $(n!)_p \pmod{p^e}$." />
   <meta name="author" content="" />
-  <meta name="generator" content="Hugo 0.60.0" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
-  <!--<![endif]-->
-  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
 </head>
 <body>
 <div class="pure-g">
@@ -55,16 +50,16 @@
 <div class="post-meta">
   <span>Date</span> &#x5b;
     <time datetime="2019-12-04T16:03:30&#43;08:00">
-      04 Dec 19 16:03 &#43;08
+      Wed, 04 Dec 2019 16:03:30 &#43;0800
     </time>
   &#x5d;
 </div>
 
   </div>
   <div>
-    <p>This is an attempt to translate <a href="https://min-25.hatenablog.com/entry/2017/11/01/185400">min_25's article</a> with the help of Google Translate, and with a bit of modification.</p>
+    <p>This is an attempt to translate <a href="https://min-25.hatenablog.com/entry/2017/11/01/185400">min_25&rsquo;s article</a> with the help of Google Translate, and with a bit of modification.</p>
 <p>Our goal is to solve ${n \choose m} \pmod{p^e}$, ($n, m, p^e &lt; 10^{300}$, $p$: prime number).</p>
-<p>The method differ from Andrew Granville's Binomial Coefficients modulo prime powers (<a href="https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf">BinCoeff.pdf</a>).<br>
+<p>The method differ from Andrew Granville&rsquo;s Binomial Coefficients modulo prime powers (<a href="https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf">BinCoeff.pdf</a>). <br>
 After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is reduced from $O\left(e^2\left(\frac{\log n}{\log p} + \min(\log n, \log p)\right)\right)$ to $O(e \log n)$.</p>
 <p>For the rest of the article, denote ${n \brack m}$ as <a href="https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind">Stirling number of the first kind</a>.</p>
 <h3 id="computation-method">Computation Method</h3>
@@ -73,9 +68,9 @@ After precomputation, the number of operation to compute ${n \choose m} \pmod{p^
 <p>For simplicity, we assume that $e &lt; p$,</p>
 <p>$$
 \begin{align*}
-((up+v)!)_p &amp;= \left( \prod_{i=0}^{u-1} \prod_{j=1}^{p-1} (ip+j) \right) \cdot \prod_{j=1}^v (up + j) \\\<br>
-&amp;\equiv \left(\prod_{i=0}^{u-1} \left( \sum_{k=0}^{e-1} (ip)^k {p \brack {k+1}}\right)\right) \cdot \left(\sum_{k=0}^{e-1}(up)^k {{v+1} \brack {k+1}}\right) \pmod {p^e} \\\<br>
-&amp;= {p \brack 1}^u \left(\prod_{i=0}^{u-1}\left( 1 + \sum_{k=1}^{e-1} \frac{{p \brack {k+1}}}{{p \brack 1}}(ip)^k \right) \right) \cdot \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right) \\\<br>
+((up+v)!)_p &amp;= \left( \prod_{i=0}^{u-1} \prod_{j=1}^{p-1} (ip+j) \right) \cdot \prod_{j=1}^v (up + j) \\\
+&amp;\equiv \left(\prod_{i=0}^{u-1} \left( \sum_{k=0}^{e-1} (ip)^k {p \brack {k+1}}\right)\right) \cdot \left(\sum_{k=0}^{e-1}(up)^k {{v+1} \brack {k+1}}\right) \pmod {p^e} \\\
+&amp;= {p \brack 1}^u \left(\prod_{i=0}^{u-1}\left( 1 + \sum_{k=1}^{e-1} \frac{{p \brack {k+1}}}{{p \brack 1}}(ip)^k \right) \right) \cdot \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right) \\\
 &amp;= {p \brack 1}^u f_{p,e}(u) \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right)
 \end{align*}
 $$</p>
@@ -89,21 +84,21 @@ $$</p>
 <li>Computation of $n!$ without the factor $p$ can be done by $\sum_{k=0}^\infty \left(\left\lfloor\frac{n}{p^k}\right\rfloor_p\right)!$ in $O(e \log n)$</li>
 </ol>
 <p>In total, there are around $O(pe + e^2 + e \log n)$ time complexity to compute ${n \choose m}$</p>
-<h4 id="proof-that-fp-e-is-a-polynomial">Proof that $f_{p, e}$ is a polynomial</h4>
+<h4 id="proof-that-f_p-e-is-a-polynomial">Proof that $f_{p, e}$ is a polynomial</h4>
 <p>For any $e, p$ $(e \geq 1, p \geq 2)$, let $a_k$ be a rational number that exists under modulo $p$. Let,</p>
 <p>$$ g(x, u) := \prod_{i=0}^{u-1} \left( 1 + \sum_{k=1}^{e-1} a_k (xi)^k \right) $$</p>
 <p>Let $b_k$ be some other rational number satisfying:</p>
 <p>$$
 \begin{align*}
-\log(g(x, u)) &amp;= \sum_{i=0}^{u-1} \log\left( 1 + \sum_{k=1}^{e-1} a_k(xi)^k \right) \\\<br>
-&amp;= \sum_{i=0}^{u-1} \sum_{k=0}^\infty b_k x^k i^k \\\<br>
+\log(g(x, u)) &amp;= \sum_{i=0}^{u-1} \log\left( 1 + \sum_{k=1}^{e-1} a_k(xi)^k \right) \\\
+&amp;= \sum_{i=0}^{u-1} \sum_{k=0}^\infty b_k x^k i^k \\\
 &amp;= \sum_{k=1}^\infty b_k x^k s_k(u)
 \end{align*}
 $$</p>
 <p>where $s_k(x) = \sum_{i=0}^x i^k$ is a polynomial of degree $k+1$. Continuing from above,</p>
 <p>$$
 \begin{align*}
-g(x, u) &amp;= \exp\left( \sum_{k=1}^\infty b_k x^k s_k(u) \right) \\\<br>
+g(x, u) &amp;= \exp\left( \sum_{k=1}^\infty b_k x^k s_k(u) \right) \\\
 &amp;= 1 + \sum_{k=1}^\infty t_k(u) x^k
 \end{align*}
 $$</p>
@@ -119,7 +114,7 @@ $$</p>
 <p>Using these properties, looks like it is possible to further reduce the degree of $f_{p, e}(x)$.</p>
 <h3 id="source-codes">Source Codes</h3>
 <ul>
-<li>min_25's implementation using <a href="https://gist.github.com/min-25/a5496354e10064a581d6b0c52c727a26">Python</a>.</li>
+<li>min_25&rsquo;s implementation using <a href="https://gist.github.com/min-25/a5496354e10064a581d6b0c52c727a26">Python</a>.</li>
 <li>My implementation using <a href="https://github.com/prabowo02/CP/blob/master/binomial_mod_pe.cpp">C++</a> (but it is not using big integer, only <code>__int128</code>, so it can only support for $n$ up to $10^{18}$).</li>
 </ul>
 
@@ -127,7 +122,7 @@ $$</p>
   
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -200,6 +195,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 </body>
 </html>

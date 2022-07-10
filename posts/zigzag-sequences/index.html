@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>On counting the number of zigzag sequences | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="We will describe on how to find the number of zigzag sequences $a_1 \lt a_2 \gt \ldots$ in $O(N \log N)$." />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.101.0" />
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      On counting the number of zigzag sequences
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2022-07-10T18:30:00&#43;08:00">
+      Sun, 10 Jul 2022 18:30:00 &#43;0800
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    <p>I feel like these are classical, but it&rsquo;s hard to find a good discussion about them, so here we go.</p>
+<p>We will discuss two things here:</p>
+<ul>
+<li>find the number of zigzag permutations, and</li>
+<li>find the number of zigzag sequences.</li>
+</ul>
+<h2 id="counting-zigzag-permutations">Counting Zigzag permutations</h2>
+<p>Given $N \le 200\;000$, find the number of permutations that satisfy $p_1 \lt p_2 \gt p_3 \lt p_4 \gt \ldots p_N$.</p>
+<p>You may stop here if you are interested to solve the problem by yourself first.</p>
+<h3 id="terminologies">Terminologies</h3>
+<p>First, let us clear up the terminology we are going to use.</p>
+<p>A <em>permutation</em> of length $N$ is a sequence of length $N$ where $1, 2, \ldots, N$ each appears exactly once.
+In this article, whenever I omit the &ldquo;of length $N$&rdquo;, the permutation always has length $N$ by default.</p>
+<p>A <em>zigzag permutation</em> is a permutation $p$, such that $p_1 \lt p_2 \gt p_3 \lt p_4 \gt \ldots p_n$.
+More formally, the relation $p_i \lt p_{i+1}$ is satisfied when $i$ is odd, and $p_i \gt p_{i+1}$ when $i$ is even.</p>
+<p>We define similarly a <em>zagzig permutation</em> as a permutation $p$, such that $p_1 \gt p_2 \lt p_3 \gt p_4 \gt \ldots p_n$.
+This is the same as zigzag permutation, as they both have alternating relations, but this one starts with $\gt$.</p>
+<p>We will also collectively refer both <em>zigzag</em> and <em>zagzig</em> permutations as <em>alternating permutations</em></p>
+<h3 id="catalan-like-dp">Catalan-like DP</h3>
+<p>Before getting to the calculation, we first note that there exists a bijection between zigzag permutations and zagzig permutations.
+This is easy to show: for a zigzag permutation $p$, we map $p_i$ to $N - p_i + 1$.</p>
+<p>Moreover, for $N \ge 2$ the set of zigzag permutations are mutually exclusive from the set of zagzig permutations.
+This means that, if we know the cardinality of a set of alternating permutations (of length $N \ge 2$), then the cardinality of the zigzag permutations is exactly half of it.</p>
+<p>Let $a_n$ be the number of zigzag permutations of length $n$.
+That is, the number of alternating permutations is $2a_n$ for $n \ge 2$.</p>
+<p>The key to compute $a_n$ is we consider every position of its largest element $n$, then we &ldquo;attach&rdquo; a reversed zigzag permutation to the left, then attach another zigzag permutation to the right of the largest element. Note that this will give you all the alternating permutations instead of the zigzag permutations alone. The elements that are to the left of the largest can be chosen from any of the remaining $n - 1$ elements.</p>
+<p>To sum up:</p>
+<p>$$2a_n = \sum_{k=0}^{n-1} \binom{n - 1}{k} a_k a_{n-1-k}$$</p>
+<p>or to make it prettier:</p>
+<p>$$2a_{n+1} = \sum_{k=0}^{n} \binom{n}{k} a_k a_{n-k}$$</p>
+<p>for $n \ge 1$ with the base case $a_0 = a_1 = 1$.</p>
+<p>This can be easily computed using DP in $O(N^2)$.</p>
+<h3 id="faster-computation">Faster Computation</h3>
+<p>Let $A(x)$ be the exponential generating function of the sequence $(a)_n$. That is,</p>
+<p>$$A(x) = \sum_{k=0}^\infty \frac{a_k}{k!} x^k$$</p>
+<p>Then,</p>
+<p>$$2A(x) = \int A(x)^2 dx + x + 2$$</p>
+<p>The purpose of the integration is to &ldquo;shift&rdquo; the EGF by one, and the $x + 2$ part is to make the base case of $[x^0]$ and $[x^1]$ be both $2$ (recall that we are computing $2A(x)$, not a single $A(x)$).</p>
+<p>Let&rsquo;s solve the integration formula. We derive both sides:</p>
+<p>$$2 \frac{\mathrm{d}}{\mathrm{d}x} A(x) = A(x)^2 + 1$$</p>
+<p>Since I have nothing better to do, I will derive this ordinary differential equation in more details.
+We divide both sides by $A(x)^2 + 1$ then integrate both sides.</p>
+<p>$$\int \frac{2}{A(x)^2 + 1} \mathrm{d}A(x) = \int dx$$</p>
+<p>Use the trigonometry substituion $A(x) = \tan(t)$ and we obtain:</p>
+<p>$$\int \frac{2}{\tan(t)^2 + 1} \sec(t)^2 dt = x + C$$</p>
+<p>Note the trigonometry identity $\tan(t)^2 + 1 = \sec(t)^2$, then:</p>
+<p>$$2\arctan(A(x)) = x + C$$</p>
+<p>We note that when $x = 0$, $A(0) = 1$, hence:</p>
+<p>$$A(x) = \tan\left(\frac{x}{2} + \frac{\pi}{4}\right)$$</p>
+<p>Use the tangent half-angle formula, and we finally obtain:</p>
+<p>$$A(x) = \sec(x) + \tan(x) = \frac{1 + \sin(x)}{\cos(x)}$$</p>
+<p>and this can be easily calculated in $O(N \log N)$ using FFT.</p>
+<p>Apparently, the resulting generating function is also known as André&rsquo;s theorem.</p>
+<h2 id="counting-zigzag-sequences">Counting Zigzag Sequences</h2>
+<p>Given $N \le 200\;000$ and $M \le 10^9$, find the number of sequences of positive integers such that $a_i \le M$ and $a_1 \lt a_2 \gt a_3 \lt a_4 \gt \ldots a_N$.</p>
+<p>To solve this problem, we must first forget everything from the previous section as they prove to be useless for this problem.</p>
+<p>The key idea here is inclusion-exclusion, and we have to solve by cases.</p>
+<h3 id="n-is-even">N is even</h3>
+<p>We will apply inclusion-exclusion on the &ldquo;$\gt$&rdquo; part.
+What this means is we keep all the &ldquo;$\lt$&rdquo; signs, ignore some of the &ldquo;$\gt$&rdquo; conditions, and replace all the other &ldquo;$\gt$&rdquo; with &ldquo;$\le$&rdquo;.
+For every such replacement, count the number of the inequalities, then multiply by $(-1)^{\text{\# of ≤}}$, then sum for all of the possible replacements.</p>
+<p>The sum is not straightforward to come. Instead, for one possible replacement, we will consider a <em>chain</em> as the maximal subsegment such that $a_{2i+1} \lt a_{2i+2} \le a_{2i+3} \lt \ldots \le a_{2j}$. That is, the chain is a maximal consecutive subsequence such that it contains either &ldquo;$\lt$&rdquo; or &ldquo;$\le$&rdquo;. Notice that such a chain always has an even length.</p>
+<p>The number of sequences $b$ of length $2n$ (an even number) such that $b_1 \lt b_2 \le b_3 \lt \ldots \le b_{2n}$ can be easily found out as $\binom{M + n - 1}{2n}$.</p>
+<p>Now, we just have to &ldquo;glue&rdquo; up all these chains to form a sequence of length $N$.</p>
+<p>So we obtain this DP formula:</p>
+<p>$$dp(n) = \sum_{k=1}^n (-1)^{k-1} \binom{M+k-1}{2k} dp(n-k)$$</p>
+<p>and our answer is $dp(\frac{N}{2})$ which can be solved in $O(N^2)$.</p>
+<p>To speed it up, define $P(x)$ as the generating function:</p>
+<p>$$P(x) = \sum_{k=1}^\infty (-1)^{k-1} \binom{M+k-1}{2k} x^{2k}$$.</p>
+<p>then we simply need to find:</p>
+<p>$$[x^N](1 + P(x) + P(x)^2 + \ldots) = [x^N]\frac{1}{1 - P(x)}$$</p>
+<p>using FFT in $O(N \log N)$.</p>
+<h3 id="n-is-odd">N is odd</h3>
+<p>We continue from the result of the even case. What we need to do now is to add a single odd chain at the end.</p>
+<p>So we define the generating function of the odd chain:</p>
+<p>$$Q(x) = \sum_{k=0}^\infty (-1)^k \binom{M+k}{2k+1} x^{2k+1}$$</p>
+<p>Then we can simply find</p>
+<p>$$[x^N] \frac{Q(x)}{1 - P(x)}$$</p>
+<p>with FFT in $O(N \log N)$.</p>
+<h3 id="combining-both-cases">Combining both cases</h3>
+<p>Since both GFs are &ldquo;independent&rdquo;, we can simply find:</p>
+<p>$$[x^N] \frac{1 + Q(x)}{1 - P(x)}$$</p>
+<p>without the need for a parity check of $N$.</p>
+
+  </div>
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prabowo-djonatan" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+      ]
+    });
+  });
+</script>
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-153624663-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</body>
+</html>

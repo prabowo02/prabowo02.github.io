@@ -7,15 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="We are to count how many prime numbers are there up to $N$ ($N \leq 10^{11}$). Let $\pi(N)$ be the number of primes up to $N$, and $f(n, p)$ be the number of integers $x$, for $2 \leq x \leq N$, such that it contains no prime factor $&lt; p$. If $p$ is not prime, then $f(n, p) = f(n, p-1)$. Otherwise $$f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) - \pi(p-1)\right)$$ Our goal is to compute $\pi(N) = f(N, \sqrt N)$." />
   <meta name="author" content="" />
-  <meta name="generator" content="Hugo 0.60.0" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
-  <!--<![endif]-->
-  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
 </head>
 <body>
 <div class="pure-g">
@@ -55,7 +50,7 @@
 <div class="post-meta">
   <span>Date</span> &#x5b;
     <time datetime="2019-12-22T14:00:39&#43;08:00">
-      22 Dec 19 14:00 &#43;08
+      Sun, 22 Dec 2019 14:00:39 &#43;0800
     </time>
   &#x5d;
 </div>
@@ -86,23 +81,23 @@ f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) -
 <li>Return <code>dp[N]</code> as our answer.</li>
 </ol>
 <h3 id="pseudo-code">Pseudo Code</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">primeCounting</span>(<span style="color:#66d9ef">int</span> N) {
-  Ni <span style="color:#f92672">=</span> sort_descending(unique([N<span style="color:#f92672">/</span>i <span style="color:#66d9ef">for</span> i in [<span style="color:#ae81ff">1</span> .. N]]))
-  <span style="color:#66d9ef">for</span> (n: Ni) {
-    dp[n] <span style="color:#f92672">=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
-  }
-
-  <span style="color:#66d9ef">for</span> (p <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; p<span style="color:#f92672">*</span>p <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> N; <span style="color:#f92672">+</span><span style="color:#f92672">+</span>p) {
-    <span style="color:#66d9ef">if</span> (dp[p] <span style="color:#f92672">=</span><span style="color:#f92672">=</span> dp[p<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#66d9ef">continue</span>; <span style="color:#75715e">// p is not a prime
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (n: Ni) {
-      <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">*</span>i) <span style="color:#66d9ef">break</span>;
-      dp[n] <span style="color:#f92672">-</span><span style="color:#f92672">=</span> dp[n<span style="color:#f92672">/</span>p] <span style="color:#f92672">-</span> dp[p];
-    }
-  }
-
-  <span style="color:#66d9ef">return</span> dp[N];
-}
-</code></pre></div><h3 id="complexity">Complexity</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">primeCounting</span>(<span style="color:#66d9ef">int</span> N) {
+</span></span><span style="display:flex;"><span>  Ni <span style="color:#f92672">=</span> sort_descending(unique([N<span style="color:#f92672">/</span>i <span style="color:#66d9ef">for</span> i in [<span style="color:#ae81ff">1</span> .. N]]))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (n: Ni) {
+</span></span><span style="display:flex;"><span>    dp[n] <span style="color:#f92672">=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (p <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; p<span style="color:#f92672">*</span>p <span style="color:#f92672">&lt;=</span> N; <span style="color:#f92672">++</span>p) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (dp[p] <span style="color:#f92672">==</span> dp[p<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#66d9ef">continue</span>; <span style="color:#75715e">// p is not a prime
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (n: Ni) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">*</span>i) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>      dp[n] <span style="color:#f92672">-=</span> dp[n<span style="color:#f92672">/</span>p] <span style="color:#f92672">-</span> dp[p];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> dp[N];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="complexity">Complexity</h3>
 <p>It can be seen that the transition operation of $(1)$ is $O(1)$. Therefore, we just need to compute the space of $f(n, p)$.</p>
 <p>There are two cases:</p>
 <h4 id="case-1-n-leq-sqrt-n">Case 1: $n \leq \sqrt N$</h4>
@@ -137,7 +132,7 @@ f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) -
   
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -210,6 +205,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 </body>
 </html>

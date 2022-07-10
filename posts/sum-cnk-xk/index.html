@@ -7,15 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="Given $N \le 10^9$, $K \le 10^5$, find $$\sum_{i=0}^N \binom{N}{i} i^K$$" />
   <meta name="author" content="" />
-  <meta name="generator" content="Hugo 0.60.0" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
-  <!--<![endif]-->
-  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
 </head>
 <body>
 <div class="pure-g">
@@ -55,7 +50,7 @@
 <div class="post-meta">
   <span>Date</span> &#x5b;
     <time datetime="2021-06-01T23:08:09&#43;08:00">
-      01 Jun 21 23:08 &#43;08
+      Tue, 01 Jun 2021 23:08:09 &#43;0800
     </time>
   &#x5d;
 </div>
@@ -64,7 +59,7 @@
   <div>
     <p>Have you ever been doing your grocery then suddenly felt the need to compute:</p>
 <p>$$\sum_{i=0}^N \binom{N}{i} i^K $$</p>
-<p>where $N \le 10^9$ and $K \le 10^5$? Well you are in luck, because I'm about to show you how.</p>
+<p>where $N \le 10^9$ and $K \le 10^5$? Well you are in luck, because I&rsquo;m about to show you how.</p>
 <p>Consider the binomial expansion:</p>
 <p>$$f_0(x) := (1 + x)^N = \sum_{i=0}^N \binom{N}{i} x^i$$</p>
 <p>If you differentiate then multiply by $x$, you will get:</p>
@@ -106,7 +101,7 @@ The formula can be easily shown using induction following the property $S(N, K) 
   
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -176,6 +171,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 </body>
 </html>

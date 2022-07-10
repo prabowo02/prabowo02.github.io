@@ -7,15 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="A summary of what FFT can do." />
   <meta name="author" content="" />
-  <meta name="generator" content="Hugo 0.60.0" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/style-compat.3b4c1c0e1409a3519991e0e9c30ec8480a88f23885a0beb2a2ca30ece5c7d42c.css" />
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/style.6bf00dd6076f8be858bee3ba1ac6937e5e78a15eb5a11f6822a6e9199d270703.css" />
-  <!--<![endif]-->
-  <script defer src="/script.a419c72eee4529a3aa0042bd6a1c37ff2d1355e83bb53f964bb0da9d23423029.js"></script>
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
 </head>
 <body>
 <div class="pure-g">
@@ -55,14 +50,14 @@
 <div class="post-meta">
   <span>Date</span> &#x5b;
     <time datetime="2020-12-17T17:55:15&#43;08:00">
-      17 Dec 20 17:55 &#43;08
+      Thu, 17 Dec 2020 17:55:15 &#43;0800
     </time>
   &#x5d;
 </div>
 
   </div>
   <div>
-    <p>This is not a tutorial. It's just an overview for those who already (hopefully) understood FFT.
+    <p>This is not a tutorial. It&rsquo;s just an overview for those who already (hopefully) understood FFT.
 (Actually, more of a personal note to myself)</p>
 <h3 id="so-what-is-fft">So what is FFT?</h3>
 <p>DFT but fast</p>
@@ -73,7 +68,7 @@
 <h3 id="how-to-do-dft">How to do DFT?</h3>
 <p>Evaluate each sample point in $O(N)$, and you end up in $O(N^2)$ transformation.</p>
 <h3 id="can-you-do-better">Can you do better?</h3>
-<p>Yes, that's when FFT comes in.</p>
+<p>Yes, that&rsquo;s when FFT comes in.</p>
 <h3 id="how-to-fft">How to FFT?</h3>
 <p>The most commonly used algorithm is Cooley-Tukey algorithm, and the DFT size is usually taken in the form of $2^k$. It is basically a Divide and Conquer algorithm, by separating the odd and even terms, and does FFT recursively. By doing some reordering using bit reversal, you can actually does an iterative version of it. Final complexity is $O(N \log N)$ without any additional space.
 Details on FFT can be found in this <a href="https://codeforces.com/blog/entry/43499">Codeforces blog</a>.</p>
@@ -102,18 +97,18 @@ The way to do that is: $c = IFFT(FFT(a) * FFT(b))$, where $*$ is point-wise mult
 <li>$y \exp(y) = x$. Lambert W function. Also EGF for number of rooted enumerated trees. Can be computed using Lagrange–Bürmann formula.</li>
 </ul>
 <h3 id="why-are-there-divisions-and-exponent">Why are there divisions and exponent?</h3>
-<p>These are operations on formal power series. The idea is, if you want to compute $Q$ that satisfies $f(Q) = 0$, for some polynom $Q$ and function $f$, we can use the Newton's method $Q_{n+1} = Q_n - \frac{f(P)}{f&rsquo;(P)}$.</p>
-<p>For example, computing $Q = \frac{1}{P} \implies Q^{-1} - P = 0 \implies f(Q) = Q^{-1} - P$<br>
+<p>These are operations on formal power series. The idea is, if you want to compute $Q$ that satisfies $f(Q) = 0$, for some polynom $Q$ and function $f$, we can use the Newton&rsquo;s method $Q_{n+1} = Q_n - \frac{f(P)}{f&rsquo;(P)}$.</p>
+<p>For example, computing $Q = \frac{1}{P} \implies Q^{-1} - P = 0 \implies f(Q) = Q^{-1} - P$ <br>
 $Q := Q - \frac{Q^{-1} - P}{-Q^{-2}} = Q + (Q - PQ) = 2Q - PQ^2$</p>
-<p>Another example, computing $Q = \sqrt{P} \implies Q^2 - P = 0 \implies f(Q) = Q^2 - P$<br>
+<p>Another example, computing $Q = \sqrt{P} \implies Q^2 - P = 0 \implies f(Q) = Q^2 - P$ <br>
 $Q := Q - \frac{Q^2 - P}{2Q} = \frac{1}{2}(Q + \frac{P}{Q})$</p>
-<p>In every iteration of the Newton's method, the precision is doubled, i.e. the degree of $Q$ is improved from $n$ to $2n + 1$, and initially $Q$ is only a constant.</p>
+<p>In every iteration of the Newton&rsquo;s method, the precision is doubled, i.e. the degree of $Q$ is improved from $n$ to $2n + 1$, and initially $Q$ is only a constant.</p>
 <p>And here are several operations along with their tricks:</p>
 <ul>
 <li>Additions and subtractions are obvious.</li>
 <li>Multiplication done by FFT.</li>
 <li>Differentiation and integral are straightforward.</li>
-<li>$\frac{1}{P}$, $\sqrt{P}$, $\exp(P)$ can be done using Newton's method.</li>
+<li>$\frac{1}{P}$, $\sqrt{P}$, $\exp(P)$ can be done using Newton&rsquo;s method.</li>
 <li>$\log(P) = \int \frac{P&rsquo;}{P}$</li>
 <li>$P(x)^a = \exp(a \log(P(x)))$</li>
 <li>$\arctan(P) = \int \frac{1}{1 + P^2}$</li>
@@ -121,20 +116,20 @@ $Q := Q - \frac{Q^2 - P}{2Q} = \frac{1}{2}(Q + \frac{P}{Q})$</p>
 <li>$P^{-1}(x)$ i.e. the inverse function, can be done using Lagrange–Bürmann formula</li>
 </ul>
 <h3 id="what-about-modulo">What about modulo?</h3>
-<p>You can find the details of division, modulo, multipoint evaluation, and interpolation in <a href="https://drive.google.com/file/d/1B9BIfATnI_qL6rYiE5hY9bh20SMVmHZ7/view">adamant's lecture note</a>.</p>
+<p>You can find the details of division, modulo, multipoint evaluation, and interpolation in <a href="https://drive.google.com/file/d/1B9BIfATnI_qL6rYiE5hY9bh20SMVmHZ7/view">adamant&rsquo;s lecture note</a>.</p>
 <h3 id="do-the-points-must-be-roots-of-unity">Do the points must be roots of unity?</h3>
-<p>You can actually compute for $\{{z^i\}}_{i=0}^{n-1}$, for any complex number $z$. This is called Chirp Z-transform and can be done using Bluestein's algorithm. The main idea is to write $ij = \binom{i + j}{2} - \binom{i}{2} - \binom{j}{2}$.<br>
+<p>You can actually compute for $\{{z^i\}}_{i=0}^{n-1}$, for any complex number $z$. This is called Chirp Z-transform and can be done using Bluestein&rsquo;s algorithm. The main idea is to write $ij = \binom{i + j}{2} - \binom{i}{2} - \binom{j}{2}$. <br>
 Hence, $\sum(a_i z^{ik}) = \sum \left(a_i z^{-\binom{i}{2}} z^{\binom{i + k}{2}} \right) z^{-\binom{k}{2}}$, which is exactly a convolution and can be computed using FFT. <a href="https://codeforces.com/problemset/problem/1054/H">Example problem</a>.</p>
 <h3 id="can-we-compute-any-size-dft-quickly">Can we compute any size DFT quickly?</h3>
 <p>Yes, by using CZT, and $z$ such that $z$ is primitive $n$-th root of unity where $n$ is the DFT size. One example problem that use DFT any size can be found on <a href="https://codeforces.com/contest/901/problem/E">Codeforces</a>.</p>
 <h3 id="must-the-polynomial-be-monic">Must the polynomial be monic?</h3>
 <p>Multidimentional DFT can be done by performing DFT on each dimension one by one. An example problem can be found <a href="https://codeforces.com/gym/102441/problem/E">here</a>. In this problem, <span style="color:white">you will need both sum-convolution for one variable, and xor-convolution for the other in a single polynomial</span> (spoiler in white text).</p>
-<h3 id="xorconvolution">Xor-convolution?</h3>
+<h3 id="xor-convolution">Xor-convolution?</h3>
 <p>Xor convolution means that $a_i b_j$ is contributed to $c_{i \oplus j}$. It is basically the standard DFT but multidimensional, and each dimension is DFT of size $2$. This is working because xor is basically addition in vector space $\bmod 2$.</p>
 <h3 id="can-we-have-other-bitwise-convolutions">Can we have other bitwise convolutions?</h3>
-<p>In XOR, you tranform $(u, v)$ to $(u + v, u - v)$.<br>
-In AND, you tranform $(u, v)$ to $(u + v, v)$. After performing AND-tranform, you actually ends up with sum of supermasks.<br>
-In OR, you tranform $(u, v)$ to $(u, u + v)$. After performing OR-tranform, you actually ends up with sum of submasks.<br>
+<p>In XOR, you tranform $(u, v)$ to $(u + v, u - v)$. <br>
+In AND, you tranform $(u, v)$ to $(u + v, v)$. After performing AND-tranform, you actually ends up with sum of supermasks. <br>
+In OR, you tranform $(u, v)$ to $(u, u + v)$. After performing OR-tranform, you actually ends up with sum of submasks. <br>
 In NAND, you perform AND, then do the bit inverting (i.e. swap coefficients of bit 0 and bit 1).</p>
 <p>An example problem that uses various binary gates can be found on <a href="https://codeforces.com/contest/1033/problem/F">Codeforces</a></p>
 <h3 id="must-dft-be-operated-in-complex">Must DFT be operated in complex?</h3>
@@ -152,7 +147,7 @@ In NAND, you perform AND, then do the bit inverting (i.e. swap coefficients of b
   
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -222,6 +217,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 </body>
 </html>

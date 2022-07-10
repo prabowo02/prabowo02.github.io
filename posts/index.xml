@@ -3,10 +3,100 @@
 		<title>Posts on Notes</title>
 		<link>https://prabowo02.github.io/posts/</link>
 		<description>Recent content in Posts on Notes</description>
-		<generator>Hugo 0.60.0 -- gohugo.io</generator>
+		<generator>Hugo 0.101.0 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Tue, 01 Jun 2021 23:08:09 +0800</lastBuildDate>
+		<lastBuildDate>Sun, 10 Jul 2022 18:30:00 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>On counting the number of zigzag sequences</title>
+			<link>https://prabowo02.github.io/posts/zigzag-sequences/</link>
+			<pubDate>Sun, 10 Jul 2022 18:30:00 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/zigzag-sequences/</guid>
+			<description>&lt;p&gt;I feel like these are classical, but it&amp;rsquo;s hard to find a good discussion about them, so here we go.&lt;/p&gt;
+&lt;p&gt;We will discuss two things here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;find the number of zigzag permutations, and&lt;/li&gt;
+&lt;li&gt;find the number of zigzag sequences.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;counting-zigzag-permutations&#34;&gt;Counting Zigzag permutations&lt;/h2&gt;
+&lt;p&gt;Given $N \le 200\;000$, find the number of permutations that satisfy $p_1 \lt p_2 \gt p_3 \lt p_4 \gt \ldots p_N$.&lt;/p&gt;
+&lt;p&gt;You may stop here if you are interested to solve the problem by yourself first.&lt;/p&gt;
+&lt;h3 id=&#34;terminologies&#34;&gt;Terminologies&lt;/h3&gt;
+&lt;p&gt;First, let us clear up the terminology we are going to use.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;permutation&lt;/em&gt; of length $N$ is a sequence of length $N$ where $1, 2, \ldots, N$ each appears exactly once.
+In this article, whenever I omit the &amp;ldquo;of length $N$&amp;rdquo;, the permutation always has length $N$ by default.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;zigzag permutation&lt;/em&gt; is a permutation $p$, such that $p_1 \lt p_2 \gt p_3 \lt p_4 \gt \ldots p_n$.
+More formally, the relation $p_i \lt p_{i+1}$ is satisfied when $i$ is odd, and $p_i \gt p_{i+1}$ when $i$ is even.&lt;/p&gt;
+&lt;p&gt;We define similarly a &lt;em&gt;zagzig permutation&lt;/em&gt; as a permutation $p$, such that $p_1 \gt p_2 \lt p_3 \gt p_4 \gt \ldots p_n$.
+This is the same as zigzag permutation, as they both have alternating relations, but this one starts with $\gt$.&lt;/p&gt;
+&lt;p&gt;We will also collectively refer both &lt;em&gt;zigzag&lt;/em&gt; and &lt;em&gt;zagzig&lt;/em&gt; permutations as &lt;em&gt;alternating permutations&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;catalan-like-dp&#34;&gt;Catalan-like DP&lt;/h3&gt;
+&lt;p&gt;Before getting to the calculation, we first note that there exists a bijection between zigzag permutations and zagzig permutations.
+This is easy to show: for a zigzag permutation $p$, we map $p_i$ to $N - p_i + 1$.&lt;/p&gt;
+&lt;p&gt;Moreover, for $N \ge 2$ the set of zigzag permutations are mutually exclusive from the set of zagzig permutations.
+This means that, if we know the cardinality of a set of alternating permutations (of length $N \ge 2$), then the cardinality of the zigzag permutations is exactly half of it.&lt;/p&gt;
+&lt;p&gt;Let $a_n$ be the number of zigzag permutations of length $n$.
+That is, the number of alternating permutations is $2a_n$ for $n \ge 2$.&lt;/p&gt;
+&lt;p&gt;The key to compute $a_n$ is we consider every position of its largest element $n$, then we &amp;ldquo;attach&amp;rdquo; a reversed zigzag permutation to the left, then attach another zigzag permutation to the right of the largest element. Note that this will give you all the alternating permutations instead of the zigzag permutations alone. The elements that are to the left of the largest can be chosen from any of the remaining $n - 1$ elements.&lt;/p&gt;
+&lt;p&gt;To sum up:&lt;/p&gt;
+&lt;p&gt;$$2a_n = \sum_{k=0}^{n-1} \binom{n - 1}{k} a_k a_{n-1-k}$$&lt;/p&gt;
+&lt;p&gt;or to make it prettier:&lt;/p&gt;
+&lt;p&gt;$$2a_{n+1} = \sum_{k=0}^{n} \binom{n}{k} a_k a_{n-k}$$&lt;/p&gt;
+&lt;p&gt;for $n \ge 1$ with the base case $a_0 = a_1 = 1$.&lt;/p&gt;
+&lt;p&gt;This can be easily computed using DP in $O(N^2)$.&lt;/p&gt;
+&lt;h3 id=&#34;faster-computation&#34;&gt;Faster Computation&lt;/h3&gt;
+&lt;p&gt;Let $A(x)$ be the exponential generating function of the sequence $(a)_n$. That is,&lt;/p&gt;
+&lt;p&gt;$$A(x) = \sum_{k=0}^\infty \frac{a_k}{k!} x^k$$&lt;/p&gt;
+&lt;p&gt;Then,&lt;/p&gt;
+&lt;p&gt;$$2A(x) = \int A(x)^2 dx + x + 2$$&lt;/p&gt;
+&lt;p&gt;The purpose of the integration is to &amp;ldquo;shift&amp;rdquo; the EGF by one, and the $x + 2$ part is to make the base case of $[x^0]$ and $[x^1]$ be both $2$ (recall that we are computing $2A(x)$, not a single $A(x)$).&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s solve the integration formula. We derive both sides:&lt;/p&gt;
+&lt;p&gt;$$2 \frac{\mathrm{d}}{\mathrm{d}x} A(x) = A(x)^2 + 1$$&lt;/p&gt;
+&lt;p&gt;Since I have nothing better to do, I will derive this ordinary differential equation in more details.
+We divide both sides by $A(x)^2 + 1$ then integrate both sides.&lt;/p&gt;
+&lt;p&gt;$$\int \frac{2}{A(x)^2 + 1} \mathrm{d}A(x) = \int dx$$&lt;/p&gt;
+&lt;p&gt;Use the trigonometry substituion $A(x) = \tan(t)$ and we obtain:&lt;/p&gt;
+&lt;p&gt;$$\int \frac{2}{\tan(t)^2 + 1} \sec(t)^2 dt = x + C$$&lt;/p&gt;
+&lt;p&gt;Note the trigonometry identity $\tan(t)^2 + 1 = \sec(t)^2$, then:&lt;/p&gt;
+&lt;p&gt;$$2\arctan(A(x)) = x + C$$&lt;/p&gt;
+&lt;p&gt;We note that when $x = 0$, $A(0) = 1$, hence:&lt;/p&gt;
+&lt;p&gt;$$A(x) = \tan\left(\frac{x}{2} + \frac{\pi}{4}\right)$$&lt;/p&gt;
+&lt;p&gt;Use the tangent half-angle formula, and we finally obtain:&lt;/p&gt;
+&lt;p&gt;$$A(x) = \sec(x) + \tan(x) = \frac{1 + \sin(x)}{\cos(x)}$$&lt;/p&gt;
+&lt;p&gt;and this can be easily calculated in $O(N \log N)$ using FFT.&lt;/p&gt;
+&lt;p&gt;Apparently, the resulting generating function is also known as André&amp;rsquo;s theorem.&lt;/p&gt;
+&lt;h2 id=&#34;counting-zigzag-sequences&#34;&gt;Counting Zigzag Sequences&lt;/h2&gt;
+&lt;p&gt;Given $N \le 200\;000$ and $M \le 10^9$, find the number of sequences of positive integers such that $a_i \le M$ and $a_1 \lt a_2 \gt a_3 \lt a_4 \gt \ldots a_N$.&lt;/p&gt;
+&lt;p&gt;To solve this problem, we must first forget everything from the previous section as they prove to be useless for this problem.&lt;/p&gt;
+&lt;p&gt;The key idea here is inclusion-exclusion, and we have to solve by cases.&lt;/p&gt;
+&lt;h3 id=&#34;n-is-even&#34;&gt;N is even&lt;/h3&gt;
+&lt;p&gt;We will apply inclusion-exclusion on the &amp;ldquo;$\gt$&amp;rdquo; part.
+What this means is we keep all the &amp;ldquo;$\lt$&amp;rdquo; signs, ignore some of the &amp;ldquo;$\gt$&amp;rdquo; conditions, and replace all the other &amp;ldquo;$\gt$&amp;rdquo; with &amp;ldquo;$\le$&amp;rdquo;.
+For every such replacement, count the number of the inequalities, then multiply by $(-1)^{\text{\# of ≤}}$, then sum for all of the possible replacements.&lt;/p&gt;
+&lt;p&gt;The sum is not straightforward to come. Instead, for one possible replacement, we will consider a &lt;em&gt;chain&lt;/em&gt; as the maximal subsegment such that $a_{2i+1} \lt a_{2i+2} \le a_{2i+3} \lt \ldots \le a_{2j}$. That is, the chain is a maximal consecutive subsequence such that it contains either &amp;ldquo;$\lt$&amp;rdquo; or &amp;ldquo;$\le$&amp;rdquo;. Notice that such a chain always has an even length.&lt;/p&gt;
+&lt;p&gt;The number of sequences $b$ of length $2n$ (an even number) such that $b_1 \lt b_2 \le b_3 \lt \ldots \le b_{2n}$ can be easily found out as $\binom{M + n - 1}{2n}$.&lt;/p&gt;
+&lt;p&gt;Now, we just have to &amp;ldquo;glue&amp;rdquo; up all these chains to form a sequence of length $N$.&lt;/p&gt;
+&lt;p&gt;So we obtain this DP formula:&lt;/p&gt;
+&lt;p&gt;$$dp(n) = \sum_{k=1}^n (-1)^{k-1} \binom{M+k-1}{2k} dp(n-k)$$&lt;/p&gt;
+&lt;p&gt;and our answer is $dp(\frac{N}{2})$ which can be solved in $O(N^2)$.&lt;/p&gt;
+&lt;p&gt;To speed it up, define $P(x)$ as the generating function:&lt;/p&gt;
+&lt;p&gt;$$P(x) = \sum_{k=1}^\infty (-1)^{k-1} \binom{M+k-1}{2k} x^{2k}$$.&lt;/p&gt;
+&lt;p&gt;then we simply need to find:&lt;/p&gt;
+&lt;p&gt;$$[x^N](1 + P(x) + P(x)^2 + \ldots) = [x^N]\frac{1}{1 - P(x)}$$&lt;/p&gt;
+&lt;p&gt;using FFT in $O(N \log N)$.&lt;/p&gt;
+&lt;h3 id=&#34;n-is-odd&#34;&gt;N is odd&lt;/h3&gt;
+&lt;p&gt;We continue from the result of the even case. What we need to do now is to add a single odd chain at the end.&lt;/p&gt;
+&lt;p&gt;So we define the generating function of the odd chain:&lt;/p&gt;
+&lt;p&gt;$$Q(x) = \sum_{k=0}^\infty (-1)^k \binom{M+k}{2k+1} x^{2k+1}$$&lt;/p&gt;
+&lt;p&gt;Then we can simply find&lt;/p&gt;
+&lt;p&gt;$$[x^N] \frac{Q(x)}{1 - P(x)}$$&lt;/p&gt;
+&lt;p&gt;with FFT in $O(N \log N)$.&lt;/p&gt;
+&lt;h3 id=&#34;combining-both-cases&#34;&gt;Combining both cases&lt;/h3&gt;
+&lt;p&gt;Since both GFs are &amp;ldquo;independent&amp;rdquo;, we can simply find:&lt;/p&gt;
+&lt;p&gt;$$[x^N] \frac{1 + Q(x)}{1 - P(x)}$$&lt;/p&gt;
+&lt;p&gt;without the need for a parity check of $N$.&lt;/p&gt;
+</description>
+		</item>
 		<item>
 			<title>Sum of $C(N, i) \times i^K$</title>
 			<link>https://prabowo02.github.io/posts/sum-cnk-xk/</link>
@@ -14,7 +104,7 @@
 			<guid isPermaLink="true">https://prabowo02.github.io/posts/sum-cnk-xk/</guid>
 			<description>&lt;p&gt;Have you ever been doing your grocery then suddenly felt the need to compute:&lt;/p&gt;
 &lt;p&gt;$$\sum_{i=0}^N \binom{N}{i} i^K $$&lt;/p&gt;
-&lt;p&gt;where $N \le 10^9$ and $K \le 10^5$? Well you are in luck, because I&#39;m about to show you how.&lt;/p&gt;
+&lt;p&gt;where $N \le 10^9$ and $K \le 10^5$? Well you are in luck, because I&amp;rsquo;m about to show you how.&lt;/p&gt;
 &lt;p&gt;Consider the binomial expansion:&lt;/p&gt;
 &lt;p&gt;$$f_0(x) := (1 + x)^N = \sum_{i=0}^N \binom{N}{i} x^i$$&lt;/p&gt;
 &lt;p&gt;If you differentiate then multiply by $x$, you will get:&lt;/p&gt;
@@ -58,7 +148,7 @@ The formula can be easily shown using induction following the property $S(N, K) 
 			<link>https://prabowo02.github.io/posts/fft/</link>
 			<pubDate>Thu, 17 Dec 2020 17:55:15 +0800</pubDate>
 			<guid isPermaLink="true">https://prabowo02.github.io/posts/fft/</guid>
-			<description>&lt;p&gt;This is not a tutorial. It&#39;s just an overview for those who already (hopefully) understood FFT.
+			<description>&lt;p&gt;This is not a tutorial. It&amp;rsquo;s just an overview for those who already (hopefully) understood FFT.
 (Actually, more of a personal note to myself)&lt;/p&gt;
 &lt;h3 id=&#34;so-what-is-fft&#34;&gt;So what is FFT?&lt;/h3&gt;
 &lt;p&gt;DFT but fast&lt;/p&gt;
@@ -69,7 +159,7 @@ The formula can be easily shown using induction following the property $S(N, K) 
 &lt;h3 id=&#34;how-to-do-dft&#34;&gt;How to do DFT?&lt;/h3&gt;
 &lt;p&gt;Evaluate each sample point in $O(N)$, and you end up in $O(N^2)$ transformation.&lt;/p&gt;
 &lt;h3 id=&#34;can-you-do-better&#34;&gt;Can you do better?&lt;/h3&gt;
-&lt;p&gt;Yes, that&#39;s when FFT comes in.&lt;/p&gt;
+&lt;p&gt;Yes, that&amp;rsquo;s when FFT comes in.&lt;/p&gt;
 &lt;h3 id=&#34;how-to-fft&#34;&gt;How to FFT?&lt;/h3&gt;
 &lt;p&gt;The most commonly used algorithm is Cooley-Tukey algorithm, and the DFT size is usually taken in the form of $2^k$. It is basically a Divide and Conquer algorithm, by separating the odd and even terms, and does FFT recursively. By doing some reordering using bit reversal, you can actually does an iterative version of it. Final complexity is $O(N \log N)$ without any additional space.
 Details on FFT can be found in this &lt;a href=&#34;https://codeforces.com/blog/entry/43499&#34;&gt;Codeforces blog&lt;/a&gt;.&lt;/p&gt;
@@ -98,18 +188,18 @@ The way to do that is: $c = IFFT(FFT(a) * FFT(b))$, where $*$ is point-wise mult
 &lt;li&gt;$y \exp(y) = x$. Lambert W function. Also EGF for number of rooted enumerated trees. Can be computed using Lagrange–Bürmann formula.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;why-are-there-divisions-and-exponent&#34;&gt;Why are there divisions and exponent?&lt;/h3&gt;
-&lt;p&gt;These are operations on formal power series. The idea is, if you want to compute $Q$ that satisfies $f(Q) = 0$, for some polynom $Q$ and function $f$, we can use the Newton&#39;s method $Q_{n+1} = Q_n - \frac{f(P)}{f&amp;rsquo;(P)}$.&lt;/p&gt;
-&lt;p&gt;For example, computing $Q = \frac{1}{P} \implies Q^{-1} - P = 0 \implies f(Q) = Q^{-1} - P$&lt;br&gt;
+&lt;p&gt;These are operations on formal power series. The idea is, if you want to compute $Q$ that satisfies $f(Q) = 0$, for some polynom $Q$ and function $f$, we can use the Newton&amp;rsquo;s method $Q_{n+1} = Q_n - \frac{f(P)}{f&amp;rsquo;(P)}$.&lt;/p&gt;
+&lt;p&gt;For example, computing $Q = \frac{1}{P} \implies Q^{-1} - P = 0 \implies f(Q) = Q^{-1} - P$ &lt;br&gt;
 $Q := Q - \frac{Q^{-1} - P}{-Q^{-2}} = Q + (Q - PQ) = 2Q - PQ^2$&lt;/p&gt;
-&lt;p&gt;Another example, computing $Q = \sqrt{P} \implies Q^2 - P = 0 \implies f(Q) = Q^2 - P$&lt;br&gt;
+&lt;p&gt;Another example, computing $Q = \sqrt{P} \implies Q^2 - P = 0 \implies f(Q) = Q^2 - P$ &lt;br&gt;
 $Q := Q - \frac{Q^2 - P}{2Q} = \frac{1}{2}(Q + \frac{P}{Q})$&lt;/p&gt;
-&lt;p&gt;In every iteration of the Newton&#39;s method, the precision is doubled, i.e. the degree of $Q$ is improved from $n$ to $2n + 1$, and initially $Q$ is only a constant.&lt;/p&gt;
+&lt;p&gt;In every iteration of the Newton&amp;rsquo;s method, the precision is doubled, i.e. the degree of $Q$ is improved from $n$ to $2n + 1$, and initially $Q$ is only a constant.&lt;/p&gt;
 &lt;p&gt;And here are several operations along with their tricks:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Additions and subtractions are obvious.&lt;/li&gt;
 &lt;li&gt;Multiplication done by FFT.&lt;/li&gt;
 &lt;li&gt;Differentiation and integral are straightforward.&lt;/li&gt;
-&lt;li&gt;$\frac{1}{P}$, $\sqrt{P}$, $\exp(P)$ can be done using Newton&#39;s method.&lt;/li&gt;
+&lt;li&gt;$\frac{1}{P}$, $\sqrt{P}$, $\exp(P)$ can be done using Newton&amp;rsquo;s method.&lt;/li&gt;
 &lt;li&gt;$\log(P) = \int \frac{P&amp;rsquo;}{P}$&lt;/li&gt;
 &lt;li&gt;$P(x)^a = \exp(a \log(P(x)))$&lt;/li&gt;
 &lt;li&gt;$\arctan(P) = \int \frac{1}{1 + P^2}$&lt;/li&gt;
@@ -117,20 +207,20 @@ $Q := Q - \frac{Q^2 - P}{2Q} = \frac{1}{2}(Q + \frac{P}{Q})$&lt;/p&gt;
 &lt;li&gt;$P^{-1}(x)$ i.e. the inverse function, can be done using Lagrange–Bürmann formula&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;what-about-modulo&#34;&gt;What about modulo?&lt;/h3&gt;
-&lt;p&gt;You can find the details of division, modulo, multipoint evaluation, and interpolation in &lt;a href=&#34;https://drive.google.com/file/d/1B9BIfATnI_qL6rYiE5hY9bh20SMVmHZ7/view&#34;&gt;adamant&#39;s lecture note&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can find the details of division, modulo, multipoint evaluation, and interpolation in &lt;a href=&#34;https://drive.google.com/file/d/1B9BIfATnI_qL6rYiE5hY9bh20SMVmHZ7/view&#34;&gt;adamant&amp;rsquo;s lecture note&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;do-the-points-must-be-roots-of-unity&#34;&gt;Do the points must be roots of unity?&lt;/h3&gt;
-&lt;p&gt;You can actually compute for $\{{z^i\}}_{i=0}^{n-1}$, for any complex number $z$. This is called Chirp Z-transform and can be done using Bluestein&#39;s algorithm. The main idea is to write $ij = \binom{i + j}{2} - \binom{i}{2} - \binom{j}{2}$.&lt;br&gt;
+&lt;p&gt;You can actually compute for $\{{z^i\}}_{i=0}^{n-1}$, for any complex number $z$. This is called Chirp Z-transform and can be done using Bluestein&amp;rsquo;s algorithm. The main idea is to write $ij = \binom{i + j}{2} - \binom{i}{2} - \binom{j}{2}$. &lt;br&gt;
 Hence, $\sum(a_i z^{ik}) = \sum \left(a_i z^{-\binom{i}{2}} z^{\binom{i + k}{2}} \right) z^{-\binom{k}{2}}$, which is exactly a convolution and can be computed using FFT. &lt;a href=&#34;https://codeforces.com/problemset/problem/1054/H&#34;&gt;Example problem&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;can-we-compute-any-size-dft-quickly&#34;&gt;Can we compute any size DFT quickly?&lt;/h3&gt;
 &lt;p&gt;Yes, by using CZT, and $z$ such that $z$ is primitive $n$-th root of unity where $n$ is the DFT size. One example problem that use DFT any size can be found on &lt;a href=&#34;https://codeforces.com/contest/901/problem/E&#34;&gt;Codeforces&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;must-the-polynomial-be-monic&#34;&gt;Must the polynomial be monic?&lt;/h3&gt;
 &lt;p&gt;Multidimentional DFT can be done by performing DFT on each dimension one by one. An example problem can be found &lt;a href=&#34;https://codeforces.com/gym/102441/problem/E&#34;&gt;here&lt;/a&gt;. In this problem, &lt;span style=&#34;color:white&#34;&gt;you will need both sum-convolution for one variable, and xor-convolution for the other in a single polynomial&lt;/span&gt; (spoiler in white text).&lt;/p&gt;
-&lt;h3 id=&#34;xorconvolution&#34;&gt;Xor-convolution?&lt;/h3&gt;
+&lt;h3 id=&#34;xor-convolution&#34;&gt;Xor-convolution?&lt;/h3&gt;
 &lt;p&gt;Xor convolution means that $a_i b_j$ is contributed to $c_{i \oplus j}$. It is basically the standard DFT but multidimensional, and each dimension is DFT of size $2$. This is working because xor is basically addition in vector space $\bmod 2$.&lt;/p&gt;
 &lt;h3 id=&#34;can-we-have-other-bitwise-convolutions&#34;&gt;Can we have other bitwise convolutions?&lt;/h3&gt;
-&lt;p&gt;In XOR, you tranform $(u, v)$ to $(u + v, u - v)$.&lt;br&gt;
-In AND, you tranform $(u, v)$ to $(u + v, v)$. After performing AND-tranform, you actually ends up with sum of supermasks.&lt;br&gt;
-In OR, you tranform $(u, v)$ to $(u, u + v)$. After performing OR-tranform, you actually ends up with sum of submasks.&lt;br&gt;
+&lt;p&gt;In XOR, you tranform $(u, v)$ to $(u + v, u - v)$. &lt;br&gt;
+In AND, you tranform $(u, v)$ to $(u + v, v)$. After performing AND-tranform, you actually ends up with sum of supermasks. &lt;br&gt;
+In OR, you tranform $(u, v)$ to $(u, u + v)$. After performing OR-tranform, you actually ends up with sum of submasks. &lt;br&gt;
 In NAND, you perform AND, then do the bit inverting (i.e. swap coefficients of bit 0 and bit 1).&lt;/p&gt;
 &lt;p&gt;An example problem that uses various binary gates can be found on &lt;a href=&#34;https://codeforces.com/contest/1033/problem/F&#34;&gt;Codeforces&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;must-dft-be-operated-in-complex&#34;&gt;Must DFT be operated in complex?&lt;/h3&gt;
@@ -167,7 +257,7 @@ $g(0), g(v), \dots, g(v(v-1))$.&lt;/p&gt;
 &lt;p&gt;Let $h(x)$ be a $d$-degree polynomial and the values $h(0), h(1), \dots, h(d)$ are known, then the value $h(m + k)$ can be computed using Lagrange Interpolation (assuming $m + k - j$ has an inverse):&lt;/p&gt;
 &lt;p&gt;$$
 \begin{align*}
-h(m + k) &amp;amp;= \sum_{i = 0}^d h(i) \prod_{j=0, i \neq j}^d \frac{m+k-j}{i-j} \\\&lt;br&gt;
+h(m + k) &amp;amp;= \sum_{i = 0}^d h(i) \prod_{j=0, i \neq j}^d \frac{m+k-j}{i-j} \\\
 &amp;amp;= \left(\prod_{j=0}^d (m + k - j) \right) \left( \sum_{i=0}^d \frac{h(i)}{i! (d-i)! (-1)^{d-i}} \cdot \frac{1}{m + k - i} \right)
 \end{align*}
 $$&lt;/p&gt;
@@ -217,11 +307,11 @@ $$x + dy = b$$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;solving-x2--pq-mod-q&#34;&gt;Solving $x^2 = Pq \mod q$&lt;/h4&gt;
 &lt;p&gt;It is obvious that $Pq = 0 \mod q$ because $q | Pq$. The congruence became $x^2 = 0 mod q$. Since q is squarefree, there is only one solution to $x$, which is $0$ (how convenient). This is the reason why we are not using the equation $x^2 - PQ = Q(Q-P)$, because solving $x^2 = 0 \mod Q$ may yield tens or hundreds of solutions.&lt;/p&gt;
-&lt;h4 id=&#34;solving-x2--pq-mod-qp&#34;&gt;Solving $x^2 = Pq \mod (Q-P)$&lt;/h4&gt;
+&lt;h4 id=&#34;solving-x2--pq-mod-q-p&#34;&gt;Solving $x^2 = Pq \mod (Q-P)$&lt;/h4&gt;
 &lt;p&gt;First, rewrite the congruence:&lt;/p&gt;
-&lt;p&gt;$ \ \ \ \ \ \ \  x^2 = Pq \pmod{Q-P}$&lt;br&gt;
-$\Longrightarrow x^2 = Pq + q(Q-P) \pmod{Q-P}$&lt;br&gt;
-$\Longrightarrow x^2 = Qq \pmod {Q-P}$&lt;br&gt;
+&lt;p&gt;$ \ \ \ \ \ \ \  x^2 = Pq \pmod{Q-P}$ &lt;br&gt;
+$\Longrightarrow x^2 = Pq + q(Q-P) \pmod{Q-P}$ &lt;br&gt;
+$\Longrightarrow x^2 = Qq \pmod {Q-P}$ &lt;br&gt;
 $\Longrightarrow x^2 = (qr)^2 \pmod{Q-P}$&lt;/p&gt;
 &lt;p&gt;This also works when the modulo is $\frac{Q-P}{f^2}$, we will obtain the same congruence $x^2 = (qr)^2 \pmod{\frac{Q-P}{f^2}}$.&lt;/p&gt;
 &lt;p&gt;Since we already know one solution to $x$ (which is $qr$), then the other solutions can be determined quite easily.&lt;/p&gt;
@@ -273,23 +363,23 @@ f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) -
 &lt;li&gt;Return &lt;code&gt;dp[N]&lt;/code&gt; as our answer.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;pseudo-code&#34;&gt;Pseudo Code&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;primeCounting&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; N) {
-  Ni &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sort_descending(unique([N&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;i &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; .. N]]))
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (n: Ni) {
-    dp[n] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-  }
-
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;; p&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;p &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; N; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;p) {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (dp[p] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dp[p&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]) &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// p is not a prime
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (n: Ni) {
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; i&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;i) &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
-      dp[n] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dp[n&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;p] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; dp[p];
-    }
-  }
-
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; dp[N];
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;complexity&#34;&gt;Complexity&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;primeCounting&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; N) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Ni &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sort_descending(unique([N&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;i &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; .. N]]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (n: Ni) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dp[n] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;; p&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;p &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; N; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;p) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (dp[p] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; dp[p&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]) &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// p is not a prime
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (n: Ni) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; i&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;i) &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      dp[n] &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; dp[n&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;p] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; dp[p];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; dp[N];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;complexity&#34;&gt;Complexity&lt;/h3&gt;
 &lt;p&gt;It can be seen that the transition operation of $(1)$ is $O(1)$. Therefore, we just need to compute the space of $f(n, p)$.&lt;/p&gt;
 &lt;p&gt;There are two cases:&lt;/p&gt;
 &lt;h4 id=&#34;case-1-n-leq-sqrt-n&#34;&gt;Case 1: $n \leq \sqrt N$&lt;/h4&gt;
@@ -326,9 +416,9 @@ f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) -
 			<link>https://prabowo02.github.io/posts/binomial-mod-pe/</link>
 			<pubDate>Wed, 04 Dec 2019 16:03:30 +0800</pubDate>
 			<guid isPermaLink="true">https://prabowo02.github.io/posts/binomial-mod-pe/</guid>
-			<description>&lt;p&gt;This is an attempt to translate &lt;a href=&#34;https://min-25.hatenablog.com/entry/2017/11/01/185400&#34;&gt;min_25&#39;s article&lt;/a&gt; with the help of Google Translate, and with a bit of modification.&lt;/p&gt;
+			<description>&lt;p&gt;This is an attempt to translate &lt;a href=&#34;https://min-25.hatenablog.com/entry/2017/11/01/185400&#34;&gt;min_25&amp;rsquo;s article&lt;/a&gt; with the help of Google Translate, and with a bit of modification.&lt;/p&gt;
 &lt;p&gt;Our goal is to solve ${n \choose m} \pmod{p^e}$, ($n, m, p^e &amp;lt; 10^{300}$, $p$: prime number).&lt;/p&gt;
-&lt;p&gt;The method differ from Andrew Granville&#39;s Binomial Coefficients modulo prime powers (&lt;a href=&#34;https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf&#34;&gt;BinCoeff.pdf&lt;/a&gt;).&lt;br&gt;
+&lt;p&gt;The method differ from Andrew Granville&amp;rsquo;s Binomial Coefficients modulo prime powers (&lt;a href=&#34;https://web.archive.org/web/20170202003812/http://www.dms.umontreal.ca/~andrew/PDF/BinCoeff.pdf&#34;&gt;BinCoeff.pdf&lt;/a&gt;). &lt;br&gt;
 After precomputation, the number of operation to compute ${n \choose m} \pmod{p^e}$ is reduced from $O\left(e^2\left(\frac{\log n}{\log p} + \min(\log n, \log p)\right)\right)$ to $O(e \log n)$.&lt;/p&gt;
 &lt;p&gt;For the rest of the article, denote ${n \brack m}$ as &lt;a href=&#34;https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind&#34;&gt;Stirling number of the first kind&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;computation-method&#34;&gt;Computation Method&lt;/h3&gt;
@@ -337,9 +427,9 @@ After precomputation, the number of operation to compute ${n \choose m} \pmod{p^
 &lt;p&gt;For simplicity, we assume that $e &amp;lt; p$,&lt;/p&gt;
 &lt;p&gt;$$
 \begin{align*}
-((up+v)!)_p &amp;amp;= \left( \prod_{i=0}^{u-1} \prod_{j=1}^{p-1} (ip+j) \right) \cdot \prod_{j=1}^v (up + j) \\\&lt;br&gt;
-&amp;amp;\equiv \left(\prod_{i=0}^{u-1} \left( \sum_{k=0}^{e-1} (ip)^k {p \brack {k+1}}\right)\right) \cdot \left(\sum_{k=0}^{e-1}(up)^k {{v+1} \brack {k+1}}\right) \pmod {p^e} \\\&lt;br&gt;
-&amp;amp;= {p \brack 1}^u \left(\prod_{i=0}^{u-1}\left( 1 + \sum_{k=1}^{e-1} \frac{{p \brack {k+1}}}{{p \brack 1}}(ip)^k \right) \right) \cdot \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right) \\\&lt;br&gt;
+((up+v)!)_p &amp;amp;= \left( \prod_{i=0}^{u-1} \prod_{j=1}^{p-1} (ip+j) \right) \cdot \prod_{j=1}^v (up + j) \\\
+&amp;amp;\equiv \left(\prod_{i=0}^{u-1} \left( \sum_{k=0}^{e-1} (ip)^k {p \brack {k+1}}\right)\right) \cdot \left(\sum_{k=0}^{e-1}(up)^k {{v+1} \brack {k+1}}\right) \pmod {p^e} \\\
+&amp;amp;= {p \brack 1}^u \left(\prod_{i=0}^{u-1}\left( 1 + \sum_{k=1}^{e-1} \frac{{p \brack {k+1}}}{{p \brack 1}}(ip)^k \right) \right) \cdot \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right) \\\
 &amp;amp;= {p \brack 1}^u f_{p,e}(u) \left( \sum_{k=0}^{e-1} (up)^k {{v+1} \brack {k+1}} \right)
 \end{align*}
 $$&lt;/p&gt;
@@ -353,21 +443,21 @@ $$&lt;/p&gt;
 &lt;li&gt;Computation of $n!$ without the factor $p$ can be done by $\sum_{k=0}^\infty \left(\left\lfloor\frac{n}{p^k}\right\rfloor_p\right)!$ in $O(e \log n)$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;In total, there are around $O(pe + e^2 + e \log n)$ time complexity to compute ${n \choose m}$&lt;/p&gt;
-&lt;h4 id=&#34;proof-that-fp-e-is-a-polynomial&#34;&gt;Proof that $f_{p, e}$ is a polynomial&lt;/h4&gt;
+&lt;h4 id=&#34;proof-that-f_p-e-is-a-polynomial&#34;&gt;Proof that $f_{p, e}$ is a polynomial&lt;/h4&gt;
 &lt;p&gt;For any $e, p$ $(e \geq 1, p \geq 2)$, let $a_k$ be a rational number that exists under modulo $p$. Let,&lt;/p&gt;
 &lt;p&gt;$$ g(x, u) := \prod_{i=0}^{u-1} \left( 1 + \sum_{k=1}^{e-1} a_k (xi)^k \right) $$&lt;/p&gt;
 &lt;p&gt;Let $b_k$ be some other rational number satisfying:&lt;/p&gt;
 &lt;p&gt;$$
 \begin{align*}
-\log(g(x, u)) &amp;amp;= \sum_{i=0}^{u-1} \log\left( 1 + \sum_{k=1}^{e-1} a_k(xi)^k \right) \\\&lt;br&gt;
-&amp;amp;= \sum_{i=0}^{u-1} \sum_{k=0}^\infty b_k x^k i^k \\\&lt;br&gt;
+\log(g(x, u)) &amp;amp;= \sum_{i=0}^{u-1} \log\left( 1 + \sum_{k=1}^{e-1} a_k(xi)^k \right) \\\
+&amp;amp;= \sum_{i=0}^{u-1} \sum_{k=0}^\infty b_k x^k i^k \\\
 &amp;amp;= \sum_{k=1}^\infty b_k x^k s_k(u)
 \end{align*}
 $$&lt;/p&gt;
 &lt;p&gt;where $s_k(x) = \sum_{i=0}^x i^k$ is a polynomial of degree $k+1$. Continuing from above,&lt;/p&gt;
 &lt;p&gt;$$
 \begin{align*}
-g(x, u) &amp;amp;= \exp\left( \sum_{k=1}^\infty b_k x^k s_k(u) \right) \\\&lt;br&gt;
+g(x, u) &amp;amp;= \exp\left( \sum_{k=1}^\infty b_k x^k s_k(u) \right) \\\
 &amp;amp;= 1 + \sum_{k=1}^\infty t_k(u) x^k
 \end{align*}
 $$&lt;/p&gt;
@@ -383,7 +473,7 @@ $$&lt;/p&gt;
 &lt;p&gt;Using these properties, looks like it is possible to further reduce the degree of $f_{p, e}(x)$.&lt;/p&gt;
 &lt;h3 id=&#34;source-codes&#34;&gt;Source Codes&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;min_25&#39;s implementation using &lt;a href=&#34;https://gist.github.com/min-25/a5496354e10064a581d6b0c52c727a26&#34;&gt;Python&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;min_25&amp;rsquo;s implementation using &lt;a href=&#34;https://gist.github.com/min-25/a5496354e10064a581d6b0c52c727a26&#34;&gt;Python&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;My implementation using &lt;a href=&#34;https://github.com/prabowo02/CP/blob/master/binomial_mod_pe.cpp&#34;&gt;C++&lt;/a&gt; (but it is not using big integer, only &lt;code&gt;__int128&lt;/code&gt;, so it can only support for $n$ up to $10^{18}$).&lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -415,14 +505,14 @@ $$&lt;/p&gt;
 &lt;p&gt;$$\sum_{l=0}^{m-1} \left( \omega^{-lr} \sum_{i=0}^n x^i \omega^{li(i+1)/2} {n \brack i}_{\omega^l} \right)$$&lt;/p&gt;
 &lt;p&gt;Since we only care with the $x^k$ coefficient, then the answer to our original problem is the evaluation of:&lt;/p&gt;
 &lt;p&gt;$$ \sum_{i=0}^{m-1} \left( (\omega^{i})^{k(k+1)/2 - r} {n \brack k}_{\omega^i} \right) $$&lt;/p&gt;
-&lt;p&gt;We will compute the sum for each primitive of $\omega^i$ separately. Denote $\omega_d$ as the primitive $d$-th root of unity. Also note the &lt;a href=&#34;https://www.math.upenn.edu/~peal/polynomials/q-analogues.htm#prelimQanaloguesQLucas&#34;&gt;q-Lucas theorem&lt;/a&gt;: ${n \brack k}_{\omega_d} = {\lfloor n/d \rfloor \choose \lfloor k/d \rfloor } {n \mod d \brack k \mod d}_{\omega_d}$.&lt;br&gt;
-Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k \pmod d$, $0$ otherwise.&lt;br&gt;
+&lt;p&gt;We will compute the sum for each primitive of $\omega^i$ separately. Denote $\omega_d$ as the primitive $d$-th root of unity. Also note the &lt;a href=&#34;https://www.math.upenn.edu/~peal/polynomials/q-analogues.htm#prelimQanaloguesQLucas&#34;&gt;q-Lucas theorem&lt;/a&gt;: ${n \brack k}_{\omega_d} = {\lfloor n/d \rfloor \choose \lfloor k/d \rfloor } {n \mod d \brack k \mod d}_{\omega_d}$. &lt;br&gt;
+Since $n \mod d \leq k \mod d$, the value of ${n \mod d \brack k \mod d} = 1$ if $n \equiv k \pmod d$, $0$ otherwise. &lt;br&gt;
 With these in mind, we rewrite our equation to:&lt;/p&gt;
 &lt;p&gt;$$ \sum_{d|m} \left( \sum_{(d, i) = 1}^d (\omega_d^i)^{k(k+1)/2 - r}  {n \choose k}[n \equiv k \pmod d] \right) $$&lt;/p&gt;
-&lt;p&gt;where $[]$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Iverson_bracket&#34;&gt;Iverson bracket&lt;/a&gt;. Recall that the sum of $k$-th power of the $d$-th root of unity is $\frac{\mu(d / \gcd(k, d)) \varphi(d)}{\varphi(d / \gcd(k, d))}$, where $\mu$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/M%C3%B6bius_function&#34;&gt;Möbius function&lt;/a&gt; and $\varphi$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Euler%27s_totient_function&#34;&gt;Euler&#39;s Totient function&lt;/a&gt;.&lt;br&gt;
+&lt;p&gt;where $[]$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Iverson_bracket&#34;&gt;Iverson bracket&lt;/a&gt;. Recall that the sum of $k$-th power of the $d$-th root of unity is $\frac{\mu(d / \gcd(k, d)) \varphi(d)}{\varphi(d / \gcd(k, d))}$, where $\mu$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/M%C3%B6bius_function&#34;&gt;Möbius function&lt;/a&gt; and $\varphi$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Euler%27s_totient_function&#34;&gt;Euler&amp;rsquo;s Totient function&lt;/a&gt;. &lt;br&gt;
 Therefore, our final answer is:&lt;/p&gt;
 &lt;p&gt;$$ \sum_{d|m} \left( \frac{\mu\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right) \varphi(d)}{\varphi\left(\frac{d}{\gcd(k(k+1)/2 - r, d)}\right)} {n \choose k}[n \equiv k \pmod d] \right) $$&lt;/p&gt;
-&lt;p&gt;And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using &lt;a href=&#34;https://en.wikipedia.org/wiki/Chinese_remainder_theorem&#34;&gt;Chinese Remainder Theorem&lt;/a&gt;. The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which is described in this &lt;a href=&#34;https://prabowo02.github.io/posts/binomial-mod-pe&#34;&gt;post&lt;/a&gt;.&lt;br&gt;
+&lt;p&gt;And now, for the computational part. Compute the final sum for every prime factor of $M$, then combine the answers using &lt;a href=&#34;https://en.wikipedia.org/wiki/Chinese_remainder_theorem&#34;&gt;Chinese Remainder Theorem&lt;/a&gt;. The computation of binomial theorem modulo $p^e$ can be computed in $O(e(p + e + \log n))$, which is described in this &lt;a href=&#34;https://prabowo02.github.io/posts/binomial-mod-pe&#34;&gt;post&lt;/a&gt;. &lt;br&gt;
 The computation of the divisors of $m$ and all its mobius and euler totient values can be computed in $O(\sqrt m)$&lt;/p&gt;
 &lt;p&gt;Therefore, the overall complexity is $O(\sqrt m + \log M \log n)$.&lt;/p&gt;
 </description>

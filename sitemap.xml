@@ -1,63 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://prabowo02.github.io/</loc>
-    <lastmod>2021-06-01T23:08:09+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-07-10T18:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prabowo02.github.io/posts/zigzag-sequences/</loc>
+    <lastmod>2022-07-10T18:30:00+08:00</lastmod>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/</loc>
-    <lastmod>2021-06-01T23:08:09+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-07-10T18:30:00+08:00</lastmod>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/sum-cnk-xk/</loc>
     <lastmod>2021-06-01T23:08:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/fft/</loc>
     <lastmod>2020-12-17T17:55:15+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/factorial-mod-p/</loc>
     <lastmod>2020-11-02T18:00:15+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/project-euler-100/</loc>
     <lastmod>2020-07-10T00:24:26+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/prime-counting/</loc>
     <lastmod>2019-12-22T14:00:39+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/binomial-mod-pe/</loc>
     <lastmod>2019-12-04T16:03:30+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/posts/project-euler-242/</loc>
     <lastmod>2019-11-29T12:15:14+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/about/</loc>
     <lastmod>2019-11-29T12:08:03+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://prabowo02.github.io/tags/</loc>
   </url>
-  
 </urlset>
