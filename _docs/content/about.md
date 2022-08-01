@@ -22,4 +22,7 @@ I usually go by the username prabowo on several online judges:
 - [TLX](https://tlx.toki.id/profiles/prabowo)
 - [CS Academy](https://csacademy.com/user/prabowo)
 
+I set various problems for Informatics competitions and olympiads.
+The list can be found [here](/problems).
+
 About the content of this blog, I will mostly talk about algorithms.
