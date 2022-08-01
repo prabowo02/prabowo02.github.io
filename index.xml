@@ -98,6 +98,72 @@ For every such replacement, count the number of the inequalities, then multiply 
 </description>
 		</item>
 		<item>
+			<title>My Problems</title>
+			<link>https://prabowo02.github.io/problems/</link>
+			<pubDate>Mon, 03 Jan 2022 12:08:03 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/problems/</guid>
+			<description>&lt;h2 id=&#34;problemsetting&#34;&gt;Problemsetting&lt;/h2&gt;
+&lt;p&gt;I set various problems for Informatics olympiads and competitions (⭐ means a problem that is liked by the community):&lt;/p&gt;
+&lt;h3 id=&#34;icpc&#34;&gt;ICPC&lt;/h3&gt;
+&lt;h4 id=&#34;regional&#34;&gt;Regional&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;⭐ &lt;a href=&#34;https://tlx.toki.id/problems/icpc-jakarta-2021/K&#34;&gt;2021 ICPC Regional Jakarta — White-Black Tree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;⭐ &lt;a href=&#34;https://codeforces.com/contest/1252/problem/K&#34;&gt;2019 ICPC Regional Jakarta — Addition Robot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;national&#34;&gt;National&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/problems/inc-2021/C&#34;&gt;2021 ICPC Indonesia National Contest — Card Game&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/problems/inc-2021/J&#34;&gt;2021 ICPC Indonesia National Contest — Sum Mod Pair of A&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/problems/inc-2020/G&#34;&gt;2020 ICPC Indonesia National Contest — Hallway and Butler&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;olympiad-in-informatics&#34;&gt;Olympiad in Informatics&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;⭐ &lt;a href=&#34;https://tlx.toki.id/problems/ksn-2021/1B&#34;&gt;2021 Indonesia National Olympiad in Informatics — Binary Sea&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;⭐ &lt;a href=&#34;https://tlx.toki.id/problems/ksn-2020/2C&#34;&gt;2020 Indonesia National Olympiad in Informatics — Finding Balls&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/problems/ksn-2020/2A&#34;&gt;2020 Indonesia National Olympiad in Informatics — Evil Spirit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;toki-regular-open-contest&#34;&gt;TOKI Regular Open Contest&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/problems/troc-20/G&#34;&gt;TOKI Regular Open Contest #20 — Obscure Superstring&lt;/a&gt; (coauthor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/problems/troc-17/H&#34;&gt;TOKI Regular Open Contest #17 — Guitar Gift&lt;/a&gt; (coauthor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip; and more problems incoming.&lt;/p&gt;
+&lt;h2 id=&#34;scientific-committee&#34;&gt;Scientific Committee&lt;/h2&gt;
+&lt;h3 id=&#34;coordinator-lead&#34;&gt;Coordinator (Lead)&lt;/h3&gt;
+&lt;p&gt;I coordinated contests that are widely known by the community:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ksn2021.toki.id/&#34;&gt;2021 Indonesia National Olympiad in Informatics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://apio2021.toki.id/&#34;&gt;2021 Asia-Pacific Informatics Olympiad&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/problems/problemsets?archive=troc&#34;&gt;TOKI Regular Open Contests #7 — #26&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;committee-member&#34;&gt;Committee Member&lt;/h3&gt;
+&lt;p&gt;I was involved in the preparations of various contests:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ksn2020.toki.id/&#34;&gt;2020 Indonesia National Olympiad in Informatics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://apio2020.toki.id/&#34;&gt;2020 Asia-Pacific Informatics Olympiad&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://osn2019.toki.id/&#34;&gt;2019 Indonesia National Olympiad in Informatics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;testersobservers&#34;&gt;Testers/Observers&lt;/h3&gt;
+&lt;p&gt;I tested and observed a lot of contests:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ioi2021.sg/&#34;&gt;International Olympiad in Informatics 2021&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ioi2020.sg/&#34;&gt;International Olympiad in Informatics 2020&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/104491&#34;&gt;CodeTON Round 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/104880&#34;&gt;Codeforces Round #808&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/98471&#34;&gt;Codeforces Good Bye 2021&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/92093&#34;&gt;Codeforces Round #728&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/contest/1575&#34;&gt;COMPFEST 13 Finals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/86048&#34;&gt;Codeforces Good Bye 2020&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/84662&#34;&gt;Codeforces Round #684&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/84500&#34;&gt;Codeforces Round #682 (Div. 2)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/83730&#34;&gt;Codeforces Raif Round 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/80422&#34;&gt;Codeforces Round #659&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/81167&#34;&gt;Codeforces Round #663&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeforces.com/blog/entry/79620&#34;&gt;Codeforces Global Round 9&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+		</item>
+		<item>
 			<title>Sum of $C(N, i) \times i^K$</title>
 			<link>https://prabowo02.github.io/posts/sum-cnk-xk/</link>
 			<pubDate>Tue, 01 Jun 2021 23:08:09 +0800</pubDate>
@@ -532,6 +598,8 @@ I usually go by the username prabowo on several online judges:&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://tlx.toki.id/profiles/prabowo&#34;&gt;TLX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://csacademy.com/user/prabowo&#34;&gt;CS Academy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;I set various problems for Informatics competitions and olympiads.
+The list can be found &lt;a href=&#34;https://prabowo02.github.io/problems&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;About the content of this blog, I will mostly talk about algorithms.&lt;/p&gt;
 </description>
 		</item>
