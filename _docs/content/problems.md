@@ -10,26 +10,36 @@ disqus: true
 
 ## Problemsetting
 
-I set various problems for Informatics olympiads and competitions (⭐ means a problem that is liked by the community):
+I set various problems for Informatics olympiads and competitions.
 
 ### ICPC
 
 #### Regional
 
-* ⭐ [2021 ICPC Regional Jakarta — White-Black Tree](https://tlx.toki.id/problems/icpc-jakarta-2021/K)
-* ⭐ [2019 ICPC Regional Jakarta — Addition Robot](https://codeforces.com/contest/1252/problem/K)
+* [2022 ICPC Regional Jakarta — Grid Game](https://tlx.toki.id/problems/icpc-jakarta-2022/H)
+* [2022 ICPC Regional Jakarta — Sharing Bread](https://tlx.toki.id/problems/icpc-jakarta-2022/J)
+* [2021 ICPC Regional Jakarta — White-Black Tree](https://tlx.toki.id/problems/icpc-jakarta-2021/K)
+* [2019 ICPC Regional Jakarta — Addition Robot](https://codeforces.com/contest/1252/problem/K)
 
 #### National
 
+* [2022 ICPC Indonesia National Contest — Robot Upgrades](https://tlx.toki.id/problems/inc-2022/D)
 * [2021 ICPC Indonesia National Contest — Card Game](https://tlx.toki.id/problems/inc-2021/C)
 * [2021 ICPC Indonesia National Contest — Sum Mod Pair of A](https://tlx.toki.id/problems/inc-2021/J)
 * [2020 ICPC Indonesia National Contest — Hallway and Butler](https://tlx.toki.id/problems/inc-2020/G)
 
 ### Olympiad in Informatics
 
-* ⭐ [2021 Indonesia National Olympiad in Informatics — Binary Sea](https://tlx.toki.id/problems/ksn-2021/1B)
-* ⭐ [2020 Indonesia National Olympiad in Informatics — Finding Balls](https://tlx.toki.id/problems/ksn-2020/2C)
+#### International
+
+* [2022 International Olympiad in Informatics — Digital Circuit](https://ioi2022.id/data/day2/circuit-en_ISC.pdf)
+
+#### National
+
+* [2021 Indonesia National Olympiad in Informatics — Binary Sea](https://tlx.toki.id/problems/ksn-2021/1B)
+* [2020 Indonesia National Olympiad in Informatics — Finding Balls](https://tlx.toki.id/problems/ksn-2020/2C)
 * [2020 Indonesia National Olympiad in Informatics — Evil Spirit](https://tlx.toki.id/problems/ksn-2020/2A)
+* [2016 Indonesia National Olympiad in Informatics — River Tourism Spots](https://tlx.toki.id/problems/osn-2016/1C)
 
 ### TOKI Regular Open Contest
 
@@ -40,28 +50,24 @@ I set various problems for Informatics olympiads and competitions (⭐ means a p
 
 ## Scientific Committee
 
-
-
-### Coordinator (Lead)
-
-I coordinated contests that are widely known by the community:
+### Coordinator
 
 * [2021 Indonesia National Olympiad in Informatics](https://ksn2021.toki.id/)
 * [2021 Asia-Pacific Informatics Olympiad](https://apio2021.toki.id/)
 * [TOKI Regular Open Contests #7 — #26](https://tlx.toki.id/problems/problemsets?archive=troc)
+* [2018 TOKI Open](https://codeforces.com/blog/entry/59182)
 
 ### Committee Member
 
-I was involved in the preparations of various contests:
-
+* [2022 International Olympiad in Informatics](https://ioi2022.id/)
 * [2020 Indonesia National Olympiad in Informatics](https://ksn2020.toki.id/)
 * [2020 Asia-Pacific Informatics Olympiad](https://apio2020.toki.id/)
 * [2019 Indonesia National Olympiad in Informatics](https://osn2019.toki.id/)
 
 ### Testers/Observers
 
-I tested and observed a lot of contests:
-
+* [CodeTON Round 3](https://codeforces.com/blog/entry/108503)
+* [Codeforces Round #831](https://codeforces.com/blog/entry/108451)
 * [International Olympiad in Informatics 2021](https://ioi2021.sg/)
 * [International Olympiad in Informatics 2020](https://ioi2020.sg/)
 * [CodeTON Round 2](https://codeforces.com/blog/entry/104491)
