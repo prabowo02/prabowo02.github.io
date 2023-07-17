@@ -55,7 +55,6 @@ I set various problems for Informatics olympiads and competitions.
 * [2021 Indonesia National Olympiad in Informatics](https://ksn2021.toki.id/)
 * [2021 Asia-Pacific Informatics Olympiad](https://apio2021.toki.id/)
 * [TOKI Regular Open Contests #7 — #26](https://tlx.toki.id/problems/problemsets?archive=troc)
-* [2018 TOKI Open](https://codeforces.com/blog/entry/59182)
 
 ### Committee Member
 
@@ -63,6 +62,7 @@ I set various problems for Informatics olympiads and competitions.
 * [2020 Indonesia National Olympiad in Informatics](https://ksn2020.toki.id/)
 * [2020 Asia-Pacific Informatics Olympiad](https://apio2020.toki.id/)
 * [2019 Indonesia National Olympiad in Informatics](https://osn2019.toki.id/)
+* [2018 TOKI Open](https://codeforces.com/blog/entry/59182)
 
 ### Testers/Observers
 

@@ -5,7 +5,6 @@ description: null
 date: 2020-11-02T18:00:15+08:00
 type: posts
 summary: We are to compute $n! \bmod p$ in $O(\sqrt{p} \log p)$.
-mathjax: true
 
 ---
 

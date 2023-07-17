@@ -6,7 +6,6 @@ date: 2019-12-22T14:00:39+08:00
 type: posts
 summary: We are to count how many prime numbers are there up to $N$ ($N \leq 10^{11}$). Let $\pi(N)$ be the number of primes up to $N$, and $f(n, p)$ be the number of integers $x$, for $2 \leq x \leq N$, such that it contains no prime factor $< p$. If $p$ is not prime, then $f(n, p) = f(n, p-1)$. Otherwise $$f(n, p) = f(n, p-1) - \left(f\Big(\big\lfloor\frac{n}{p} \big\rfloor, p-1\Big) - \pi(p-1)\right)$$ Our goal is to compute $\pi(N) = f(N, \sqrt N)$.
 draft: false
-mathjax: true
 
 ---
 

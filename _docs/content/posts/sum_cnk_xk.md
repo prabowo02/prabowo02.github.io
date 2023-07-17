@@ -8,7 +8,7 @@ summary: Given $N \le 10^9$, $K \le 10^5$, find $$\sum_{i=0}^N \binom{N}{i} i^K$
 ---
 
 
-Have you ever been doing your grocery then suddenly felt the need to compute:
+Have you ever felt the need to compute:
 
 $$\sum_{i=0}^N \binom{N}{i} i^K $$
 
