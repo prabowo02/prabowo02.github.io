@@ -2,7 +2,7 @@
 title: "How to incorrectly use Generating Function"
 slug: not-gf
 description: null
-date: 2023-07-16T21:22:18+08:00
+date: 2023-07-17T21:22:18+08:00
 type: posts
 summary: Generating functions can be used to *cheese* numerous counting problems without too much thinking. Here, I will show the **not** proper way to use generating function to solve such problems.
 ---
@@ -62,15 +62,15 @@ The number of ways to arrange those stars and bars is then $\binom{M + N}{\sum A
 
 ### Generating function approach
 
-Recall that $[x^n] \frac{x^k}{(1 - x)^{k - 1}} = \binom{n}{k}$.
+Recall that $[x^n] \frac{x^k}{(1 - x)^{k + 1}} = \binom{n}{k}$.
 
 That means the sum of products from the description such that $B$ has a sum of exactly $m$ is the $m$-th coefficient of:
 
-$$\prod_{i = 1}^N \frac{x^{A_i}}{(1 - x)^{A_i - 1}} = \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i - N}}$$
+$$\prod_{i = 1}^N \frac{x^{A_i}}{(1 - x)^{A_i + 1}} = \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i + N}}$$
 
 And to get the sum for all coefficients of $x^m$ with $m \le M$, we can get the "prefix-sum" of the above G.F. (by multiplying it with $(1 - x)^{-1}$, and simply get the $M$-th coefficient. In short,
 
-$$[x^M] \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i - N + 1}}$$
+$$[x^M] \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i + N + 1}}$$
 
 which conveniently equals to $\binom{M + N}{\sum A_i + N}$.
 

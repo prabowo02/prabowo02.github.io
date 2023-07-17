@@ -49,8 +49,8 @@
     
 <div class="post-meta">
   <span>Date</span> &#x5b;
-    <time datetime="2023-07-16T21:22:18&#43;08:00">
-      Sun, 16 Jul 2023 21:22:18 &#43;0800
+    <time datetime="2023-07-17T21:22:18&#43;08:00">
+      Mon, 17 Jul 2023 21:22:18 &#43;0800
     </time>
   &#x5d;
 </div>
@@ -100,11 +100,11 @@ $$</p>
 The stars and bars before the $a_1$-th bar correspond to $\binom{B_1}{A_1}$; the stars and bars strictly between the $a_1$-th and $a_1 + a_2$-th bars correspond to $\binom{B_2}{A_2}$; and so on; and the stars after the $\sum A_i$-th bar are those that does not make the $B$ sum up to $M$.</p>
 <p>The number of ways to arrange those stars and bars is then $\binom{M + N}{\sum A_i + N}$.</p>
 <h3 id="generating-function-approach-1">Generating function approach</h3>
-<p>Recall that $[x^n] \frac{x^k}{(1 - x)^{k - 1}} = \binom{n}{k}$.</p>
+<p>Recall that $[x^n] \frac{x^k}{(1 - x)^{k + 1}} = \binom{n}{k}$.</p>
 <p>That means the sum of products from the description such that $B$ has a sum of exactly $m$ is the $m$-th coefficient of:</p>
-<p>$$\prod_{i = 1}^N \frac{x^{A_i}}{(1 - x)^{A_i - 1}} = \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i - N}}$$</p>
+<p>$$\prod_{i = 1}^N \frac{x^{A_i}}{(1 - x)^{A_i + 1}} = \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i + N}}$$</p>
 <p>And to get the sum for all coefficients of $x^m$ with $m \le M$, we can get the &ldquo;prefix-sum&rdquo; of the above G.F. (by multiplying it with $(1 - x)^{-1}$, and simply get the $M$-th coefficient. In short,</p>
-<p>$$[x^M] \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i - N + 1}}$$</p>
+<p>$$[x^M] \frac{x^{\sum A_i}}{(1 - x)^{\sum A_i + N + 1}}$$</p>
 <p>which conveniently equals to $\binom{M + N}{\sum A_i + N}$.</p>
 <h2 id="ioi-2022-circuithttpsioinformaticsorgfilesioi2022problem4pdf"><a href="https://ioinformatics.org/files/ioi2022problem4.pdf">IOI 2022 Circuit</a></h2>
 <blockquote>
