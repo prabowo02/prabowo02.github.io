@@ -16,6 +16,11 @@ I set various problems for Informatics olympiads and competitions.
 
 #### Regional
 
+* [2024 ICPC Regional Jakarta — Xorderable Array](https://tlx.toki.id/problems/icpc-jakarta-2024/J)
+* [2024 ICPC Regional Jakarta — Grid Game 3-angle](https://tlx.toki.id/problems/icpc-jakarta-2024/F)
+* [2024 ICPC Asia Pacific Championship — XOR Operations](https://codeforces.com/contest/1938/problem/L) (coauthor)
+* [2023 ICPC Regional Jakarta — Grid Game 2](https://tlx.toki.id/problems/icpc-jakarta-2023/G)
+* [2023 ICPC Regional Jakarta — Button Pressing](https://tlx.toki.id/problems/icpc-jakarta-2023/B)
 * [2022 ICPC Regional Jakarta — Grid Game](https://tlx.toki.id/problems/icpc-jakarta-2022/H)
 * [2022 ICPC Regional Jakarta — Sharing Bread](https://tlx.toki.id/problems/icpc-jakarta-2022/J)
 * [2021 ICPC Regional Jakarta — White-Black Tree](https://tlx.toki.id/problems/icpc-jakarta-2021/K)
@@ -23,6 +28,8 @@ I set various problems for Informatics olympiads and competitions.
 
 #### National
 
+* [2023 ICPC Indonesia National Contest — Numbers Combination](https://tlx.toki.id/problems/inc-2023/L) (coauthor)
+* [2023 ICPC Indonesia National Contest — Counting Pairs](https://tlx.toki.id/problems/inc-2023/J)
 * [2022 ICPC Indonesia National Contest — Robot Upgrades](https://tlx.toki.id/problems/inc-2022/D)
 * [2021 ICPC Indonesia National Contest — Card Game](https://tlx.toki.id/problems/inc-2021/C)
 * [2021 ICPC Indonesia National Contest — Sum Mod Pair of A](https://tlx.toki.id/problems/inc-2021/J)
@@ -32,6 +39,7 @@ I set various problems for Informatics olympiads and competitions.
 
 #### International
 
+* [2024 International Olympiad in Informatics — Mosaic](https://github.com/ioi-2024/tasks/blob/main/day2/mosaic/statements/en.pdf)
 * [2022 International Olympiad in Informatics — Digital Circuit](https://ioi2022.id/data/day2/circuit-en_ISC.pdf)
 
 #### National
@@ -52,6 +60,7 @@ I set various problems for Informatics olympiads and competitions.
 
 ### Coordinator
 
+* [TOKI Open 2024](https://codeforces.com/blog/entry/129720)
 * [2021 Indonesia National Olympiad in Informatics](https://ksn2021.toki.id/)
 * [2021 Asia-Pacific Informatics Olympiad](https://apio2021.toki.id/)
 * [TOKI Regular Open Contests #7 — #26](https://tlx.toki.id/problems/problemsets?archive=troc)
