@@ -5,8 +5,99 @@
 		<description>Recent content in Posts on Notes</description>
 		<generator>Hugo 0.112.5 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Mon, 17 Jul 2023 21:22:18 +0800</lastBuildDate>
+		<lastBuildDate>Mon, 04 Aug 2025 23:00:09 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>On Dirichlet hyperbola method</title>
+			<link>https://prabowo02.github.io/posts/hyperbola/</link>
+			<pubDate>Mon, 04 Aug 2025 23:00:09 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/hyperbola/</guid>
+			<description>&lt;h2 id=&#34;dirichlet-convolution&#34;&gt;Dirichlet Convolution&lt;/h2&gt;
+&lt;p&gt;We are going to deal with this kind of sum:&lt;/p&gt;
+&lt;p&gt;$$\sum_{d|n} f(d) g(\frac{n}{d})$$&lt;/p&gt;
+&lt;p&gt;Some examples are:&lt;/p&gt;
+&lt;p&gt;$$\varphi(n) = \sum_{d|n} \mu(d) \frac{n}{d}$$&lt;/p&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;p&gt;$$n = \sum_{d|n} \varphi(d)$$&lt;/p&gt;
+&lt;p&gt;The sums above are actually known as the Dirichlet convolution, which can be formally written as&lt;/p&gt;
+&lt;p&gt;$$(f * g)(n) = \sum_{d|n} f(d) g(\frac{n}{d})$$&lt;/p&gt;
+&lt;p&gt;If we let $\textbf{1}(n) = 1$ and $\textbf{Id}(n) = n$, then our examples can be rewritten as $\varphi = \mu * \text{Id}$ and $\text{Id} = \varphi * \text{1}$.&lt;/p&gt;
+&lt;p&gt;We can then also observe from the examples that $\mu$ and $\text{1}$ are inverses of each other. A Dirichlet inverse $f^{-1}$ is a function such that $f * f^{-1} = \varepsilon$, where $\varepsilon(n) = 1$ when $n = 1$, otherwise $\varepsilon(n) = 0$. To put more concisely, $\text{1} * \mu = \varepsilon$.&lt;/p&gt;
+&lt;h2 id=&#34;hyperbola-method&#34;&gt;Hyperbola Method&lt;/h2&gt;
+&lt;p&gt;Suppose we want to compute
+$$\sum_{ij \leq n} f(i) g(j)$$&lt;/p&gt;
+&lt;p&gt;Visually, we want to sum the lattice point &lt;em&gt;values&lt;/em&gt; under the curve $y = \frac{n}{x}$, where the point $(x, y)$ has a value of $f(x) g(y)$. Below, we are going to sum the blue area, the red area, then subtract the double-counted square at the corner.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/Dirichlet_hyperbola.png&#34; style=&#34;width: 500px&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;Let $F$ and $G$ be the &lt;em&gt;prefix sum&lt;/em&gt; of $f$ and $g$ respectively. Formally, $F(n) = f(1) + &amp;hellip; + f(n)$. Then,&lt;/p&gt;
+&lt;p&gt;$$\sum_{ij \leq n} f(i) g(j) = \sum_{i=1}^{\lfloor \sqrt n \rfloor} f(i) G\left(\left\lfloor\frac{n}{i}\right\rfloor\right) + \sum_{j = 1}^{\lfloor \sqrt n \rfloor} F\left(\left\lfloor\frac{n}{j}\right\rfloor\right) g(j) - F(\lfloor \sqrt{n} \rfloor) G(\lfloor \sqrt{n} \rfloor)$$&lt;/p&gt;
+&lt;p&gt;which can be computed in $\mathcal{O}(\sqrt{n})$ operations (assuming all of $f$, $g$, $F$, and $G$ are easy to compute).&lt;/p&gt;
+&lt;p&gt;In a lot of cases, it&amp;rsquo;s either $F(n)$ or $G(n)$ that is hard to compute, so let&amp;rsquo;s rearrange the equation above so that $F(n)$ is at the left-hand side of the equation.&lt;/p&gt;
+&lt;p&gt;$$F(n) g(1) = \sum_{ij \leq n} f(i) g(j) + F(\lfloor \sqrt{n} \rfloor) G(\lfloor \sqrt{n} \rfloor) - \sum_{i=1}^{\lfloor \sqrt n \rfloor} f(i) G\left(\left\lfloor\frac{n}{i}\right\rfloor\right) - \sum_{j=2}^{\lfloor \sqrt n \rfloor} F\left(\left\lfloor\frac{n}{j}\right\rfloor\right) g(j)$$&lt;/p&gt;
+&lt;p&gt;There are $\mathcal{O}(\sqrt{n})$ different values of $\left\lfloor\frac{n}{i}\right\rfloor$, so $F$ can be computed in the increasing order of $\left\lfloor\frac{n}{i}\right\rfloor$. In fact, if we have precomputed $F(i)$ for $i &amp;lt; n^{2/3}$, then $F(n)$ can be computed in $\mathcal{O}(n^{2/3})$ operations.&lt;/p&gt;
+&lt;h3 id=&#34;euler-summatory-function&#34;&gt;Euler Summatory Function&lt;/h3&gt;
+&lt;p&gt;Let&amp;rsquo;s take an example by trying to compute&lt;/p&gt;
+&lt;p&gt;$$\Phi(n) = \sum_{i=1}^n \varphi(i)$$&lt;/p&gt;
+&lt;p&gt;We are going to make use of $\text{Id} = \varphi * 1$. We note that $\sum_{i=1}^n \text{Id}(i) = \frac{n(n+1)}{2}$ and $\sum_{i=1}^n \text{1}(i) = n$, so they are easy to compute.&lt;/p&gt;
+&lt;p&gt;Applying the hyperbola method, we obtain:&lt;/p&gt;
+&lt;p&gt;$$\Phi(n) = \frac{n(n+1)}{2} + \lfloor\sqrt{n}\rfloor \Phi(\lfloor\sqrt{n}\rfloor) - \sum_{i=1}^{\lfloor\sqrt{n}\rfloor} \varphi(i) \left\lfloor\frac{n}{i}\right\rfloor - \sum_{j=2}^{\lfloor\sqrt{n}\rfloor} \Phi\left(\left\lfloor\frac{n}{j}\right\rfloor\right)$$&lt;/p&gt;
+&lt;p&gt;So $\Phi(n)$ can be computed in sublinear time.&lt;/p&gt;
+&lt;p&gt;A sample implementation in Python can be seen as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@functools.cache&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Phi&lt;/span&gt;(n):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; PRECOMPUTED:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; _Phi[n]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;isqrt(n)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ret &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;(n&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; sn&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;Phi(sn)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ret &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; sum(_phi[i] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (n&lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt;i) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, sn&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ret &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; sum(Phi(n&lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt;i) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, sn&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; ret
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can attempt with your own implementation on this &lt;a href=&#34;https://judge.yosupo.jp/problem/sum_of_totient_function&#34;&gt;Library Checker&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;mertens-function&#34;&gt;Mertens Function&lt;/h3&gt;
+&lt;p&gt;We will try to compute:&lt;/p&gt;
+&lt;p&gt;$$M(n) = \sum_{i=1}^n \mu(i)$$&lt;/p&gt;
+&lt;p&gt;By noting that $1 * \mu = \varepsilon$, we can then apply the hyperbola method and obtain:&lt;/p&gt;
+&lt;p&gt;$$M(n) = 1 + \lfloor \sqrt{n} \rfloor M(\lfloor \sqrt{n} \rfloor) - \sum_{i=1}^{\sqrt{n}} \mu(i) \left\lfloor \frac{n}{i} \right\rfloor - \sum_{j=2}^{\sqrt{n}} M\left(\left\lfloor\frac{n}{j}\right\rfloor\right)$$&lt;/p&gt;
+&lt;p&gt;so $M(n)$ can be computed in sublinear time.&lt;/p&gt;
+&lt;h3 id=&#34;project-euler-319&#34;&gt;Project Euler #319&lt;/h3&gt;
+&lt;p&gt;You can read the problem &lt;a href=&#34;https://projecteuler.net/problem=319&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Without diving deep into the math details, the quantity we are looking for can be computed by the following.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;(n):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;i &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;i &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, n):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; j &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(i&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, n, i):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            a[j] &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; a[i]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; sum(a)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Of course, it can get pretty slow when $n = 10^{10}$, so we have to do something about it.&lt;/p&gt;
+&lt;p&gt;Let $f(n) = 3^n - 2^n$. We can see that the function &lt;code&gt;solve&lt;/code&gt; is doing a &lt;a href=&#34;https://codeforces.com/blog/entry/119082&#34;&gt;Möbius transform&lt;/a&gt; on $f$ then computes its sum. To put more concisely, we are trying to evaluate&lt;/p&gt;
+&lt;p&gt;$$\sum_{i=1}^n (f * \mu)(i)$$&lt;/p&gt;
+&lt;p&gt;There are two approaches here, and they both involve the hyperbola method.&lt;/p&gt;
+&lt;h4 id=&#34;first-approach&#34;&gt;First approach&lt;/h4&gt;
+&lt;p&gt;First, we compute the Mertens function $M\left(\left\lfloor\frac{n}{i}\right\rfloor\right)$ for all possible values of $\left\lfloor\frac{n}{i}\right\rfloor$ (there are around $2\sqrt{n}$ of them) using the hyperbola method. Also note that $F(n) = f(1) + f(2) + &amp;hellip; + f(n)$ has an $\mathcal{O}(1)$ formula. Then, apply the hyperbola method again to compute the final sum:&lt;/p&gt;
+&lt;p&gt;$$\sum_{i=1}^{\lfloor\sqrt{n}\rfloor} f(i) M\left(\left\lfloor\frac{n}{i}\right\rfloor\right) + \sum_{j=1}^{\lfloor\sqrt{n}\rfloor} F\left(\left\lfloor\frac{n}{j}\right\rfloor\right) \mu(j) - F(\lfloor\sqrt{n}\rfloor) M(\lfloor\sqrt{n}\rfloor)$$&lt;/p&gt;
+&lt;p&gt;This requires two hyperbola methods, which are already sufficient, but we can do something simpler.&lt;/p&gt;
+&lt;h4 id=&#34;second-approach&#34;&gt;Second approach&lt;/h4&gt;
+&lt;p&gt;Let $g = f * \mu$, we can rewrite it as $f = g * \text{1}$. We want the value of $G(n) = g(1) + g(2) + &amp;hellip; + g(n)$ which can be computed by the hyperbola method:&lt;/p&gt;
+&lt;p&gt;$$G(n) = F(n) + \lfloor\sqrt{n}\rfloor G(\lfloor\sqrt{n}\rfloor) - \sum_{i=1}^{\sqrt{n}} g(i) \left\lfloor\frac{n}{i}\right\rfloor - \sum_{j=2}^{\sqrt{n}} G\left(\left\lfloor\frac{n}{i}\right\rfloor\right)$$&lt;/p&gt;
+&lt;p&gt;which solves the problem.&lt;/p&gt;
+&lt;h2 id=&#34;dirichlet-series&#34;&gt;Dirichlet Series&lt;/h2&gt;
+&lt;p&gt;I will briefly mention the Dirichlet series here.&lt;/p&gt;
+&lt;p&gt;The Dirichlet series for a function $f$ can be defined as follows.&lt;/p&gt;
+&lt;p&gt;$$F(s) = \sum_{n \geq 1} \frac{f(n)}{n^s}$$&lt;/p&gt;
+&lt;p&gt;So if we have $h = f * g$, then $H(s) = F(s)G(s)$! Here are a few examples of the Dirichlet series.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\zeta(s)$: the &lt;a href=&#34;https://en.wikipedia.org/wiki/Riemann_zeta_function&#34;&gt;Riemann zeta function&lt;/a&gt; is a Dirichlet series for $\text{1}$.&lt;/li&gt;
+&lt;li&gt;$\frac{1}{\zeta(s)} = \sum_{n \geq 1} \frac{\mu(n)}{n^s}$ by noting that $1$ and $\mu$ are inverses of each other.&lt;/li&gt;
+&lt;li&gt;$\zeta(s-1)$ is a Dirichlet series for $\text{Id}$.&lt;/li&gt;
+&lt;li&gt;$\zeta(s-a)$ is a Dirichlet series for $f(n) = n^a$.&lt;/li&gt;
+&lt;li&gt;$\frac{\zeta(s-1)}{\zeta(s)} = \sum_{n \geq 1} \frac{\varphi(n)}{n^s}$ by noting that $\varphi = \mu * \text{Id}$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Interestingly, the formal power operations, such as $\exp$ and $\log$, can also be applied to the Dirichlet series, and one can show that $\log \zeta(s)$ has a relation with the &lt;a href=&#34;https://en.wikipedia.org/wiki/Prime_zeta_function&#34;&gt;prime zeta function&lt;/a&gt;, which I will explore more in the next article (hopefully).&lt;/p&gt;
+&lt;h2 id=&#34;further-readings&#34;&gt;Further Readings&lt;/h2&gt;
+&lt;p&gt;Some more properties of the Dirichlet convolution can be found on this &lt;a href=&#34;https://en.wikipedia.org/wiki/Dirichlet_convolution#Properties_and_examples&#34;&gt;Wikipedia article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A more advanced discussion can also be found on this &lt;a href=&#34;https://codeforces.com/blog/entry/117635&#34;&gt;CF blog&lt;/a&gt;.&lt;/p&gt;
+</description>
+		</item>
 		<item>
 			<title>How to incorrectly use Generating Function</title>
 			<link>https://prabowo02.github.io/posts/not-gf/</link>

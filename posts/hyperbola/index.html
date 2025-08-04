@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>On Dirichlet hyperbola method | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="We are going to deal with this kind of sum:$$\sum_{d|n} f(d) g(\frac{n}{d})$$" />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.112.5">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      On Dirichlet hyperbola method
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2025-08-04T23:00:09&#43;08:00">
+      Mon, 04 Aug 2025 23:00:09 &#43;0800
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    <h2 id="dirichlet-convolution">Dirichlet Convolution</h2>
+<p>We are going to deal with this kind of sum:</p>
+<p>$$\sum_{d|n} f(d) g(\frac{n}{d})$$</p>
+<p>Some examples are:</p>
+<p>$$\varphi(n) = \sum_{d|n} \mu(d) \frac{n}{d}$$</p>
+<p>and</p>
+<p>$$n = \sum_{d|n} \varphi(d)$$</p>
+<p>The sums above are actually known as the Dirichlet convolution, which can be formally written as</p>
+<p>$$(f * g)(n) = \sum_{d|n} f(d) g(\frac{n}{d})$$</p>
+<p>If we let $\textbf{1}(n) = 1$ and $\textbf{Id}(n) = n$, then our examples can be rewritten as $\varphi = \mu * \text{Id}$ and $\text{Id} = \varphi * \text{1}$.</p>
+<p>We can then also observe from the examples that $\mu$ and $\text{1}$ are inverses of each other. A Dirichlet inverse $f^{-1}$ is a function such that $f * f^{-1} = \varepsilon$, where $\varepsilon(n) = 1$ when $n = 1$, otherwise $\varepsilon(n) = 0$. To put more concisely, $\text{1} * \mu = \varepsilon$.</p>
+<h2 id="hyperbola-method">Hyperbola Method</h2>
+<p>Suppose we want to compute
+$$\sum_{ij \leq n} f(i) g(j)$$</p>
+<p>Visually, we want to sum the lattice point <em>values</em> under the curve $y = \frac{n}{x}$, where the point $(x, y)$ has a value of $f(x) g(y)$. Below, we are going to sum the blue area, the red area, then subtract the double-counted square at the corner.</p>
+<p align="center"><img src="/posts/Dirichlet_hyperbola.png" style="width: 500px"/></p>
+<p>Let $F$ and $G$ be the <em>prefix sum</em> of $f$ and $g$ respectively. Formally, $F(n) = f(1) + &hellip; + f(n)$. Then,</p>
+<p>$$\sum_{ij \leq n} f(i) g(j) = \sum_{i=1}^{\lfloor \sqrt n \rfloor} f(i) G\left(\left\lfloor\frac{n}{i}\right\rfloor\right) + \sum_{j = 1}^{\lfloor \sqrt n \rfloor} F\left(\left\lfloor\frac{n}{j}\right\rfloor\right) g(j) - F(\lfloor \sqrt{n} \rfloor) G(\lfloor \sqrt{n} \rfloor)$$</p>
+<p>which can be computed in $\mathcal{O}(\sqrt{n})$ operations (assuming all of $f$, $g$, $F$, and $G$ are easy to compute).</p>
+<p>In a lot of cases, it&rsquo;s either $F(n)$ or $G(n)$ that is hard to compute, so let&rsquo;s rearrange the equation above so that $F(n)$ is at the left-hand side of the equation.</p>
+<p>$$F(n) g(1) = \sum_{ij \leq n} f(i) g(j) + F(\lfloor \sqrt{n} \rfloor) G(\lfloor \sqrt{n} \rfloor) - \sum_{i=1}^{\lfloor \sqrt n \rfloor} f(i) G\left(\left\lfloor\frac{n}{i}\right\rfloor\right) - \sum_{j=2}^{\lfloor \sqrt n \rfloor} F\left(\left\lfloor\frac{n}{j}\right\rfloor\right) g(j)$$</p>
+<p>There are $\mathcal{O}(\sqrt{n})$ different values of $\left\lfloor\frac{n}{i}\right\rfloor$, so $F$ can be computed in the increasing order of $\left\lfloor\frac{n}{i}\right\rfloor$. In fact, if we have precomputed $F(i)$ for $i &lt; n^{2/3}$, then $F(n)$ can be computed in $\mathcal{O}(n^{2/3})$ operations.</p>
+<h3 id="euler-summatory-function">Euler Summatory Function</h3>
+<p>Let&rsquo;s take an example by trying to compute</p>
+<p>$$\Phi(n) = \sum_{i=1}^n \varphi(i)$$</p>
+<p>We are going to make use of $\text{Id} = \varphi * 1$. We note that $\sum_{i=1}^n \text{Id}(i) = \frac{n(n+1)}{2}$ and $\sum_{i=1}^n \text{1}(i) = n$, so they are easy to compute.</p>
+<p>Applying the hyperbola method, we obtain:</p>
+<p>$$\Phi(n) = \frac{n(n+1)}{2} + \lfloor\sqrt{n}\rfloor \Phi(\lfloor\sqrt{n}\rfloor) - \sum_{i=1}^{\lfloor\sqrt{n}\rfloor} \varphi(i) \left\lfloor\frac{n}{i}\right\rfloor - \sum_{j=2}^{\lfloor\sqrt{n}\rfloor} \Phi\left(\left\lfloor\frac{n}{j}\right\rfloor\right)$$</p>
+<p>So $\Phi(n)$ can be computed in sublinear time.</p>
+<p>A sample implementation in Python can be seen as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#a6e22e">@functools.cache</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Phi</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;</span> PRECOMPUTED:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> _Phi[n]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sn <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>isqrt(n)
+</span></span><span style="display:flex;"><span>    ret <span style="color:#f92672">=</span> n<span style="color:#f92672">*</span>(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> sn<span style="color:#f92672">*</span>Phi(sn)
+</span></span><span style="display:flex;"><span>    ret <span style="color:#f92672">-=</span> sum(_phi[i] <span style="color:#f92672">*</span> (n<span style="color:#f92672">//</span>i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, sn<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    ret <span style="color:#f92672">-=</span> sum(Phi(n<span style="color:#f92672">//</span>i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, sn<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ret
+</span></span></code></pre></div><p>You can attempt with your own implementation on this <a href="https://judge.yosupo.jp/problem/sum_of_totient_function">Library Checker</a>.</p>
+<h3 id="mertens-function">Mertens Function</h3>
+<p>We will try to compute:</p>
+<p>$$M(n) = \sum_{i=1}^n \mu(i)$$</p>
+<p>By noting that $1 * \mu = \varepsilon$, we can then apply the hyperbola method and obtain:</p>
+<p>$$M(n) = 1 + \lfloor \sqrt{n} \rfloor M(\lfloor \sqrt{n} \rfloor) - \sum_{i=1}^{\sqrt{n}} \mu(i) \left\lfloor \frac{n}{i} \right\rfloor - \sum_{j=2}^{\sqrt{n}} M\left(\left\lfloor\frac{n}{j}\right\rfloor\right)$$</p>
+<p>so $M(n)$ can be computed in sublinear time.</p>
+<h3 id="project-euler-319">Project Euler #319</h3>
+<p>You can read the problem <a href="https://projecteuler.net/problem=319">here</a>.</p>
+<p>Without diving deep into the math details, the quantity we are looking for can be computed by the following.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>(n):
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span><span style="color:#f92672">**</span>i <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>i <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>, n, i):
+</span></span><span style="display:flex;"><span>            a[j] <span style="color:#f92672">-=</span> a[i]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum(a)
+</span></span></code></pre></div><p>Of course, it can get pretty slow when $n = 10^{10}$, so we have to do something about it.</p>
+<p>Let $f(n) = 3^n - 2^n$. We can see that the function <code>solve</code> is doing a <a href="https://codeforces.com/blog/entry/119082">Möbius transform</a> on $f$ then computes its sum. To put more concisely, we are trying to evaluate</p>
+<p>$$\sum_{i=1}^n (f * \mu)(i)$$</p>
+<p>There are two approaches here, and they both involve the hyperbola method.</p>
+<h4 id="first-approach">First approach</h4>
+<p>First, we compute the Mertens function $M\left(\left\lfloor\frac{n}{i}\right\rfloor\right)$ for all possible values of $\left\lfloor\frac{n}{i}\right\rfloor$ (there are around $2\sqrt{n}$ of them) using the hyperbola method. Also note that $F(n) = f(1) + f(2) + &hellip; + f(n)$ has an $\mathcal{O}(1)$ formula. Then, apply the hyperbola method again to compute the final sum:</p>
+<p>$$\sum_{i=1}^{\lfloor\sqrt{n}\rfloor} f(i) M\left(\left\lfloor\frac{n}{i}\right\rfloor\right) + \sum_{j=1}^{\lfloor\sqrt{n}\rfloor} F\left(\left\lfloor\frac{n}{j}\right\rfloor\right) \mu(j) - F(\lfloor\sqrt{n}\rfloor) M(\lfloor\sqrt{n}\rfloor)$$</p>
+<p>This requires two hyperbola methods, which are already sufficient, but we can do something simpler.</p>
+<h4 id="second-approach">Second approach</h4>
+<p>Let $g = f * \mu$, we can rewrite it as $f = g * \text{1}$. We want the value of $G(n) = g(1) + g(2) + &hellip; + g(n)$ which can be computed by the hyperbola method:</p>
+<p>$$G(n) = F(n) + \lfloor\sqrt{n}\rfloor G(\lfloor\sqrt{n}\rfloor) - \sum_{i=1}^{\sqrt{n}} g(i) \left\lfloor\frac{n}{i}\right\rfloor - \sum_{j=2}^{\sqrt{n}} G\left(\left\lfloor\frac{n}{i}\right\rfloor\right)$$</p>
+<p>which solves the problem.</p>
+<h2 id="dirichlet-series">Dirichlet Series</h2>
+<p>I will briefly mention the Dirichlet series here.</p>
+<p>The Dirichlet series for a function $f$ can be defined as follows.</p>
+<p>$$F(s) = \sum_{n \geq 1} \frac{f(n)}{n^s}$$</p>
+<p>So if we have $h = f * g$, then $H(s) = F(s)G(s)$! Here are a few examples of the Dirichlet series.</p>
+<ul>
+<li>$\zeta(s)$: the <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is a Dirichlet series for $\text{1}$.</li>
+<li>$\frac{1}{\zeta(s)} = \sum_{n \geq 1} \frac{\mu(n)}{n^s}$ by noting that $1$ and $\mu$ are inverses of each other.</li>
+<li>$\zeta(s-1)$ is a Dirichlet series for $\text{Id}$.</li>
+<li>$\zeta(s-a)$ is a Dirichlet series for $f(n) = n^a$.</li>
+<li>$\frac{\zeta(s-1)}{\zeta(s)} = \sum_{n \geq 1} \frac{\varphi(n)}{n^s}$ by noting that $\varphi = \mu * \text{Id}$.</li>
+</ul>
+<p>Interestingly, the formal power operations, such as $\exp$ and $\log$, can also be applied to the Dirichlet series, and one can show that $\log \zeta(s)$ has a relation with the <a href="https://en.wikipedia.org/wiki/Prime_zeta_function">prime zeta function</a>, which I will explore more in the next article (hopefully).</p>
+<h2 id="further-readings">Further Readings</h2>
+<p>Some more properties of the Dirichlet convolution can be found on this <a href="https://en.wikipedia.org/wiki/Dirichlet_convolution#Properties_and_examples">Wikipedia article</a>.</p>
+<p>A more advanced discussion can also be found on this <a href="https://codeforces.com/blog/entry/117635">CF blog</a>.</p>
+
+  </div>
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prabowo-djonatan" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+      ]
+    });
+  });
+</script>
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLDJM2BXDY"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QLDJM2BXDY', { 'anonymize_ip': false });
+}
+</script>
+
+</body>
+</html>

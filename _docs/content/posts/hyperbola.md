@@ -4,7 +4,6 @@ slug: hyperbola
 description: null
 date: 2025-08-04T23:00:09+08:00
 type: posts
-draft: true
 summary: We are going to deal with this kind of sum:$$\sum_{d|n} f(d) g(\frac{n}{d})$$
 ---
 
