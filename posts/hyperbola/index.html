@@ -70,7 +70,7 @@
 <p>We can then also observe from the examples that $\mu$ and $\text{1}$ are inverses of each other. A Dirichlet inverse $f^{-1}$ is a function such that $f * f^{-1} = \varepsilon$, where $\varepsilon(n) = 1$ when $n = 1$, otherwise $\varepsilon(n) = 0$. To put more concisely, $\text{1} * \mu = \varepsilon$.</p>
 <h2 id="hyperbola-method">Hyperbola Method</h2>
 <p>Suppose we want to compute
-$$\sum_{ij \leq n} f(i) g(j)$$</p>
+$$\sum_{i=1}^n (f * g)(i) = \sum_{ij \leq n} f(i) g(j)$$</p>
 <p>Visually, we want to sum the lattice point <em>values</em> under the curve $y = \frac{n}{x}$, where the point $(x, y)$ has a value of $f(x) g(y)$. Below, we are going to sum the blue area, the red area, then subtract the double-counted square at the corner.</p>
 <p align="center"><img src="/posts/Dirichlet_hyperbola.png" style="width: 500px"/></p>
 <p>Let $F$ and $G$ be the <em>prefix sum</em> of $f$ and $g$ respectively. Formally, $F(n) = f(1) + &hellip; + f(n)$. Then,</p>
@@ -104,6 +104,8 @@ $$\sum_{ij \leq n} f(i) g(j)$$</p>
 <p>By noting that $1 * \mu = \varepsilon$, we can then apply the hyperbola method and obtain:</p>
 <p>$$M(n) = 1 + \lfloor \sqrt{n} \rfloor M(\lfloor \sqrt{n} \rfloor) - \sum_{i=1}^{\sqrt{n}} \mu(i) \left\lfloor \frac{n}{i} \right\rfloor - \sum_{j=2}^{\sqrt{n}} M\left(\left\lfloor\frac{n}{j}\right\rfloor\right)$$</p>
 <p>so $M(n)$ can be computed in sublinear time.</p>
+<p>Other interesting properties that you may find infer from $1 * \mu = \varepsilon$ are:</p>
+<p>$$1 = \sum_{k=1}^n \mu(k) \left\lfloor\frac{n}{k}\right\rfloor = \sum_{k=1}^n M\left(\left\lfloor\frac{n}{k}\right\rfloor\right)$$</p>
 <h3 id="project-euler-319">Project Euler #319</h3>
 <p>You can read the problem <a href="https://projecteuler.net/problem=319">here</a>.</p>
 <p>Without diving deep into the math details, the quantity we are looking for can be computed by the following.</p>

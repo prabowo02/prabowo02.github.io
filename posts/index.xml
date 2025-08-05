@@ -25,7 +25,7 @@
 &lt;p&gt;We can then also observe from the examples that $\mu$ and $\text{1}$ are inverses of each other. A Dirichlet inverse $f^{-1}$ is a function such that $f * f^{-1} = \varepsilon$, where $\varepsilon(n) = 1$ when $n = 1$, otherwise $\varepsilon(n) = 0$. To put more concisely, $\text{1} * \mu = \varepsilon$.&lt;/p&gt;
 &lt;h2 id=&#34;hyperbola-method&#34;&gt;Hyperbola Method&lt;/h2&gt;
 &lt;p&gt;Suppose we want to compute
-$$\sum_{ij \leq n} f(i) g(j)$$&lt;/p&gt;
+$$\sum_{i=1}^n (f * g)(i) = \sum_{ij \leq n} f(i) g(j)$$&lt;/p&gt;
 &lt;p&gt;Visually, we want to sum the lattice point &lt;em&gt;values&lt;/em&gt; under the curve $y = \frac{n}{x}$, where the point $(x, y)$ has a value of $f(x) g(y)$. Below, we are going to sum the blue area, the red area, then subtract the double-counted square at the corner.&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/Dirichlet_hyperbola.png&#34; style=&#34;width: 500px&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Let $F$ and $G$ be the &lt;em&gt;prefix sum&lt;/em&gt; of $f$ and $g$ respectively. Formally, $F(n) = f(1) + &amp;hellip; + f(n)$. Then,&lt;/p&gt;
@@ -59,6 +59,8 @@ $$\sum_{ij \leq n} f(i) g(j)$$&lt;/p&gt;
 &lt;p&gt;By noting that $1 * \mu = \varepsilon$, we can then apply the hyperbola method and obtain:&lt;/p&gt;
 &lt;p&gt;$$M(n) = 1 + \lfloor \sqrt{n} \rfloor M(\lfloor \sqrt{n} \rfloor) - \sum_{i=1}^{\sqrt{n}} \mu(i) \left\lfloor \frac{n}{i} \right\rfloor - \sum_{j=2}^{\sqrt{n}} M\left(\left\lfloor\frac{n}{j}\right\rfloor\right)$$&lt;/p&gt;
 &lt;p&gt;so $M(n)$ can be computed in sublinear time.&lt;/p&gt;
+&lt;p&gt;Other interesting properties that you may find infer from $1 * \mu = \varepsilon$ are:&lt;/p&gt;
+&lt;p&gt;$$1 = \sum_{k=1}^n \mu(k) \left\lfloor\frac{n}{k}\right\rfloor = \sum_{k=1}^n M\left(\left\lfloor\frac{n}{k}\right\rfloor\right)$$&lt;/p&gt;
 &lt;h3 id=&#34;project-euler-319&#34;&gt;Project Euler #319&lt;/h3&gt;
 &lt;p&gt;You can read the problem &lt;a href=&#34;https://projecteuler.net/problem=319&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Without diving deep into the math details, the quantity we are looking for can be computed by the following.&lt;/p&gt;

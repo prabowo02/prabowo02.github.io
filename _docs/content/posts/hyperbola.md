@@ -32,7 +32,7 @@ We can then also observe from the examples that $\mu$ and $\text{1}$ are inverse
 ## Hyperbola Method
 
 Suppose we want to compute 
-$$\sum_{ij \leq n} f(i) g(j)$$
+$$\sum_{i=1}^n (f * g)(i) = \sum_{ij \leq n} f(i) g(j)$$
 
 Visually, we want to sum the lattice point *values* under the curve $y = \frac{n}{x}$, where the point $(x, y)$ has a value of $f(x) g(y)$. Below, we are going to sum the blue area, the red area, then subtract the double-counted square at the corner.
 
@@ -91,6 +91,10 @@ By noting that $1 * \mu = \varepsilon$, we can then apply the hyperbola method a
 $$M(n) = 1 + \lfloor \sqrt{n} \rfloor M(\lfloor \sqrt{n} \rfloor) - \sum_{i=1}^{\sqrt{n}} \mu(i) \left\lfloor \frac{n}{i} \right\rfloor - \sum_{j=2}^{\sqrt{n}} M\left(\left\lfloor\frac{n}{j}\right\rfloor\right)$$
 
 so $M(n)$ can be computed in sublinear time.
+
+Other interesting properties that you may find infer from $1 * \mu = \varepsilon$ are:
+
+$$1 = \sum_{k=1}^n \mu(k) \left\lfloor\frac{n}{k}\right\rfloor = \sum_{k=1}^n M\left(\left\lfloor\frac{n}{k}\right\rfloor\right)$$
 
 ### Project Euler #319
 
