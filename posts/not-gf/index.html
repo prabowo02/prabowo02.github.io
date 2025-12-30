@@ -141,6 +141,7 @@ $$</p>
 $$</p>
 <p>Now, here comes the &ldquo;Competitive Programming&rdquo; part. Imagine you recurse the above formula up to the leaves.
 Then, suppose $[u_0, u_1, \ldots, u_k]$ is the path from the root node $u_0$ to a leaf node $u_k$, compute $\prod_{i=1}^k \frac{p(u_{i-1})}{\deg(u_{i-1}) p(u_i)}$, and assign this value to the leaf node $u_k$. If the source gate $u_k$ is $1$, then the assigned value will contribute to the sum of the final answer. Otherwise, its contribution is $0$.</p>
+<p>This problem is actually authored by me, but I was not aware of the GF approach at that time.</p>
 
   </div>
   

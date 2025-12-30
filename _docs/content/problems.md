@@ -16,6 +16,7 @@ I set various problems for Informatics olympiads and competitions.
 
 #### Regional
 
+* [2025 ICPC Regional Jakarta — Grid Game 2×2](https://tlx.toki.id/problems/icpc-jakarta-2025/G)
 * [2024 ICPC Regional Jakarta — Xorderable Array](https://tlx.toki.id/problems/icpc-jakarta-2024/J)
 * [2024 ICPC Regional Jakarta — Grid Game 3-angle](https://tlx.toki.id/problems/icpc-jakarta-2024/F)
 * [2024 ICPC Asia Pacific Championship — XOR Operations](https://codeforces.com/contest/1938/problem/L) (coauthor)
@@ -44,6 +45,9 @@ I set various problems for Informatics olympiads and competitions.
 
 #### National
 
+* [2025 Indonesia National Olympiad in Informatics — XOR Exchange](https://tlx.toki.id/problems/osn-2025/2C)
+* [2025 Indonesia National Olympiad in Informatics — Twist List](https://tlx.toki.id/problems/osn-2025/1B)
+* [2023 Indonesia National Olympiad in Informatics — Television Flickers](https://tlx.toki.id/problems/osn-2023/2A)
 * [2021 Indonesia National Olympiad in Informatics — Binary Sea](https://tlx.toki.id/problems/ksn-2021/1B)
 * [2020 Indonesia National Olympiad in Informatics — Finding Balls](https://tlx.toki.id/problems/ksn-2020/2C)
 * [2020 Indonesia National Olympiad in Informatics — Evil Spirit](https://tlx.toki.id/problems/ksn-2020/2A)
