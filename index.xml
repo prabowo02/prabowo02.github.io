@@ -46,11 +46,14 @@ I do believe some of them can be applied to other competitive fields as well.&lt
 &lt;p&gt;To illustrate:&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/skill_range.png&#34; style=&#34;width: 700px&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;With that said, I do believe your current skill level can&amp;rsquo;t actually be defined as a single number, but more accurately with a range. Your current rating must be somewhere in that range.&lt;/p&gt;
+&lt;p&gt;I believe it can be further generalised as the sigmoid function:&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/rating_sigmoid.png&#34; style=&#34;width: 500px&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;But you can just stick to the single line thing for simplicity.&lt;/p&gt;
 &lt;p&gt;Pushing your floor and ceiling may require a different kind of practice.&lt;/p&gt;
 &lt;h3 id=&#34;skill-floor&#34;&gt;Skill Floor&lt;/h3&gt;
 &lt;p&gt;What you need to improve your skill floor in terms of:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Chunithm&lt;/strong&gt;: you need to be exposed to a lot of charts (and hence patterns) and be able to consistently perform at SS+ or SSS performance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chunithm&lt;/strong&gt;: you need to be exposed to a lot of charts (and hence patterns) and be able to consistently perform at SS+ or SSS performance (or whatever standard that is high enough for you).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Competitive Programming&lt;/strong&gt;: you need to be exposed to a lot of problems (and hence topics) and be able to consistently solve them within a certain time range.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;So to push your skill floor, it naturally follows that for:&lt;/p&gt;
@@ -62,7 +65,7 @@ I do believe some of them can be applied to other competitive fields as well.&lt
 &lt;p&gt;You only need to be able to perform beyond your skill level for specific problems or charts.&lt;/p&gt;
 &lt;p&gt;To push your skill ceiling on:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Chunithm&lt;/strong&gt;: pick a chart, aim to SSS it by playing repeatedly (possibly across sessions). You may also want to study the chart offline.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chunithm&lt;/strong&gt;: pick a chart, aim to SSS (or whatever performance that is atypical for you at that moment) it by playing repeatedly (possibly across sessions). You may also want to study the chart offline.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Competitive Programming&lt;/strong&gt;: pick a problem of your choice, may be from your favourite topic or a topic you want to master, solve it at your leisure (e.g. during commute, inside a plane). The aim is to rewire your brain so that it can solve problems of a higher rating (or problems you were unfamiliar with); hence, you will require less effort to solve problems of the same rating in the future.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;which-skill-to-push&#34;&gt;Which skill to push?&lt;/h3&gt;

@@ -51,13 +51,19 @@ To illustrate:
 
 With that said, I do believe your current skill level can't actually be defined as a single number, but more accurately with a range. Your current rating must be somewhere in that range.
 
+I believe it can be further generalised as the sigmoid function:
+
+<p align="center"><img src="/posts/rating_sigmoid.png" style="width: 500px"/></p>
+
+But you can just stick to the single line thing for simplicity.
+
 Pushing your floor and ceiling may require a different kind of practice.
 
 ### Skill Floor
 
 What you need to improve your skill floor in terms of:
 
-- **Chunithm**: you need to be exposed to a lot of charts (and hence patterns) and be able to consistently perform at SS+ or SSS performance.
+- **Chunithm**: you need to be exposed to a lot of charts (and hence patterns) and be able to consistently perform at SS+ or SSS performance (or whatever standard that is high enough for you).
 - **Competitive Programming**: you need to be exposed to a lot of problems (and hence topics) and be able to consistently solve them within a certain time range.
 
 So to push your skill floor, it naturally follows that for:
@@ -71,7 +77,7 @@ You only need to be able to perform beyond your skill level for specific problem
 
 To push your skill ceiling on:
 
-- **Chunithm**: pick a chart, aim to SSS it by playing repeatedly (possibly across sessions). You may also want to study the chart offline.
+- **Chunithm**: pick a chart, aim to SSS (or whatever performance that is atypical for you at that moment) it by playing repeatedly (possibly across sessions). You may also want to study the chart offline.
 - **Competitive Programming**: pick a problem of your choice, may be from your favourite topic or a topic you want to master, solve it at your leisure (e.g. during commute, inside a plane). The aim is to rewire your brain so that it can solve problems of a higher rating (or problems you were unfamiliar with); hence, you will require less effort to solve problems of the same rating in the future.
 
 ### Which skill to push?
