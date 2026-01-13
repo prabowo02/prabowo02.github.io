@@ -140,6 +140,12 @@ It might be that you have unfortunately hit your next wall that is very near to 
 &lt;p&gt;I also believe that the accumulated latent skill can only hold a finite capacity.
 So it is important to &lt;strong&gt;take a break&lt;/strong&gt; and let your body catch up with what you have trained with.
 This also implies that training one day before competition day isn&amp;rsquo;t particularly useful.&lt;/p&gt;
+&lt;h2 id=&#34;practice&#34;&gt;Practice&lt;/h2&gt;
+&lt;p&gt;All in all, what you need to do is consistently &lt;strong&gt;practice&lt;/strong&gt;.
+The insights above may help, but I believe they won&amp;rsquo;t give you that large of an advantage even if you know them beforehand.
+By practising, you may also discover your own style.&lt;/p&gt;
+&lt;p&gt;I also believe that a lot of competitive skills are ultimately &lt;em&gt;pattern recognition&lt;/em&gt; (so if you have a good memory, you are better at improving competitive skills).
+In competitive programming, once you are familiar with how problems are commonly set up, your brain will automatically &lt;em&gt;tell&lt;/em&gt; you how to approach those problems. Similarly, in Chunithm, your hand muscles just automatically move when you see certain patterns. That pattern recognition can only be developed through a lot of practice.&lt;/p&gt;
 &lt;h2 id=&#34;closing&#34;&gt;Closing&lt;/h2&gt;
 &lt;p&gt;This article may possibly be yet another &amp;ldquo;how to improve&amp;rdquo; article, but I often like to explain things from my perspective.&lt;/p&gt;
 &lt;p&gt;A few other things I did (or did not do) but I couldn&amp;rsquo;t generalise them into a single framework that fit within the article, possibly because they are indeed irrelevant:&lt;/p&gt;
@@ -155,17 +161,21 @@ This also implies that training one day before competition day isn&amp;rsquo;t p
 &lt;li&gt;Study 4k patterns using fingers earlier. Execute stairs and rolls using your index and ring fingers.&lt;/li&gt;
 &lt;li&gt;Competitive programming costs you a LOT of time. It costs that much that it literally has to be part of your life (imagine requiring 1 hour per problem, or 5 hours per contest for a single feedback on your performance). Be sure that you are not leaving things you like behind, and the time that you dedicate is indeed worth it.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Now, showcasing my achievements:&lt;/p&gt;
-&lt;div style=&#34;display: flex&#34;&gt;
+&lt;p&gt;Now, as per tradition, I will also show my best charts the moment I reached R16 Chunithm:&lt;/p&gt;
+&lt;!-- &lt;div style=&#34;display: flex&#34;&gt;
   &lt;div style=&#34;align-content: center;&#34;&gt;
     &lt;img src=&#34;https://prabowo02.github.io/posts/achievement1.png&#34; style=&#34;width: 400px&#34;/&gt;
   &lt;/div&gt;
   &lt;div&gt;
     &lt;img src=&#34;https://prabowo02.github.io/posts/achievement2.jpg&#34; style=&#34;width: 400px&#34;/&gt;&lt;/div&gt;
   &lt;/div&gt;
+&lt;/div&gt; --&gt;
 &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/achievement3.png&#34; style=&#34;width: 600px&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;It is still funny to think about how a single municipal informatics olympiad (OSK in Indonesia) that I participated in back in 2014 for fun eventually built up my current life. Until 2025, I still learnt and get to know a lot of great people. I don&amp;rsquo;t think this article would exist if I had not joined my school&amp;rsquo;s programming club back then (which I wasn&amp;rsquo;t aware was for olympiads). Heck, I wouldn&amp;rsquo;t even be in Singapore, and who knows what kind of NEET I would become. I am also very grateful to the people in the Discord server that I own; I think they (unknowingly) do well to keep my sanity in check.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m planning to write more about my life in the upcoming articles.&lt;/p&gt;
+&lt;!-- Maybe write a separate what-if article?
+
+It is still funny to think about how a single municipal informatics olympiad (OSK in Indonesia) that I participated in back in 2014 for fun eventually built up my current life. Until 2025, I still learnt and get to know a lot of great people. I don&#39;t think this article would exist if I had not joined my school&#39;s programming club back then (which I wasn&#39;t aware was for olympiads). Heck, I wouldn&#39;t even be in Singapore, and who knows what kind of NEET I would become. I am also very grateful to the people in the Discord server that I own; I think they (unknowingly) do well to keep my sanity in check.
+
+I&#39;m planning to write more about my life in the upcoming articles. --&gt;
 </description>
 		</item>
 		<item>

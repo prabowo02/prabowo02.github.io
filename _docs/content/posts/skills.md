@@ -156,6 +156,15 @@ I also believe that the accumulated latent skill can only hold a finite capacity
 So it is important to **take a break** and let your body catch up with what you have trained with.
 This also implies that training one day before competition day isn't particularly useful.
 
+## Practice
+
+All in all, what you need to do is consistently **practice**.
+The insights above may help, but I believe they won't give you that large of an advantage even if you know them beforehand.
+By practising, you may also discover your own style.
+
+I also believe that a lot of competitive skills are ultimately *pattern recognition* (so if you have a good memory, you are better at improving competitive skills).
+In competitive programming, once you are familiar with how problems are commonly set up, your brain will automatically *tell* you how to approach those problems. Similarly, in Chunithm, your hand muscles just automatically move when you see certain patterns. That pattern recognition can only be developed through a lot of practice.
+
 ## Closing
 
 This article may possibly be yet another "how to improve" article, but I often like to explain things from my perspective.
@@ -173,19 +182,22 @@ A few things that I would tell my past:
 - Study 4k patterns using fingers earlier. Execute stairs and rolls using your index and ring fingers.
 - Competitive programming costs you a LOT of time. It costs that much that it literally has to be part of your life (imagine requiring 1 hour per problem, or 5 hours per contest for a single feedback on your performance). Be sure that you are not leaving things you like behind, and the time that you dedicate is indeed worth it.
 
-Now, showcasing my achievements:
+Now, as per tradition, I will also show my best charts the moment I reached R16 Chunithm:
 
 
-<div style="display: flex">
+<!-- <div style="display: flex">
   <div style="align-content: center;">
     <img src="/posts/achievement1.png" style="width: 400px"/>
   </div>
   <div>
     <img src="/posts/achievement2.jpg" style="width: 400px"/></div>
   </div>
+</div> -->
 <p align="center"><img src="/posts/achievement3.png" style="width: 600px"/></p>
 
 
+<!-- Maybe write a separate what-if article?
+
 It is still funny to think about how a single municipal informatics olympiad (OSK in Indonesia) that I participated in back in 2014 for fun eventually built up my current life. Until 2025, I still learnt and get to know a lot of great people. I don't think this article would exist if I had not joined my school's programming club back then (which I wasn't aware was for olympiads). Heck, I wouldn't even be in Singapore, and who knows what kind of NEET I would become. I am also very grateful to the people in the Discord server that I own; I think they (unknowingly) do well to keep my sanity in check.
 
-I'm planning to write more about my life in the upcoming articles.
+I'm planning to write more about my life in the upcoming articles. -->
