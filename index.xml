@@ -3,10 +3,142 @@
 		<title>Notes</title>
 		<link>https://prabowo02.github.io/</link>
 		<description>Recent content on Notes</description>
-		<generator>Hugo 0.112.5 -- gohugo.io</generator>
+		<generator>Hugo 0.115.3 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Tue, 30 Dec 2025 23:22:50 +0800</lastBuildDate>
+		<lastBuildDate>Thu, 15 Jan 2026 15:43:19 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Blog Collection</title>
+			<link>https://prabowo02.github.io/posts/blogs/</link>
+			<pubDate>Thu, 15 Jan 2026 15:43:19 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/blogs/</guid>
+			<description>&lt;p&gt;Do people nowadays still write personal blogs? Or more importantly, do people still &lt;em&gt;read&lt;/em&gt; personal blogs?
+Apparently my blog does have visitors? Thank you my loyal readers, since I rarely write, I have collected here a few other blogs from people with similar interests for you to enjoy.&lt;/p&gt;
+&lt;h2 id=&#34;blogs-from-toki-fellows&#34;&gt;Blogs From TOKI Fellows&lt;/h2&gt;
+&lt;p&gt;This is a list of personal blogs of people from the Indonesian Informatics Olympiad Team (TOKI).
+They are people who participated in the Indonesian National Olympiads and the Indonesian IOI Training Camp.
+I myself am from TOKI 2015 (the year 2015 is the year I graduated from high school, and the batch is usually called by &amp;ldquo;TOKI [year]&amp;rdquo;).&lt;/p&gt;
+&lt;p&gt;Only the first &lt;strong&gt;three&lt;/strong&gt; blogs listed here have recent articles, while the rest are mostly dead. Those three happen to be some of my closest friends as well; I guess &amp;ldquo;&lt;em&gt;similar&lt;/em&gt;&amp;rdquo; people do come across naturally.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name/alias&lt;/th&gt;
+&lt;th&gt;Blogs&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Hocky Yudhiono&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://blog.hocky.id/&#34;&gt;https://blog.hocky.id/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2019. Wrote a lot about self-reflection, and occasionally Competitive Programming stuff.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zanite&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://blog.zanite.dev/&#34;&gt;https://blog.zanite.dev/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2022. Wrote mostly about Competitive Programming.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ayaz&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://ayazdz.me/&#34;&gt;https://ayazdz.me/&lt;/a&gt; &lt;br/&gt; &lt;a href=&#34;https://ayazdzulfikar.blogspot.com/&#34;&gt;https://ayazdzulfikar.blogspot.com/&lt;/a&gt; (older)&lt;/td&gt;
+&lt;td&gt;TOKI 2015 (same batch as me). Wrote about his life journey and Competitive Programming stuff. The older blog talks a lot about his journey, mostly written in Indonesian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;William Gozali&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://kupaskode.blogspot.com/&#34;&gt;https://kupaskode.blogspot.com/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2011. He shares the same name as an internet personality, but they are not the same person. Wrote about Competitive Programming in Indonesian. Also the main trainer during my training camp year.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fushar&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://fushar.wordpress.com/&#34;&gt;https://fushar.wordpress.com/&lt;/a&gt; &lt;br /&gt; &lt;a href=&#34;https://web.archive.org/web/20191120003101/http://fusharblog.com/&#34;&gt;http://fusharblog.com&lt;/a&gt; (older, internet archive)&lt;/td&gt;
+&lt;td&gt;TOKI 2010. His newer blog only has one article about his life written in Indonesian in 2016. The older blog talked a lot about his Competitive Programming journey in English.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Suhendry&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://web.archive.org/web/20180409115955/http://www.suhendry.net/blog/&#34;&gt;http://www.suhendry.net&lt;/a&gt; (internet archive)&lt;/td&gt;
+&lt;td&gt;Not exactly a TOKI member, but was actively involved with them. Blog contains mostly news about ICPC Regional Jakarta, and sometimes written in Indonesian language.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;faishol&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://web.archive.org/web/20191019034041/http://faishol.net/&#34;&gt;http://faishol.net&lt;/a&gt; (internet archive)&lt;/td&gt;
+&lt;td&gt;TOKI 2018. Wrote about CP journey in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RWHendry&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://web.archive.org/web/20220319180411/https://rwhendry.com/&#34;&gt;https://rwhendry.com/&lt;/a&gt; (internet archive) &lt;br /&gt; &lt;a href=&#34;https://rwhendry.blogspot.com/&#34;&gt;https://rwhendry.blogspot.com/&lt;/a&gt; (older)&lt;/td&gt;
+&lt;td&gt;TOKI 2017. Wrote about CP journey in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windi Chandra&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://codebie.blogspot.com/&#34;&gt;https://codebie.blogspot.com/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2016. Wrote about CP journey in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KnightSaber77&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://knightsaber77.wordpress.com/&#34;&gt;https://knightsaber77.wordpress.com/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2015. Wrote about CP journey in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stacia Edina Johanna&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://staciaedina.wordpress.com/&#34;&gt;https://staciaedina.wordpress.com/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2015. The first post talked about her IOI journey in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Felik Junvianto&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://felikjunvianto.wordpress.com/&#34;&gt;https://felikjunvianto.wordpress.com/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2011. Mostly news about Indonesian CP competitions written in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Jessica Handojo&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://there10han.wordpress.com/&#34;&gt;https://there10han.wordpress.com/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TOKI 2011. The older posts talked about her CP journey in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Risan Petrus&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.risanp.com/notes/&#34;&gt;https://www.risanp.com/notes/&lt;/a&gt; &lt;br/&gt; &lt;a href=&#34;https://risan.wordpress.com/&#34;&gt;https://risan.wordpress.com/&lt;/a&gt; (older)&lt;/td&gt;
+&lt;td&gt;TOKI 2009. Talked about CP and also his journey in Indonesian.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;more-blogs&#34;&gt;More Blogs&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name/alias&lt;/th&gt;
+&lt;th&gt;Blogs&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;errorgorn&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://errorgorn.github.io/&#34;&gt;https://errorgorn.github.io/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Talked a lot about CP.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;min25&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://web.archive.org/web/20211104125457/https://min-25.hatenablog.com&#34;&gt;https://min-25.hatenablog.com&lt;/a&gt; (internet archive)&lt;/td&gt;
+&lt;td&gt;A lot of novel mathematical stuff here. They are also referenced a lot in advanced CP discussions. Everything is in Japanese.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;griff&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://gbroxey.github.io/blog/&#34;&gt;https://gbroxey.github.io/blog/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Advanced mathematical stuff.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ethan Tan&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://web.archive.org/web/20220102030231/https://how-did-i-get-here.com/&#34;&gt;https://how-did-i-get-here.com/&lt;/a&gt; (internet archive)&lt;/td&gt;
+&lt;td&gt;14 y/o IMO gold medalist. Talked about various topics (not necessarily mathematical) that I found very interesting.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+		</item>
 		<item>
 			<title>Improving Competitive Skills</title>
 			<link>https://prabowo02.github.io/posts/skills/</link>
