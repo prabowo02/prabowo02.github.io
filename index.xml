@@ -3,10 +3,33 @@
 		<title>Notes</title>
 		<link>https://prabowo02.github.io/</link>
 		<description>Recent content on Notes</description>
-		<generator>Hugo 0.115.3 -- gohugo.io</generator>
+		<generator>Hugo 0.112.5 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Thu, 15 Jan 2026 15:43:19 +0800</lastBuildDate>
+		<lastBuildDate>Sat, 17 Jan 2026 00:43:09 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>History of Indonesia Informatics Olympiad</title>
+			<link>https://prabowo02.github.io/posts/history-toki/</link>
+			<pubDate>Sat, 17 Jan 2026 00:43:09 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/history-toki/</guid>
+			<description>&lt;p&gt;Can&amp;rsquo;t find any written archive on how the whole Indonesian IOI teams originated. I will try to write a brief timeline about it, based on my experience and from what I have heard before.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1997: &lt;a href=&#34;https://stats.ioinformatics.org/people/3171&#34;&gt;Suryana Setiawan&lt;/a&gt; selected students from a few local schools in Jakarta to form the first IOI team.&lt;/li&gt;
+&lt;li&gt;2002: The first OSN (National Olympiad) was hosted. The IOI team was now selected from the students who won the OSN. I think this is also the time when TOKI first formed. Not sure who the first members are, but they were lecturers from universities in Indonesia, who were also the judges for OSN. I am not sure what kind of entity TOKI is until now, but it serves as a bridge between the government and any event related to the IOI selection. I am not even sure whether TOKI is an actual legal entity or just a collective term for people involved in the events.&lt;/li&gt;
+&lt;li&gt;2002-2010: During this time, a lot of the selections used problems from USACO. The trainers communicated about these with whoever was responsible with USACO during that time. Suryana Setiawan also developed Ranau, basically the ancestor of the current &lt;a href=&#34;https://tlx.toki.id/&#34;&gt;TLX&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;2010-2013: I think &lt;a href=&#34;https://web.archive.org/web/20141231041451/http://tokilearning.org/guest&#34;&gt;TOKI Learning Center (TLC)&lt;/a&gt; was developed around this time (?) and replaced Ranau. TLC was developed as a final year project by a student who participated in the training camp before.&lt;/li&gt;
+&lt;li&gt;2013: IA-TOKI was founded by &lt;a href=&#34;https://stats.ioinformatics.org/people/377&#34;&gt;Brian Marshal&lt;/a&gt; (?) under the approval of &lt;a href=&#34;https://stats.ioinformatics.org/people/3391&#34;&gt;Adi Mulyanto&lt;/a&gt;, so now there is a clear (actually still kinda blurry for me lol) distinction between the alumni (those who participated in IOI training camps before), and TOKI (the facilitator of OSN and training camps).&lt;/li&gt;
+&lt;li&gt;2015: The early version of &lt;a href=&#34;https://web.archive.org/web/20180411210629/https://training.ia-toki.org/&#34;&gt;TLX Training Gate&lt;/a&gt; was developed and was slowly replacing TLC. The name TLX comes from TLC, with the X replacing C, simply because X is next to C on the Qwerty keyboard. Indonesia also hosted &lt;a href=&#34;https://web.archive.org/web/20160311070457/http://apio2015.org/&#34;&gt;APIO&lt;/a&gt; for the first time this year.&lt;/li&gt;
+&lt;li&gt;2017: The first ISC member representing &lt;a href=&#34;https://stats.ioinformatics.org/people/2724&#34;&gt;Indonesia&lt;/a&gt; was elected.&lt;/li&gt;
+&lt;li&gt;2018: TLX was revamped and TLX Training Gate was deprecated. The first time an IOI problem was authored by &lt;a href=&#34;https://stats.ioinformatics.org/people/3054&#34;&gt;Indonesian&lt;/a&gt;. Indonesia also won the bid to host &lt;a href=&#34;https://ioi2022.id/&#34;&gt;IOI 2022&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;2020: The first online OSN due to COVID. Also for some silly reasons, OSN was renamed to KSN only for the years 2020 and 2021. This is also the first time the grading for the olympiads were done in the cloud, marking the end of bringing a physical grader as luggage to the onsite OSN. Due to restructure of the ministry, OSN was also now hosted by Puspresnas (previously by PSMA); training camps also hosted by Puspresnas (previously directly under the ministry (?)).&lt;/li&gt;
+&lt;li&gt;2020-2021: Indonesia hosted two APIOs &lt;a href=&#34;https://apio2020.toki.id/&#34;&gt;back&lt;/a&gt;-to-&lt;a href=&#34;https://apio2021.toki.id/&#34;&gt;back&lt;/a&gt;. The motivation was to use APIO as a &lt;em&gt;practice&lt;/em&gt; for IOI. Indonesia also planned to have the first APIO onsite ever, but was cancelled due to the COVID-19 pandemic.&lt;/li&gt;
+&lt;li&gt;2022: Indonesia hosted IOI. OSN was now under BPTI, with Puspresnas still hosting the training camps.&lt;/li&gt;
+&lt;li&gt;2023: The first time the IOI delegation team is composed entirely of alumni (usually there&amp;rsquo;s a government representative).&lt;/li&gt;
+&lt;li&gt;2025: They started to do AI, and sent the first IOAI team. An experimental &lt;em&gt;exhibition&lt;/em&gt; for AI OSN was also done that year.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+		</item>
 		<item>
 			<title>Blog Collection</title>
 			<link>https://prabowo02.github.io/posts/blogs/</link>
@@ -41,7 +64,7 @@ I myself am from TOKI 2015 (the year 2015 is the year I graduated from high scho
 &lt;tr&gt;
 &lt;td&gt;Ayaz&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://ayazdz.me/&#34;&gt;https://ayazdz.me/&lt;/a&gt; &lt;br/&gt; &lt;a href=&#34;https://ayazdzulfikar.blogspot.com/&#34;&gt;https://ayazdzulfikar.blogspot.com/&lt;/a&gt; (older)&lt;/td&gt;
-&lt;td&gt;TOKI 2015 (same batch as me). Wrote about his life journey and Competitive Programming stuff. The older blog talks a lot about his journey, mostly written in Indonesian&lt;/td&gt;
+&lt;td&gt;TOKI 2015 (same batch as me). Wrote about his life journey and Competitive Programming stuff. The older blog talks a lot about his Competitive Programming journey, mostly written in Indonesian.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;William Gozali&lt;/td&gt;
