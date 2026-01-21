@@ -5,8 +5,711 @@
 		<description>Recent content on Notes</description>
 		<generator>Hugo 0.112.5 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Sat, 17 Jan 2026 00:43:09 +0800</lastBuildDate>
+		<lastBuildDate>Thu, 22 Jan 2026 01:15:37 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>On IOI with Indonesia Team from the Lens of Non-Contestant</title>
+			<link>https://prabowo02.github.io/posts/ioi-journey/</link>
+			<pubDate>Thu, 22 Jan 2026 01:15:37 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/ioi-journey/</guid>
+			<description>&lt;p&gt;This is a very overdue post, but I decided to write it while my memory still serves, and for some unknown reason, I simply had the motivation.
+I also wanted to write about IOI 2022 from the perspective of a Scientific Committee member, but sadly, the details are already blurred. Maybe I&amp;rsquo;ll try to dedicate one day to recalling them and slip them in this same post.&lt;/p&gt;
+&lt;p&gt;I am not a very good writer, so you may find the tone here to be more informative rather than narrative.
+I will first write about IOI 2023 as a team leader, then IOI 2024 as an invited guest (problem author).&lt;/p&gt;
+&lt;h2 id=&#34;ioi-2023&#34;&gt;IOI 2023&lt;/h2&gt;
+&lt;p&gt;The training camp for Indonesian IOI usually happens right before the IOI itself.&lt;/p&gt;
+&lt;p&gt;These are the contestants for IOI 2023 and their aliases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Metal: Matthew Allan&lt;/li&gt;
+&lt;li&gt;Ariel: Albert Ariel Putra&lt;/li&gt;
+&lt;li&gt;Vannes: Vannes Wijaya&lt;/li&gt;
+&lt;li&gt;Joel: Joel Gunawan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The team that helped me onsite were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Zanite: Albert Yulius Ramahalim&lt;/li&gt;
+&lt;li&gt;Novaryo: Steven Novaryo&lt;/li&gt;
+&lt;li&gt;Pak Mush: Mushthofa&lt;/li&gt;
+&lt;li&gt;Pak Adi: Adi Mulyanto&lt;/li&gt;
+&lt;li&gt;Mas Kadek: Sudhi Arsana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And the rest of the delegation members who also flew to the IOI:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Yohandi: Yohandi&lt;/li&gt;
+&lt;li&gt;Irvin: Jonathan Irvin Gunawan&lt;/li&gt;
+&lt;li&gt;Ashar: Ashar Fuadi&lt;/li&gt;
+&lt;li&gt;Brian: Brian Marshal&lt;/li&gt;
+&lt;li&gt;Dewi: Dewi Yuliani&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;day-0&#34;&gt;Day 0&lt;/h3&gt;
+&lt;p&gt;My day started with the smell of leftover &lt;em&gt;martabak&lt;/em&gt; from the night before.
+As this is the last day of staying at the hotel, I started to do some packing.
+There were a number of items left by the contestants in my room, which I keep safe for now (my room was essentially the base camp for the contestants during the whole IOI training).&lt;/p&gt;
+&lt;p&gt;In the midst of reorganising the rooms, Pak Adi gave me a call that he entrusted me with the four contestants for the competition.
+He had given a quick visit to each of their room to give some encouragement, then asked me to keep watch for the mental stability of the contestants.&lt;/p&gt;
+&lt;p&gt;The rooms had been requested for a late check-out, so we still had time to have lunch in the hotel.
+As the time hit 12.00 WIB, I went down and invited some people to play pools then finally had our final lunch in the hotel.&lt;/p&gt;
+&lt;p&gt;The team then departed from Golden Tulip Essential Tangerang at 14.00 WIB sharp.
+Novaryo went his separate way, so we bid farewell to him.
+All the team (except for Joel, he check out earlier with his parents) departed by a van, while Metal&amp;rsquo;s parents and Zanite departed by a car.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_pools.png&#34; style=&#34;width: 500px&#34;/&gt;
+&lt;em&gt;Pools with Puspresnas before heading to the airport.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We reached the Soekarno Hatta International Airport and had a final photo with Puspresnas before they wished us good luck for the competition.
+Terminal 3 was busier than usual, and it was hard to find a good spot to chill and relax.
+In the end, we simply waited for the others (Brian, Dewi, and Ashar) at HokBen.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_pools.png&#34; style=&#34;width: 500px&#34;/&gt;
+&lt;em&gt;Final photo with Puspresnas.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Joel and Metal&amp;rsquo;s parents also joined the wait at HokBen, with them interrogating my life for the whole time.
+Brian finally arrived with all boxes containing souvenirs and prizes from IOI 2022 (as a context, IOI 2022 was held hybrid, in which some countries participated online and did not receive their merchandise).
+Dewi also greeted the contestants&amp;rsquo; parents, and they seem to have created a WhatsApp group of moms &amp;ndash; typical Asian parents wanting to keep watch and gossip about their kids the whole time.&lt;/p&gt;
+&lt;p&gt;The delegation bid a final farewell as we proceeded through the final security checks.
+The immigration gates were packed by several groups of pilgrims, and some of the delegation members were unable to use the autogate (for a reason I can&amp;rsquo;t remember).
+The passport was finally stamped, which marks the beginning of the journey.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_depart.png&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Final group photo before departure&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The wait for the boarding was uneventful.
+As Brian was the one who did the web check-in for us, he managed to choose the seats for us as well so that we are all clustered together.&lt;/p&gt;
+&lt;p&gt;Nothing of interests were happening during the CGK-DOH flight as most people were asleep, with two wakes for meals.
+The flight was generally smooth, and I can hardly recall experiencing any turbulence.&lt;/p&gt;
+&lt;p&gt;As we landed, we then boarded a bus that took us to the airport terminal.
+In the terminal, we had to go through security checks again, with Joel having to have his bag scanned twice and unpacked by the security.
+We then regrouped near a figure which has a resembling look of a defective Pikachu.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_pikachu.png&#34; style=&#34;width: 500px&#34;/&gt;
+&lt;p&gt;We then finally do another wait for our next leg of flight.
+During the wait, I, Brian, and Ashar had a discussion about Pelatnas and how they compare with the current training.&lt;/p&gt;
+&lt;p&gt;The next flight&amp;rsquo;s seating had been picked by Brian as well, but this time we were separated into three groups of three.&lt;/p&gt;
+&lt;p&gt;As it was still dawn, most of us were also asleep during the flight with one meal in between.&lt;/p&gt;
+&lt;h3 id=&#34;day-1&#34;&gt;Day 1&lt;/h3&gt;
+&lt;p&gt;The plane landed in the early morning.
+The airport is rather quiet as our flight seems to be one of the first flights of the day to land.&lt;/p&gt;
+&lt;p&gt;A Saudi Arabian IOI team member recognised the TOKI logo on my hoodie and greeted our team.
+After a quick chat, we proceeded to the baggage collection area.&lt;/p&gt;
+&lt;p&gt;One suitcase was stuck on the belt, and there were no officers nearby to report to.
+Dewi then courageously climbed the belt to retrieve it.
+The front zip of the suitcase was damaged, but fortunately, no items were stored there.&lt;/p&gt;
+&lt;p&gt;Zoltan greeted us at the exit and guided us to a waiting room that had been reserved for the IOI team&amp;rsquo;s arrivals.
+Inside, they provided some snacks and sodas.
+There was also WiFi, so we could report our arrival to the home country as well.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_budapest.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The waiting room at Budapest airport&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After sufficient people had arrived, we proceeded to a minibus.
+The weather outside was quite chilly with some wind.&lt;/p&gt;
+&lt;p&gt;A wagon was attached to the back of the bus, and our luggage was stored there.
+There was no locking mechanism that prevented the luggage from falling due to inertia, so I can only trust the driver on this.&lt;/p&gt;
+&lt;p&gt;The drive lasts for around two hours.
+Though I did not see any speed limit, the bus was considered slow.
+The view for most of the bus trip was a rural area with a few small European-style houses.&lt;/p&gt;
+&lt;p&gt;We finally arrived in Szeged.
+It is the third-largest city in Hungary, but it looks pretty small by my Southeast Asian standards.
+Most people here use bicycles, and the cars they used were generally small.
+All of us were dropped in Forras Hotel, the hotel for contestants.&lt;/p&gt;
+&lt;p&gt;The delegation was then paired with a guide.
+The IOI 2023 had a rule that, outside of the hotel, contestants must be accompanied by either the guide or their team leaders.
+The guide for the Indonesian team was a Mongolian student from Szeged University.
+After she introduced herself, we then did our team registration and collected our IOI bags.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_bag.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The content of the IOI bag.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After the contestants had checked in, we went our separate ways from the contestants and proceeded to the next hotel &amp;ndash; the Novotel.&lt;/p&gt;
+&lt;p&gt;There, we had PopMie as our lunch (no lunch was provided on arrival day). After which, Ashar, Brian and Dewi went to their own hotels to rest.&lt;/p&gt;
+&lt;p&gt;There was a little miscommunication about the hotel allocation. Long story short, the last information that I received was for Brian and Dewi to stay in Art Hotel, but they apparently also stayed in Science Hotel, so a committee member has to drive them to the correct hotel.&lt;/p&gt;
+&lt;p&gt;The dinner for non-contestants is only served in the Novotel, so we met Brian and the others again during the dinner.&lt;/p&gt;
+&lt;h3 id=&#34;day-2&#34;&gt;Day 2&lt;/h3&gt;
+&lt;p&gt;After breakfast, we immediately proceeded to the very first General Assembly (GA) of IOI 2023.
+Each country had its own pigeon hole, where other countries can distribute things (such as souvenirs, ads, notices, etc) to these pigeon holes.
+The pigeon holes were located at the back of the GA room.
+The Wi-Fi password for the GA room was &lt;code&gt;Sunshine+3662&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The first GA consists of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Welcoming everyone to the IOI 2023&lt;/li&gt;
+&lt;li&gt;Announcing Libya as an invited observer&lt;/li&gt;
+&lt;li&gt;Announcing changes in IC members (Yugo was replaced by Brian due to a health issue, and Agnes was replaced by Jobbagy due to internal political drama that I am not aware of)&lt;/li&gt;
+&lt;li&gt;Introducing the GA chair&lt;/li&gt;
+&lt;li&gt;Code of Conduct reminder&lt;/li&gt;
+&lt;li&gt;Approval of contest rules.&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A few delegation countries approached me to ask about their certificates for IOI 2022, to which I replied that they will be distributed later (because Brian overslept and did not attend this GA) to their own pigeon holes at the next GA.&lt;/p&gt;
+&lt;p&gt;The use of the IOI bot during the online IOI continues to be used for this full onsite IOI.
+The IOI bot usually helps in administrative tasks involving the GA, mainly for taking votes.
+However, the bot was not awake this morning, so the votes for this GA use the traditional &amp;ldquo;raising the country placard&amp;rdquo;.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_bot.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Voting for &#34;Is the bot awake?&#34;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After the GA, we proceeded to Pick Aréna, where the practice session was held.
+The practice session lasts for 2 hours.
+During the first hour, the leaders can only observe their contestants from the second floor.&lt;/p&gt;
+&lt;p&gt;In the second hour, leaders can enter the contest floor, so we did.
+At the end of the practice session, the contestants left their belongings there, and we went our separate ways again to each of our hotels.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_hall.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The contest hall during the practice sesssion.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After lunch, we had our second GA meeting, &lt;a href=&#34;https://docs.google.com/presentation/d/1rvyJUOk9QNkq-cWsQVn12a7dquoNG_COncm0ZbI1tsw/edit#slide=id.p&#34;&gt;discussing the practice session&lt;/a&gt;.
+The IOI 2022 certificates and goodies had been distributed, which were then announced by Brian.
+A few countries thanked us for these.
+There were no major issues, so the meeting quickly concluded.&lt;/p&gt;
+&lt;p&gt;We then go to TIK for the opening ceremony.
+The IDN team agreed to wear the IOI 2022 polo as our dress code for the opening.
+A Turkmenistan deputy leader, to my surprise, greeted us in Indonesian.
+He said that he had lived and worked in Bandung for a few years.
+The guy seems very fond of Indonesia, and would ocassionally approached us again throughout the whole IOI.&lt;/p&gt;
+&lt;!-- The [seating plan](https://ioi2023.hu/wp-content/uploads/2023/08/Seating_chart_opening.pdf) for the opening ceremony is grouped by contestants, leaders, and committees. --&gt;
+&lt;p&gt;The view from the leaders&amp;rsquo; seats was not great.
+The ceremony was, well, ceremonial, with ceremonial button pressing, speeches, dances accompanied by Rubik&amp;rsquo;s performance (trivia: Rubik&amp;rsquo;s cube originated from Hungary), and finally, teams introduction.&lt;/p&gt;
+&lt;!-- Photo of teams introduction --&gt;
+&lt;p&gt;You can rewatch the opening ceremony &lt;a href=&#34;https://www.youtube.com/watch?v=yMO9hXl-Iio&#34;&gt;on YouTube&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After the closing ceremony, we regrouped again with the contestants, gave my own final &amp;ldquo;speech&amp;rdquo;, and had a photo session using our national flag.
+A Latvian team borrowed our flag and had a photo too, with eduardische and his iconic MU shirt lying down to mimic the bottom red stripe of the Latvian flag.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_latvia.png&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Posing as the Latvian flag using Indonesian flag.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Brian also bought chocolate as a lucky charm for IDN contestants.
+But since the practice session was already over, I had to submit the chocolate to the technical committee at the next GA as an &amp;ldquo;additional item&amp;rdquo; for IDN contestants.&lt;/p&gt;
+&lt;p&gt;We then had a walk and some photos in front of &lt;a href=&#34;https://maps.app.goo.gl/2s1RopbuBrNkPmar6&#34;&gt;a reformed church&lt;/a&gt;, then to &lt;a href=&#34;https://maps.app.goo.gl/KNNb232UiFactVJd6&#34;&gt;a supermarket&lt;/a&gt; where I bought some Bocchi chocolate (for the memes), and hanging around in &lt;a href=&#34;https://maps.app.goo.gl/on6q3pA7kmkzboyU8&#34;&gt;University of Szeged (Faculty of Dentistry)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I then returned to my hotel and had my dinner. At this point, I was no longer allowed to communicate with the contestants until the end of the Day 1 contest.&lt;/p&gt;
+&lt;p&gt;We finally arrived at the main spotlight of the day, the GA 3 &amp;ndash; task selection and translation of day 1 problems.&lt;/p&gt;
+&lt;p&gt;The task selection process is roughly as follows. The tasks are made available through the translation system, which can be accessed by each country after obtaining its credentials through the IOI bot. Leaders then read the tasks and can raise objections to the tasks.
+There are two kinds of objections: major objections and minor objections. Minor objections usually concerns of correcting typos, rewording, making statements clearer, etc. Major objections are those that can alter the problemset (e.g. rejecting a problem because similar problems appeared elsewhere). All these objections are made through the IOI matrix chat. If there are no more objections after a while, a vote is then cast to accept the problemset, and we can finish the translation afterwards.&lt;/p&gt;
+&lt;p&gt;Discussions during the GA are also happening in the IOI matrix chat.
+After being briefed on the task selection process, we were then asked to obtain our credentials for the translation system through the IOI bot.
+However, the bot was still not awake.
+Written credentials were then distributed.&lt;/p&gt;
+&lt;p&gt;I first read the task &lt;code&gt;soccer&lt;/code&gt;.
+It&amp;rsquo;s funny how IOI task statements become so verbose nowadays, which made Brian laughingly said that some of the paragraphs can be intuitively explained in one sentence.
+I had trouble understanding the scoring section, which Ashar agreed was indeed confusing, so I raised an objection on it.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_objection.jpg&#34; style=&#34;width: 350px&#34;/&gt;
+&lt;em&gt;An example on how an objection was raised. A plus emoji means the objection was accepted.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After several objections from other countries, the final revision looked so much better.
+There&amp;rsquo;s also a fun objection regarding the sport name.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_soccer.jpg&#34; style=&#34;width: 350px&#34;/&gt;
+&lt;em&gt;What is soccer?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;There was no major objections. Since I had no issue with the other two tasks, we went ahead with the translation.
+A vote to accept the tasks is then cast, and we finalise our translations for printing.
+We finished the translation at around 1 am local time, and this was considered early as half of the countries were still in the room by the time we left.&lt;/p&gt;
+&lt;h3 id=&#34;day-3&#34;&gt;Day 3&lt;/h3&gt;
+&lt;p&gt;It is finally the contest day!
+The contest started on time. While the contestants were competing, the leaders went to the IOI conference.
+To be very blunt, none of the conference topics were interesting.
+I came mainly to see Brian presenting two reports about the Indonesian team.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_conference.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Brian presenting in a conference.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After the conference was over, we went to the contest site.
+We waited while having our lunch in the dining area.
+Here, I greeted and was greeted by some familiar people: delegations from PHL, MYS, SGP.
+Sadly, I recognised far fewer people compared to those who came for IOI 2022.
+I had some discussions about the problem with kevinsogo who made me feel inferior as he already solved all the problems.&lt;/p&gt;
+&lt;p&gt;The contest was over, and we guided IDN contestants to the dining area.
+They did not discuss much about the problems while they were enjoying their lunch.
+Our guide asked us whether we wanted to join the excursion on the next day, and of course we wanted to!
+(In fact, if the contestants refused to do so, this may be a bad sign of deteriorating mental condition which may affect contest day 2, IMO, and that actually happened before).
+There were no more agenda so everyone went back to their own hotels, but I decided to walk the contestants to their hotel.&lt;/p&gt;
+&lt;p&gt;Aside from crossing the bridge, there was not much of a view when walking from the contest site to the contestant&amp;rsquo;s hotel.
+Reaching the hotel, we went to the game room, which has the usual ping pong tables and some board games.
+There were foosball and PS5 too.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_pingpong.png&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Ping Pong in the game room.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I followed to their rooms afterwards and had a little rest.
+Metal, Vannes, and Ariel then followed me to have a little walk in the city to see places with more architectural establishment.
+This was the path that we took, ending with a visit to a minimarket.&lt;/p&gt;
+&lt;p&gt;I walked them back to their hotel and also had my dinner there (by right, I was not allowed to have dinner there).
+Unfortunately, I spent too much time with them, and I missed both the GA meeting 4 and the APIO meeting, but thanks Brian for covering me.
+Thankfully, he said that nothing of importance happened, which I just trusted (there was definitely some interesting information that I did miss).&lt;/p&gt;
+&lt;h3 id=&#34;day-4&#34;&gt;Day 4&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s the excursion day.
+There were two batches: the first batch was the contestants, and the second batch was the leaders and guests.
+Both batches have the same itinerary (I think), but the first batch started one hour earlier.&lt;/p&gt;
+&lt;p&gt;We first went to ELI-ALPS, and proceeded to have a one-hour lecture about lasers.
+During the lecture, I was mostly focusing on uploading the day 1 tasks to TLX.
+After the lecture was over, we walked around the facility.
+I met the Yoneda brothers, had some talk with them, and had a photo.
+There was nothing much to see in the facility, as it is not exactly a museum.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_laser.png&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Lecture about laser in ELI-ALPS.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We then proceeded to Opustaszer.
+The main show case in this place was a giant painting surrounding a room, and we were not allowed to take any photo inside the room.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_painting.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The supposedly unallowed photo, taken from the IOI official page.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I finally met with the contestants again, who were taking picture of the windmill there.
+The lunch was not particularly enticing, so I did not have one (a normal thing to happen to me).&lt;/p&gt;
+&lt;p&gt;We had the group photo with the whole IOI people in this park too.
+Brian also mentioned that it totally slipped his mind to take a group photo in IOI 2022.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_group.png&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The unofficial group photo taken by Brian.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Returning to the hotel, Brian and I continued to have a walk in the city (this is no longer part of the excursion).
+We went to visit a cafe, and I also had a chance to use the &lt;a href=&#34;https://en.wikipedia.org/wiki/Lime_(transportation_company)&#34;&gt;Lime&lt;/a&gt; mobile app to rent an electric scooter.
+We also went to Árkád Szeged, which, upon entering, really took me off guard, as if I was teleported from a quiet antique small town into a modern, spacious shopping mall.
+Árkád was the biggest mall in Szeged, but nothing was out of the ordinary (from the point of view of me who has lived in Singapore, a city full of shopping malls).
+After strolling around, we went back to Brian&amp;rsquo;s hotel, then took on the shuttle bus for GA meeting 5.&lt;/p&gt;
+&lt;p&gt;GA meeting 5 was where the task selection for competition day 2 took place.
+This time, asking for credentials via the IOI bot works for me, but the paper credentials were still distributed nevertheless.&lt;/p&gt;
+&lt;p&gt;One task was immediately shot down by a major objection from IOI2 country, due to &lt;em&gt;almost the same problem&lt;/em&gt; was used for their team selection in the same year.
+AUS also mentioned that he has seen a similar setup of the problem from 2011.
+The ISC then finally announced that they were going to use one of their backup tasks, &lt;code&gt;overtaking&lt;/code&gt;, as a substitute to the easiest problem.&lt;/p&gt;
+&lt;p&gt;I personally had no issue with the statements of day 2, aside from the stupidly long &lt;code&gt;overtaking&lt;/code&gt; (the information is too verbose to the point that some subtasks became &amp;ldquo;free&amp;rdquo;).
+The statement for &lt;code&gt;beechtree&lt;/code&gt;, however, received so many minor objections as they were considered by many to be too convoluted.
+Indeed, there was even a major objection for this task for being &lt;em&gt;too hard to understand and artificial&lt;/em&gt;.
+Due to this, a somewhat heated debate happened on how to best write an IOI task statement.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_overtaking.jpg&#34; style=&#34;width: 350px&#34;/&gt;
+&lt;em&gt;Me complaining about the overtaking statement.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;beechtree&lt;/code&gt; statement underwent major revisions, which I agree became so much better compared to the initial version.
+As a fun fact, the sentence &amp;ldquo;Árpád&amp;rsquo;s discovery involved a lot of playing with pen and paper, and he suspects you might need to do the same to understand it&amp;rdquo; was added after the revision, which was proven to be useful by one of IDN contestants.
+I had one, extremely minor, objection after the revision.
+Though there were still few inconsistencies after the revision, I decided to let them slide as it&amp;rsquo;s getting very late.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_arpad.jpg&#34; style=&#34;width: 350px&#34;/&gt;
+&lt;em&gt;A very minor objection on beechtree.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Quite a number of people stopped by and had a chat on the IDN table, probably because Brian was also sitting there and helped with the translations.
+The task statement was finalised at 1 am, and we were, again, be able to finish the translations pretty early at 2 am (spoiler alert: all our translations have a lot of typos, which I apologise).&lt;/p&gt;
+&lt;h3 id=&#34;day-5&#34;&gt;Day 5&lt;/h3&gt;
+&lt;p&gt;The day 2 contest started on time.
+While the contestants were competing, the leaders went for the IOI group discussions.
+There were a lot of topics that were discussed, and I joined the &amp;ldquo;IOI Alumni&amp;rdquo; and &amp;ldquo;Decreasing the Cost of Hosting an IOI&amp;rdquo; discussions.&lt;/p&gt;
+&lt;p&gt;The IOI alumni topic mainly discussed establishing a platform for IOI alumni (both contestants and leaders).
+This topic was led by Prof Sun Teck Tan.&lt;/p&gt;
+&lt;p&gt;The second topic concerns lessening the burden for the host country to host an IOI.
+It has become increasingly difficult to find new hosts for future IOIs, hence the discussion.
+Some of the ideas include: raising the registration fees, reducing the number of IOI days, charging more other fees, removing the role of IOI deputy leaders, etc.&lt;/p&gt;
+&lt;p&gt;Some other discussions were going on after that, but I did not join them.
+Around the same time, Brian and I joined a TOKI Gathering (OSN was also held at that time) via Zoom and introduced ourselves to the future IDN IOI contestants.
+I was just chilling out for the rest of the morning while watching the scoreboard.&lt;/p&gt;
+&lt;p&gt;The scoreboard was quite the watch.
+While three of the IDN contestants had safely secured 2S1B, one contestant was going back and forth between bronze and silver.
+Thankfully, he was still trying to obtain subtask points during the last 10 minutes, which secured a silver medal for him.&lt;/p&gt;
+&lt;p&gt;Everyone congratulated them, and they had their lunch.
+After lunch, we headed back to the contestants&amp;rsquo; hotel and went to Aquanopolis, which is connected directly to the hotel.
+Metal lent his swimming trunk to me as I did not prepare anything for the swimming trip.&lt;/p&gt;
+&lt;p&gt;Contestants did not have to pay for the entry, but they had to be accompanied by an adult (i.e. their leaders, although I did not see any enforcement).
+Apparently, their wristbands had NFCs that served as both hotel room keys and water park access keys.
+I had to pay for the entry, though I was able to use the student&amp;rsquo;s pricing.
+The water park was fine, and I mostly stayed idle thanks to my inability to swim.
+The others mostly played with slides.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_aquapolis.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Szeged Aquapolis.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After some long hours (teenagers do not easily get bored with this kind of activity yet), we cleaned ourselves, and I immediately headed back to my hotel for GA meeting 6.
+Since I was already late, I joined the meeting via Teams while walking to the GA meeting room.
+I arrived 15 minutes late.&lt;/p&gt;
+&lt;p&gt;The GA meeting 6 started with the report for competition day 2.
+There were no major issues, so the report quickly concluded.
+Next, there was an announcement by the host that there was an ongoing fish festival on the bank of the River Tisza, and he warned us to ensure that contestants must not go out alone at night (I do not know why this sounded so serious).&lt;/p&gt;
+&lt;p&gt;The next agenda is the presentation of IC, ISC, and ITC candidates.
+There was only a single ITC candidate, and I already knew who to vote for IC members.&lt;/p&gt;
+&lt;p&gt;The candidate presentations were over, and there were supposedly no more items on the agenda, so we could start to have our most needed rest.
+Except that the president of IOI suddenly presented an agenda about the IC election reform.
+The president presented a proposal to change the regulation of the IC election such that candidates from the minority gender are given a reserved slot (I do not remember the exact change, but it&amp;rsquo;s something to that effect).&lt;/p&gt;
+&lt;p&gt;Brian, who had gone back earlier, immediately booked a taxi to join the discussion.
+The debate went back and forth, and finally, a vote was made to determine whether the proposal should be formalised and discussed further at the next GA.&lt;/p&gt;
+&lt;p&gt;As the majority voted yes (&amp;gt; 50%), the formal change would be presented at the next and final GA.
+The GA was finally over.&lt;/p&gt;
+&lt;h3 id=&#34;day-6&#34;&gt;Day 6&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s the second excursion day.
+We visited Mako and brought them to an open field with various activities (badminton, ping pong, real-life-size 4-connect, foosball, etc).
+Nothing much to share here as I mostly watched others play.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_connect.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;4-connect because why not.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The next destination was a zoo near Szeged.
+Halfway into the zoo, we decided to have some ice cream and talked about TLX development.
+Since noone were interested in continuing the zoo tour, Irvin booked a cab, and we went back early.
+The rest of the afternoon was just us sleeping in my room.&lt;/p&gt;
+&lt;p&gt;After the dinner, we went to the Cultural Night.
+There, I saw Metal and Vannes running around asking people to sign their shirts (I also signed one iirc).&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_signs.png&#34; style=&#34;width: 450px&#34;/&gt;
+&lt;em&gt;T-shirt signing.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Most of the evening was just filled with music, dances, and performances.
+The IDN contestants (together with the PHL team, I think) sang the IOI 2022 song for the Cultural Night.
+The leaders, however, had another agenda, so they left earlier.
+The agenda in question is the traditional &amp;ldquo;coffee break&amp;rdquo; where leaders brought their &amp;ldquo;national drinks&amp;rdquo; to be shared with the others.
+Brian brought coffee liquor, and a pink alcoholic drink.
+I went around, poured myself some drinks and had a chat with leaders from various countries.&lt;/p&gt;
+&lt;h3 id=&#34;day-7&#34;&gt;Day 7&lt;/h3&gt;
+&lt;p&gt;The closing ceremony day is here.
+But before that, the leaders had to attend the final GA meeting.
+The GA started a bit late, possibly due to the event from the preceding night.
+There were a lot of things that were going on this GA, which I think is better for you to read directly from &lt;a href=&#34;https://ioinformatics.org/files/ioi2023minutes.pdf&#34;&gt;the minutes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;During the whole course of GA, the IDN team who had access to the matrix mainly discussed everything in a private matrix room.
+Most of us were simply commenting on the discussion that was taking place, and also discussed Indonesian&amp;rsquo;s stance on various decisions.
+The duration of the final GA was stretched to 5.5 hours.&lt;/p&gt;
+&lt;p&gt;After the GA, we prepared our Batik, then headed to Pick Arena for the closing ceremony.
+The contestants were seated according to their ranking order, and the leaders were seated in a different section.
+Overall, the closing was very smooth.&lt;/p&gt;
+&lt;p&gt;We had a lot of photos afterwards.
+The Indonesian team had a photo with a few other SEA teams, and the Japanese team too.
+TOKI alumni, &lt;a href=&#34;https://osn.toki.id/statistik/peserta/1129&#34;&gt;Ilham Kurnia&lt;/a&gt; and &lt;a href=&#34;https://osn.toki.id/statistik/peserta/1708&#34;&gt;Roberto&lt;/a&gt;, also came from the neighbouring countries to greet the Indonesian team.
+I asked a few questions about the TOKI history from them while having our dinner.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_japan.jpg&#34; style=&#34;width: 700px&#34;/&gt;
+&lt;em&gt;Indonesia and Japanese teams.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We headed to our respective hotels afterwards, and I started packing.
+I did not expect I would have so many items with me that I needed an extra box which I requested from Dewi.&lt;/p&gt;
+&lt;h3 id=&#34;day-8&#34;&gt;Day 8&lt;/h3&gt;
+&lt;p&gt;The departure day. There were buses at 4 am and 6 am.
+Our flight was 10.30 am but we decided to use the 4 am bus anyway.
+All of us obviously did not get much sleep, but fortunately everyone could wake up and board the 4 am bus.&lt;/p&gt;
+&lt;p&gt;We reached the airport around
+There was nothing much to see in the airport, so we mainly waited in the waiting area.&lt;/p&gt;
+&lt;p&gt;The transit in Doha was only for a short while, and Irvin went on his separate way here to Singapore, while the rest of the team was heading to Jakarta.&lt;/p&gt;
+&lt;p&gt;Once back in Indonesia, Puspresnas welcomed us and did a little interview.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_arrival.png&#34; style=&#34;width: 700px&#34;/&gt;
+&lt;em&gt;Photo with the acting head of Puspresnas.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Most of us went our separate ways after this.
+Ariel, Metal (and his parents), and I had lunch together at Soto Betawi.
+Metal&amp;rsquo;s parents also offered me a ride to my hotel.&lt;/p&gt;
+&lt;p&gt;In the evening, I invited the training camp team and contestants (who were based in Jakarta) for dinner.
+Zanite, Novaryo, Metal and his brother showed up at the Emporium mall.
+I played one DDR game with Zanite, playing the Hungarian Dance track (because I just came back from Hungary, so why not).
+We had Pizza Hut afterwards, and finally said goodbye to them before going back to my daily routine again in the following day.&lt;/p&gt;
+&lt;h3 id=&#34;more-photos&#34;&gt;More Photos&lt;/h3&gt;
+&lt;div style=&#34;display:flex; width: 120%; justify-content: space-around&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_itin.png&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The itinerary from Jakarta to Budapest&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_itin2.png&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The itinerary from Budapest to Jakarta&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_testcase.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;Nitpicky objection that you&#39;d commonly see.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_chat.jpg&#34; style=&#34;width: 300px&#34;/&gt;
+    &lt;em&gt;IOI 2023 had its own chat app. It was barely used, and only contained this kind of chat.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_museum.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;A museum in Szeged.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_architecture.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;A Szeged architecture.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_regis.png&#34; style=&#34;width: 500px&#34;/&gt;
+    &lt;em&gt;A group photo right after registration with IDN guide.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_awake.jpg&#34; style=&#34;width: 300px&#34;/&gt;
+    &lt;em&gt;The IOI bot was not awake quite often, but it was resolved quickly.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 120%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_desk.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The contestant desk.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_opusztaszer.jpg&#34; style=&#34;width: 500px&#34;/&gt;
+    &lt;em&gt;Somewhere in Ópusztaszer.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 120%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_closing.jpg&#34; style=&#34;width: 500px&#34;/&gt;
+    &lt;em&gt;Group photo after closing.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_medals.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;IDN medals.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 120%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_mall.jpg&#34; style=&#34;width: 500px&#34;/&gt;
+    &lt;em&gt;The largest mall in Szeged.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_cafe.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;A random cafe in Szeged.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 120%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_souvenirs.png&#34; style=&#34;width: 300px&#34;/&gt;
+    &lt;em&gt;The IOI souvenirs that I brought.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2023_farewell.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;Final hangout before I head back to normal life.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;ioi-2024&#34;&gt;IOI 2024&lt;/h2&gt;
+&lt;p&gt;The contestants for IOI 2024 are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Metal: Matthew Allan&lt;/li&gt;
+&lt;li&gt;Kelven: Kelven Nathanael&lt;/li&gt;
+&lt;li&gt;Aufan: Aufan Ahmad Mumtaza&lt;/li&gt;
+&lt;li&gt;Gunadi: Gunadi Gani&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And the rest of the delegation members who also flew to the IOI:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vio: Vio Albert Ferdinand&lt;/li&gt;
+&lt;li&gt;Ammar: Ammar Fathin Sabili&lt;/li&gt;
+&lt;li&gt;Pikatan: Pikatan Arya Bramajati&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;day-0-1&#34;&gt;Day 0&lt;/h3&gt;
+&lt;p&gt;This time, since I was not really part of the core delegation member, I had the liberty to depart from my city of residence, Singapore.&lt;/p&gt;
+&lt;p&gt;My flight was scheduled at 2 am, and I arrived at the airport around 11 pm.
+The check-in counter was not open yet, so I wandered around for a while.
+By the time I was back, there was suddenly a huge line for the check-in, and so I joined the queue.
+While queueing, I met Irvin, who coincidentally had the same flight as mine. He travelled alone, while the Singaporean team had departed first (can&amp;rsquo;t really recall the reason, but I think his travel to IOI was unplanned and only notified a few days before).&lt;/p&gt;
+&lt;p&gt;After checking in, we both waited for the gate to open.
+We did a little catch-up while waiting since we had not met for a while.&lt;/p&gt;
+&lt;p&gt;The gate finally opened, and I boarded the flight for Qatar.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_itinerary.png&#34; style=&#34;width: 350px&#34;/&gt;
+&lt;em&gt;My flight to Egypt.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This was the second time I landed at the Hamad International Airport, Doha, so some of the places were already familiar.
+This time, I had more free time, about 3 hours, so I decided to explore the airport more.
+I explored alone since Irvin had other work to do.&lt;/p&gt;
+&lt;p&gt;While walking around the airport garden, a Philippine contestant noticed my IOI 2022 polo T-shirt and called &amp;ldquo;IOI! IOI!&amp;rdquo;, and so I approached and greeted them.
+I asked where their team leader was, and then found him sitting on the floor while preparing lecture material for his university.
+I greeted him for a while and asked what he had been doing lately, then continued exploring the airport.&lt;/p&gt;
+&lt;p&gt;I returned to the gate and waited for the boarding. There, I met the Malaysian team and I had a little chat with their team leader.
+There were also the IOI president, the Brazilian team, the Japanese team, and many more.
+I think half of the flight was IOI people.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_landing.png&#34; style=&#34;width: 500px&#34;/&gt;
+&lt;em&gt;Landing in Egypt.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I landed at the Borg El Arab International Airport, Alexandria, and immediately had the impression of how arid the place was.
+After the immigration, contestants and leaders were immediately directed to their buses.
+Guests were directed to a different bus as we stayed at a different hotel.
+The venue, contestant hotel, and leaders hotel were located around the same area, but the guest hotel is quite out of the place.
+There was also a little confusion on which bus I should board as they apparently do not know what &amp;ldquo;invited guest&amp;rdquo; role is, so they just boarded me on a random bus.
+In the end, they figured out that invited guests were going to stay in the committee hotel, but the bus was going to stop at the contestant&amp;rsquo;s hotel anyway, so I did not really understand the confusion they had.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_bus.png&#34; style=&#34;width: 500px&#34;/&gt;
+&lt;em&gt;The IOI bus.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The guest bus was empty, and I think we had to wait for about 90 minutes before the bus started to move.
+I killed my time by playing Persona 4 Golden on a PSP emulator at that time.
+There was no information at all about when the bus would start moving, and I made a bet on whether we would have GTA 6 before it (unfortunately, the bus started moving first).&lt;/p&gt;
+&lt;p&gt;I finally arrived at my hotel, Sheraton Montazah, in the afternoon.
+After registration, I immediately went to my room and slept until the next day.
+I was so tired that I skipped dinner (which was only served near the venue), even though I had barely eaten that day.&lt;/p&gt;
+&lt;p&gt;I was supposed to share a room with Pikatan, another invited guest from Indonesia, but he (now she) was arriving at a later date, separate from the main Indonesian delegation team too.&lt;/p&gt;
+&lt;h3 id=&#34;day-1-1&#34;&gt;Day 1&lt;/h3&gt;
+&lt;p&gt;I had my breakfast and saw a few familiar faces.
+The guests were supposed to have a tour in the Montazah area, which I was not interested in and preferred to observe the GA and practice session.
+After breakfast, I went to the lobby and waited for the supposedly promised shuttle bus.
+Since there was no information at all on when the shuttle for AAST (the main venue) would arrive, Irvin booked an Uber instead, and we departed for AAST.&lt;/p&gt;
+&lt;p&gt;We alighted right before the main entrance of the AAST since the taxi was not allowed to enter.
+It was just a short walk to the dining area.
+In the dining area, Kelven saw me and waved, so I approached them.
+There, I finally met the Indonesian team, who apparently just arrived the night before.&lt;/p&gt;
+&lt;p&gt;I also attended the first GA.
+The GA room had a very limited number of seats, and a delegation was assigned with only two chairs (with no tables), which clearly were not enough.
+The GA room also had no pigeonholes.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_ga.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The GA room. Those without tables were where the leader&#39;s seats were assigned.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;There were two &lt;em&gt;circles&lt;/em&gt; of tables that were only partially filled by committee members, so I took one empty seat and sat there by myself.
+All the remaining delegations were seated on the &amp;ldquo;outer&amp;rdquo; circle surrounding the perimeter of the room.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_seat.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The view from the empty seat I randomly took.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After the first GA, it was then followed by the practice session.&lt;/p&gt;
+&lt;p&gt;Nothing eventful happened during the practice, except that one IDN contestant&amp;rsquo;s workstation was given the wrong username.&lt;/p&gt;
+&lt;p&gt;The second GA then followed to discuss issues that arose during the practice session.&lt;/p&gt;
+&lt;p&gt;After the second GA, it was also announced that we could use those tables for the next meetings.
+We then proceeded to the opening ceremony at Alexandria Bibliotheca.
+Due to time constraints, the Bibliotheca exploration was canceled so we were only there for the opening ceremony.&lt;/p&gt;
+&lt;p&gt;In the opening hall, a Nigerian team leader approached me to ask about their IOI 2022 certificates, for which I delegated the matter to Brian.
+The opening ceremony started, and was followed by mentioning each team one by one, with the neighbouring Arabic countries receiving a more grand mention.&lt;/p&gt;
+&lt;p&gt;After the opening ceremony, we were immediately led back to AAST.
+Once arrived, everyone had their dinner. The leaders had a GA meeting afterwards.&lt;/p&gt;
+&lt;p&gt;I arrived early and &lt;em&gt;booked&lt;/em&gt; the inner table in the GA room, since I knew we would really need the table, and I was going to help the team with translation anyway.&lt;/p&gt;
+&lt;p&gt;The main focus of the GA was the task selection for the Day 1 contest.
+I read the tasks, asked Ammar to raise a few minor objections (which were accepted), and then continued with the translation.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_objections.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+&lt;em&gt;The objection I asked Ammar to raise.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;There was a shuttle for me to head back, so I headed back once the team finished the translation (around 2 am).&lt;/p&gt;
+&lt;h3 id=&#34;day-2-1&#34;&gt;Day 2&lt;/h3&gt;
+&lt;p&gt;The guest had an itinerary for a &lt;a href=&#34;https://maps.app.goo.gl/MXCmiMMBJPnwiSgF7&#34;&gt;Qaitbay Citadel&lt;/a&gt; tour, but I was tired and not interested, so I slept longer. I departed for AAST at 12 pm and had lunch there.
+I waited for the contest to finish with the Indonesian team, and we also coordinated with Pikatan on how to get to the venue.&lt;/p&gt;
+&lt;p&gt;The contest ended, and so we visited the contest hall to find our contestants.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_hall.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The contest hall. You may notice that their desktop wallpaper was AI-generated.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The contestants then had lunch. I wandered around in the afternoon, and also visited the Jane Street Hub for a while and attempted a few of their puzzles.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_puzzle.png&#34; style=&#34;width: 500px&#34;/&gt;
+&lt;em&gt;A puzzle from the hub.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The next GA happened after dinner, and they mainly discussed the Gaza, which you can read from &lt;a href=&#34;https://ioinformatics.org/files/ioi2024minutes.pdf&#34;&gt;the minutes&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;day-3-1&#34;&gt;Day 3&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s the excursion day, and the itinerary for the day was to visit the &lt;a href=&#34;https://maps.app.goo.gl/kUEr8BdqFuyXh6hJ6&#34;&gt;Montazah Beach&lt;/a&gt;. This time, we had a shuttle bus waiting for us to visit the beach.&lt;/p&gt;
+&lt;p&gt;After arriving, I tried to find the Indonesian team and found them just chilling under the beach umbrella while blasting some music from a speaker brought by Metal.
+A lot of people were playing in the sea too, and I think Gunadi also joined for a little while.
+We were then slowly realising that we were simply being dumped on the beach under the glaring sun until who-knows-when.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_beach.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Montazah beach.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We decided to explore the Montazah area by ourselves, so we had a stroll and ended up at a cafe.
+We ordered some food, and it took forever for them to serve the food.
+I read online, and apparently it is common for cafes in Egypt to take their time to serve the food.
+The cafe was apparently already booked for the IOI guests, and the waiters thought we were there as IOI guests, so we did not have to pay for the food (but I think Ammar paid for it anyway using the government pocket money).&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_cafe.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Escaping the beach trip.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We headed for the bus that was going back to AAST.
+I think Aufan was a little sic,k and Vio took care of it.
+I was then chilling in Ammar and Vio&amp;rsquo;s room, with Irvin also came along.
+In that very room, I conceived a problem idea which later became &lt;a href=&#34;https://tlx.toki.id/problems/icpc-jakarta-2024/J&#34;&gt;an ICPC problem&lt;/a&gt;.
+We waited until dinner time and proceeded to the next GA.&lt;/p&gt;
+&lt;p&gt;The GA was going to select the task for day 2 contest.
+The tasks were revealed, and I saw my problem being part of the set. The team congratulated me, and Irvin also immediately realised which one is mine since he already understood my problem taste very well.
+Not long after, there was a major objection for Hiereoglaph which was quickly dismissed.
+Another major objection then came, saying that the task was similar to an AtCoder problem.
+A long discussion was then held to determine whether the task should be kept or to see the backup task. A vote was held, and the decision was to keep the task.&lt;/p&gt;
+&lt;p&gt;The Malaysian team leader approached me and asked whether my task appeared in the problemset, to which I said &amp;ldquo;Yes&amp;rdquo;. He then asked whether I was happy, to which I laughingly replied &amp;ldquo;not sure&amp;rdquo;, and he immediately understood which task was mine.&lt;/p&gt;
+&lt;p&gt;To be honest, I really was neither happy nor sad with the state of the task, but I do realise there have been a lot of polarising discussions about it. I initially came up with the problem when brainstorming an idea for the Indonesian National Olympiad, which was not accepted, so I just submitted it to IOI with no expectation.&lt;/p&gt;
+&lt;p&gt;We proceeded with the translation, which lasted until 1 am and headed back to my hotel using a shuttle bus.&lt;/p&gt;
+&lt;h3 id=&#34;day-4-1&#34;&gt;Day 4&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s the day 2 contest. As usual, there&amp;rsquo;s an itinerary for the guest which I did not follow, and I headed for AAST. I think I headed alone, since Pikatan was still resting and we agreed to go for AAST at our own timing.&lt;/p&gt;
+&lt;p&gt;An Indonesian ambassador in Egypt, along with a few Indonesian high-school students studying in Egypt, visited the Indonesian team to observe the competition. Ammar had a little chat with them, and also introduced the contestants to them after the contest had ended.&lt;/p&gt;
+&lt;p&gt;I had lunch with the contestants.
+One of them was a little disappointed with his result, so I tried to calm him down a bit.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s also an informal APIO discussion with the APIO members in the meeting room.
+Steven Halim headed the meeting, and I recall not much was decided then. We had a photo session afterward,s and the meeting was concluded.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_apio.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;APIO meeting.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We had a rest in Ammar and Vio&amp;rsquo;s room while waiting for the next GA meeting.
+The GA meeting mainly reported on the day 2 competitions. There&amp;rsquo;s also a discussion about contestants who had their mobile phones with them during the competition and what decision was reached.
+Candidates for the committee also made their presentation during this GA.
+Finally, the final result was confirmed by the GA.&lt;/p&gt;
+&lt;h3 id=&#34;day-5-1&#34;&gt;Day 5&lt;/h3&gt;
+&lt;p&gt;The agenda of the day was entirely in Cairo.
+We boarded the bus from our hotel, and our first destination was the &lt;a href=&#34;https://maps.app.goo.gl/FJY9VdhcxmvPETkZ9&#34;&gt;The Grand Egyptian Museum&lt;/a&gt;, which took 3 hours to reach.
+Apparently, at the time of this writing, the museum wasn&amp;rsquo;t open to the public yet and seemed to be only available to certain guests, so I guess we were lucky to become the first few to see the museum.&lt;/p&gt;
+&lt;p&gt;The museum was actually grand as the name suggested.
+It was really spacious with a lot of large pillars and statues.
+At the top of the museum, we could see the Giza pyramid.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_museum.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The entrance of the museum.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After the museum tour, there was a mall just beside it (I&amp;rsquo;m actually not sure whether it was part of the museum).
+There was not much else to do until lunch, so I just browsed the mall and then went to Starbucks with Vio.&lt;/p&gt;
+&lt;p&gt;The lunch was also held in the same area.
+The Indonesian team sat at a round table with the New Zealand team, and they talked about how long the trip was to get to Egypt.
+After lunch, there really was nothing else to do, and we were simply stuck in the lunch hall.
+People then started to build towers of cans to kill the time.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_can.jpg&#34; style=&#34;width: 350px&#34;/&gt;
+&lt;em&gt;A lot of tables started to build soda can towers out of boredom.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;One of the IDN contestants also started to lie down on the floor.
+A few organisers came and asked whether he was okay, and I told them we were totally fine.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_floor.png&#34; style=&#34;width: 400px&#34;/&gt;
+&lt;em&gt;IDN contestant watching TikTok videos while lying down.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;They finally started to call us to board the bus, onto the next destination, the Grand Pyramid of Giza.
+My bus was one of the first to arrive, so I got to see the view before it was crowded.
+The surroundings of the pyramid was quite smelly, and it was quite hard to walk around it.&lt;/p&gt;
+&lt;p&gt;When all the buses arrived, all the IOI people had a group photo.
+It took like 20 minutes to get everyone on their position before the first photo was taken.
+We were then ushered to the bus again for the closing ceremony.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_pyramid.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The Indonesian team in front of a pyramid.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I also heard that some buses did not manage to get to the pyramid, so those teams obviously were not very happy.
+They asked to visit the pyramid again, but the organiser said it was not possible, as during nighttime, the pyramid is actually guarded by armed soldiers.
+They provided an alternative, which was to visit the next day, but I think the teams did not take the offer.&lt;/p&gt;
+&lt;p&gt;The closing ceremony was held in an open-air, and we could see the pyramids clearly.
+The dinner served was pretty fancy as well.
+The closing ceremony generally consisted of performances and speeches, and finally the awarding.
+The awarding was quite slow (imo), because there were performances after every few medalists called.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_closing.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;The closing ceremony venue before it was dark.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;After the ceremony, we had to go back to the bus for a 3h trip back to our respective hotels.
+There were not many places to take a photo with the medalists, because it was an open area and was quite dark.&lt;/p&gt;
+&lt;h3 id=&#34;day-6-1&#34;&gt;Day 6&lt;/h3&gt;
+&lt;p&gt;This is my last day in IOI 2024.
+There&amp;rsquo;s a tour for the guests to a museum, which I did not join as usual.
+I headed for the final GA in AAST.
+I think while in the taxi, they announced who the problem setters were and gave an applause, but I wasn&amp;rsquo;t there ye,t unfortunately.&lt;/p&gt;
+&lt;p&gt;When I arrived there, Ben was giving a speech concerning the LGBT.
+There were some discussions about it, which you can read from &lt;a href=&#34;https://ioinformatics.org/files/ioi2024minutes.pdf&#34;&gt;the minutes&lt;/a&gt;.
+Next, the treasurer presented some financial matters, and the GA voted for approval.&lt;/p&gt;
+&lt;p&gt;After that, it was just a bunch of voting: committee election and regulation changes.
+Finally, they announced the host for IOI 2027, which is Postdam, Germany.&lt;/p&gt;
+&lt;p&gt;After the final GA, I chilled around the contestant&amp;rsquo;s room and had a photo with them before heading back to my hotel.
+I think they head for Bibliotheca again in their free time to actually explore it, but I did not join since I had a flight at night.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_team.jpg&#34; style=&#34;width: 600px&#34;/&gt;
+&lt;em&gt;Final photo with the team before parting.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I waited for the 7 pm bus.
+Since there&amp;rsquo;s no information at all from the organisers, the leaders and guests coordinated themselves by informing each other where the buses were.
+I waited there with Ben, J.P., and Eduard.
+My 7 pm bus arrived at 8.30 pm, and I said farewell to them.&lt;/p&gt;
+&lt;p&gt;The bus was actually quite full, and it was still going to pick up more people from different hotels.
+Somehow, the bus managed to board everyone and headed to the airport.
+I was all by myself at this point, and said farewell to Egypt.&lt;/p&gt;
+&lt;h3 id=&#34;more-photos-1&#34;&gt;More Photos&lt;/h3&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_room.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The view from my room in Egypt.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_elevator.jpg&#34; style=&#34;width: 300px&#34;/&gt;
+    &lt;em&gt;The elevator buttons in Egypt.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_desk.png&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The contestant desk.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_hostel.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The hostel where the contestants stayed.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_bibliotheca.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;Bibliotheca entrance.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_opening.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The opening ceremony.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_huawei.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The Huawei arena.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_promenade.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The promenade around the Montazah area.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_exterior.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The exterior or the Grand Museum.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_window.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The view of Giza from the museum.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_excursion.png&#34; style=&#34;width: 300px&#34;/&gt;
+    &lt;em&gt;Vio escorting the contestants.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_selfie.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;Hanging out at Giza.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_giza.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The pyramid with all the IOI people.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_dining.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The IDN dining table during the closing.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display:flex; justify-content: space-around; width: 100%; align-items: center&#34;&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_food.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The food served during the closing.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://prabowo02.github.io/posts/ioi2024_night.jpg&#34; style=&#34;width: 400px&#34;/&gt;
+    &lt;em&gt;The pyramid and Sphinx at night.&lt;/em&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+		</item>
 		<item>
 			<title>History of Indonesia Informatics Olympiad</title>
 			<link>https://prabowo02.github.io/posts/history-toki/</link>
