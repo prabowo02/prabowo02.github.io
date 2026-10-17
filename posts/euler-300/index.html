@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Euler 301-400 tier list | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="I recently completed the first 400 Project Euler problems." />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.112.5">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      Project Euler 301-400 tier list
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2026-10-17T18:32:53&#43;08:00">
+      Sat, 17 Oct 2026
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    <style>
+    /* Replaced 'body' selector with a container class */
+    .euler-container {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    /* Replaced 'table' selector with a class */
+    .euler-grid {
+        border-collapse: collapse;
+        border: 4px solid #aaa;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Replaced 'td' selector with a class */
+    .euler-cell {
+        border: 2px solid #ccc !important;
+        width: 40px !important;
+        height: 40px !important;
+        text-align: center;
+        vertical-align: middle;
+        transition: filter 0.2s;
+        padding: 0 !important;
+        position: relative; /* Required for custom tooltip positioning */
+    }
+
+    /* Replaced 'a' selector with a class */
+    .euler-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: #333;
+        font-size: 15px;
+    }
+
+    /* Rank Colors */
+    .pure-table .rank-S { background-color: #ff7777; } 
+    .pure-table .rank-A { background-color: #fac898; } 
+    .pure-table .rank-B { background-color: #ffe17f; } 
+    .pure-table .rank-C { background-color: #ffff80; } 
+    .rank-None { background-color: #ffffff; }
+
+    /* Hover effect tied to the cell class */
+    .euler-cell:hover {
+        filter: brightness(0.85);
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    /* Custom Tooltip Styling */
+    .euler-tooltip {
+        visibility: hidden;
+        background-color: #ffffff;
+        color: #000;
+        text-align: center;
+        border: 1px solid #a0a0a0;
+        border-radius: 4px;
+        padding: 6px 12px;
+        position: absolute;
+        z-index: 1;
+        top: 70%; 
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+        white-space: nowrap;
+        font-size: 13px;
+        font-weight: bold;
+        pointer-events: none; 
+    }
+
+    /* Display tooltip immediately on hover using classes */
+    .euler-cell:hover .euler-tooltip {
+        visibility: visible;
+    }
+</style>
+<p>I recently completed the first 400 Project Euler problems. Inspired by <a href="https://sanguinecha.me/project-euler-tier-list">sanguinecha.me/leon</a>, I&rsquo;m going to make my own tier list for 3xx problems.</p>
+<p>Some idea on how to interpret the ranks:</p>
+<ul>
+<li><strong>Rank C</strong>: It&rsquo;s just tedious or boring</li>
+<li><strong>Rank B</strong>: A standard problem but at least there&rsquo;s some non-trivial observation to it.</li>
+<li><strong>Rank A</strong>: I think it&rsquo;s a good problem and enjoyed solving it.</li>
+<li><strong>Rank S</strong>: Either I really enjoyed learning the new thing required for the problem, or really excited when I had the problem solved.</li>
+</ul>
+<!-- Added container div so it doesn't rely on body styling -->
+<div class="euler-container">
+    <table id="euler-table" class="euler-grid">
+        <!-- Table gets generated by JavaScript -->
+    </table>
+</div>
+<h2 id="commentary">Commentary</h2>
+<h3 id="rank-s">Rank S</h3>
+<ul>
+<li>319: Actually earned more in-depth about Dirichlet and hyperbola method, and they are being used in a non-trivial way on this problem.</li>
+<li>325: It&rsquo;s a standard Euclid game, but I learned about floor sum here. I still find the $\phi$ appearing in the game formula to be impressive though.</li>
+<li>344: It&rsquo;s a tough one, but the game reduction turns out to be pretty simple.</li>
+<li>361: Found out about an entire Thue-Morse generation and some facts about them. The observation to find $A_n$ also turns out to be pretty elegant too. The only annoying thing is the non-prime modulo.</li>
+<li>382: Problem is kinda annoying, but this is the first time I cheese a problem using Berlekamp-Massey and tried to understand the BM algorithm.</li>
+<li>391: It&rsquo;s a good and simple DP, but not easy to formulate. I also find the fast convergence to be interesting.</li>
+</ul>
+<h3 id="rank-a">Rank A</h3>
+<ul>
+<li>311: Weird geometry setup, but the reduction to number theory is quite funny.</li>
+<li>314: Unexpected Lagrangian jump scare.</li>
+<li>316: You can extend this probability problem into string problem.</li>
+<li>317: Pure integration problem. I actually randomly encountered and solved this in my high school (10+ years ago).</li>
+<li>326: Pattern recognition problem, i.e. OEIS.</li>
+<li>330: Overall good counting problem. Solving using G.F. perspective also possible.</li>
+<li>331: Funny game with unproven solution. People are creating an online game to help visualise this problem as well.</li>
+<li>337: Number theory with unexpected need for Fenwick Tree.</li>
+<li>338: A tough problem requiring case-by-case analysis, and you need floor sum in the end.</li>
+<li>343: Funny way to hide largest prime factor.</li>
+<li>354: Learned something about lattice points in hexa grid.</li>
+<li>355: Bipartite matching in a number theory problem. If not for the unproven lemma, I might put this in S.</li>
+<li>356: A good use of Vieta&rsquo;s.</li>
+<li>358: Interesting premise, and good use of primitive root.</li>
+<li>366: Fibonacci nim with non-trivial way to &ldquo;brute&rdquo; the solution.</li>
+<li>368: Interesting mathematical facts and nice use of non-trivial DP.</li>
+<li>372: Floor-sum modification.</li>
+<li>379: Alternative solution that uses Dirichlet is kinda interesting.</li>
+<li>380: It&rsquo;s funny because the product terms are trigonometry but the final result is an integer.</li>
+<li>394: A good brush up on differential equations.</li>
+<li>400: It&rsquo;s just a game theory but misère.</li>
+</ul>
+<p>I&rsquo;m not going to comment on Rank B and C</p>
+<script>
+    const rankData = "CBCCCBCCCBABBACAABSBBBBCSACBCAACBBBCAABBBBASCBCCBBBCCAAACABBSCCBCABABBCABCCBCCAABSBBBBCCBBSBCABBBBBA"
+    // 2. Generate the 10x10 Table
+    const table = document.getElementById("euler-table");
+    let currentNumber = 301;
+
+    for (let row = 0; row < 10; row++) {
+        const tr = document.createElement("tr");
+        
+        for (let col = 0; col < 10; col++) {
+            const td = document.createElement("td");
+            td.classList.add("euler-cell"); // Apply cell class
+            
+            // Get rank from JSON, default to empty if not found
+            const rank = rankData[currentNumber - 301] || "None";
+
+            // Apply colour based on rank
+            if (rank === "S") td.classList.add("rank-S");
+            else if (rank === "A") td.classList.add("rank-A");
+            else if (rank === "B") td.classList.add("rank-B");
+            else if (rank === "C") td.classList.add("rank-C");
+            else td.classList.add("rank-None");
+
+            // Create link to Project Euler problem in a new page
+            const link = document.createElement("a");
+            link.classList.add("euler-link"); // Apply link class
+            link.href = `https://projecteuler.net/problem=${currentNumber}`;
+            link.target = "_blank"; 
+            link.textContent = currentNumber;
+
+            // Create Custom Tooltip if rank exists
+            if (rank !== "None") {
+                const tooltip = document.createElement("div");
+                tooltip.classList.add("euler-tooltip"); // Apply tooltip class
+                tooltip.textContent = rank;
+                td.appendChild(tooltip);
+            }
+
+            // Append elements
+            td.appendChild(link);
+            tr.appendChild(td);
+
+            currentNumber++;
+        }
+        table.appendChild(tr);
+    }
+</script>
+
+  </div>
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prabowo-djonatan" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+      ]
+    });
+  });
+</script>
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLDJM2BXDY"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QLDJM2BXDY', { 'anonymize_ip': false });
+}
+</script>
+
+</body>
+</html>
