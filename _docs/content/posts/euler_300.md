@@ -1,7 +1,7 @@
 ---
 title: "Project Euler 301-400 tier list"
 slug: euler-300
-description: I recently completed the first 400 Project Euler problems.
+summary: I recently completed the first 400 Project Euler problems.
 date: 2026-10-17T18:32:53+08:00
 ---
 
