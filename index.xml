@@ -5,8 +5,34 @@
 		<description>Recent content on Notes</description>
 		<generator>Hugo 0.112.5 -- gohugo.io</generator>
 		<language>en-us</language>
-		<lastBuildDate>Sun, 18 Oct 2026 16:37:39 +0800</lastBuildDate>
+		<lastBuildDate>Sun, 18 Oct 2026 20:59:08 +0800</lastBuildDate>
 		<atom:link href="https://prabowo02.github.io/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Counting Lattice Points at a Distance $r$</title>
+			<link>https://prabowo02.github.io/posts/lattice-integer-distance/</link>
+			<pubDate>Sun, 18 Oct 2026 20:59:08 +0800</pubDate>
+			<guid isPermaLink="true">https://prabowo02.github.io/posts/lattice-integer-distance/</guid>
+			<description>&lt;h2 id=&#34;1-2d-grid&#34;&gt;1. 2D Grid&lt;/h2&gt;
+&lt;p&gt;You want to find the number of lattice points $(x, y) \in \mathbb{Z}^2$ such that  $x^2 + y^2 = r$. Equivalently, we are counting how many &lt;a href=&#34;https://en.wikipedia.org/wiki/Gaussian_integer&#34;&gt;Gaussian integers&lt;/a&gt; with norm $\sqrt{r}$ there are.&lt;/p&gt;
+&lt;p&gt;First, factorise $r$ and group the primes according to their modulo $4$:&lt;/p&gt;
+&lt;p&gt;$$r = 2^a \prod_{p_i \equiv 1 \pmod 4} p_i^{e_i} \prod_{q_j \equiv 3 \pmod 4} q_j^{f_j}.$$&lt;/p&gt;
+&lt;p&gt;If &lt;strong&gt;any&lt;/strong&gt; $f_j$ is odd, then the count is $0$. Otherwise, the count is:&lt;/p&gt;
+&lt;p&gt;$$4 \prod (e_i + 1)$$&lt;/p&gt;
+&lt;h2 id=&#34;2-triangular-grid&#34;&gt;2. Triangular Grid&lt;/h2&gt;
+&lt;p&gt;You want to count the number of triangular lattice with a fixed distance $d$, i.e. you want to count $(x, y) \in \mathbb{Z}^2$ such that $x^2 - xy + y^2 = r$. Equivalently, we are counting how many &lt;a href=&#34;https://en.wikipedia.org/wiki/Eisenstein_integer&#34;&gt;Eisenstein integers&lt;/a&gt; with norm $\sqrt{r}$ there are.&lt;/p&gt;
+&lt;p&gt;First, factorize $r$ and group the prime factors according to their modulo 3:
+$$r = 3^a \prod_{p_i \equiv 1 \pmod 3} p_i^{e_i} \prod_{q_j \equiv 2 \pmod 3} q_j^{f_j}.$$&lt;/p&gt;
+&lt;p&gt;If &lt;strong&gt;any&lt;/strong&gt; $f_j$ is odd, then the count is $0$. Otherwise, the count is:
+$$6 \prod (e_i + 1)$$&lt;/p&gt;
+&lt;h2 id=&#34;3-3d-sphere&#34;&gt;3. 3D Sphere&lt;/h2&gt;
+&lt;p&gt;You want to find the number of lattice points $(x, y, z) \in \mathbb{Z}^3$ such that $x^2 + y^2 + z^2 = r^2$. Note that we require the distance to be also an &lt;strong&gt;integer&lt;/strong&gt;, so the R.H.S. is $r^2$ &lt;strong&gt;not&lt;/strong&gt; $r$.
+The conditions for non-integers are a little tricky, but for integers they are highly simplified.&lt;/p&gt;
+&lt;p&gt;First, factorise $r$ and group the primes according to their modulo $4$:&lt;/p&gt;
+&lt;p&gt;$$r = 2^a \prod_{p_i \equiv 1 \pmod 4} p_i^{e_i} \prod_{q_j \equiv 3 \pmod 4} q_j^{f_j}.$$&lt;/p&gt;
+&lt;p&gt;Then, the count is:&lt;/p&gt;
+&lt;p&gt;$$6 \prod_{p_i \equiv 1 \pmod 4} p_i^{e_i} \prod_{q_j \equiv 3 \pmod 4} \left( 1 + (q_j + 1)\frac{q_j^{f_j} - 1}{q_j - 1} \right)$$&lt;/p&gt;
+</description>
+		</item>
 		<item>
 			<title>LLM on the 2020 PhilPapers Survey</title>
 			<link>https://prabowo02.github.io/posts/philpapers-llm/</link>

@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://prabowo02.github.io/posts/philpapers-llm/</loc>
-    <lastmod>2026-10-18T16:37:39+08:00</lastmod>
+    <loc>https://prabowo02.github.io/posts/lattice-integer-distance/</loc>
+    <lastmod>2026-10-18T20:59:08+08:00</lastmod>
   </url><url>
     <loc>https://prabowo02.github.io/</loc>
-    <lastmod>2026-10-18T16:37:39+08:00</lastmod>
+    <lastmod>2026-10-18T20:59:08+08:00</lastmod>
   </url><url>
     <loc>https://prabowo02.github.io/posts/</loc>
+    <lastmod>2026-10-18T20:59:08+08:00</lastmod>
+  </url><url>
+    <loc>https://prabowo02.github.io/posts/philpapers-llm/</loc>
     <lastmod>2026-10-18T16:37:39+08:00</lastmod>
   </url><url>
     <loc>https://prabowo02.github.io/posts/euler-300/</loc>
