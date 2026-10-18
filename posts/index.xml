@@ -13,7 +13,7 @@
 			<pubDate>Sun, 18 Oct 2026 16:37:39 +0800</pubDate>
 			<guid isPermaLink="true">https://prabowo02.github.io/posts/philpapers-llm/</guid>
 			<description>&lt;p&gt;I asked some of the questions from the &lt;a href=&#34;https://survey2020.philpeople.org/&#34;&gt;PhilPapers Survey&lt;/a&gt; to some of the frontier models at the time of this writing.&lt;/p&gt;
-&lt;p&gt;This is mainly inspired by the &lt;a href=&#34;https://www.philbench.com/&#34;&gt;PhilBench Dashboard&lt;/a&gt; and I was curious to what the &amp;ldquo;2-3 sentences of reasoning are&amp;rdquo;. I couldn&amp;rsquo;t find them anywhere, so I prompted them by myself and might as well share them here.&lt;/p&gt;
+&lt;p&gt;This is mainly inspired by the &lt;a href=&#34;https://www.philbench.com/&#34;&gt;PhilBench Dashboard&lt;/a&gt; and I was curious to what the &amp;ldquo;2-3 sentences of reasoning&amp;rdquo; are. I couldn&amp;rsquo;t find them anywhere, so I prompted them by myself and might as well share them here.&lt;/p&gt;
 &lt;p&gt;This is the prompt that I used:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;You are answering questions from the PhilPapers Survey of
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;professional philosophers.
@@ -24,7 +24,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Questions:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- &amp;lt;list of questions&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-priori-knowledge-yes-or-no&#34;&gt;A priori knowledge: yes or no?&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The prompt is only ran once, and all the questions are bundled together, so the result might not be a direct reflection to what the PhilBench Dashboard has.&lt;/p&gt;
+&lt;h2 id=&#34;a-priori-knowledge-yes-or-no&#34;&gt;A priori knowledge: yes or no?&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;GPT-6 Astra&lt;/strong&gt;: Some logical and mathematical propositions can be justified through reasoning without empirical investigation of their particular subject matter. Experience may be necessary to acquire the relevant concepts without supplying the justification for those propositions. ANSWER: &lt;strong&gt;yes&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Claude Opus 5.5&lt;/strong&gt;: Simple logic and math, like &amp;ldquo;if p and q, then p,&amp;rdquo; seem to be justified without needing any particular experience. Experience may be needed to grasp the concepts, but not to justify the claim. ANSWER: &lt;strong&gt;yes&lt;/strong&gt;&lt;/li&gt;
@@ -32,7 +33,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;abstract-objects-platonism-or-nominalism&#34;&gt;Abstract objects: Platonism or nominalism?&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;GPT-6 Astra&lt;/strong&gt;:Mathematics appears to describe truths that are independent of particular thinkers, inscriptions, or physical instances. Platonism takes that apparent objectivity seriously, although explaining our access to abstract objects remains a significant challenge. ANSWER: &lt;strong&gt;Platonism&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPT-6 Astra&lt;/strong&gt;: Mathematics appears to describe truths that are independent of particular thinkers, inscriptions, or physical instances. Platonism takes that apparent objectivity seriously, although explaining our access to abstract objects remains a significant challenge. ANSWER: &lt;strong&gt;Platonism&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Claude Opus 5.5&lt;/strong&gt;: Mathematics refers to and counts over numbers and sets all the time. Nominalist paraphrases tend to be strained or quietly rely on abstract things anyway. A &amp;ldquo;lightweight&amp;rdquo; Platonism seems the most honest reading of our best theories. ANSWER: &lt;strong&gt;Platonism&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Gemini 4 Argon&lt;/strong&gt;: Mathematical and structural entities are indispensable to our best scientific theories, yet positing a causally inert realm of Platonic forms introduces severe epistemological puzzles about how physical minds could ever access them. Treating abstracta as useful conceptual or linguistic frameworks rather than mind-independent substances provides a more parsimonious ontology without sacrificing explanatory power. ANSWER: &lt;strong&gt;nominalism&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;

@@ -9,7 +9,7 @@ summary: I asked LLMs some of the questions from the PhilPapers Survey.
 
 I asked some of the questions from the [PhilPapers Survey](https://survey2020.philpeople.org/) to some of the frontier models at the time of this writing.
 
-This is mainly inspired by the [PhilBench Dashboard](https://www.philbench.com/) and I was curious to what the "2-3 sentences of reasoning are". I couldn't find them anywhere, so I prompted them by myself and might as well share them here.
+This is mainly inspired by the [PhilBench Dashboard](https://www.philbench.com/) and I was curious to what the "2-3 sentences of reasoning" are. I couldn't find them anywhere, so I prompted them by myself and might as well share them here.
 
 This is the prompt that I used:
 ```txt
@@ -24,6 +24,8 @@ Questions:
 - <list of questions>
 ```
 
+The prompt is only ran once, and all the questions are bundled together, so the result might not be a direct reflection to what the PhilBench Dashboard has.
+
 ## A priori knowledge: yes or no?
 
 * **GPT-6 Astra**: Some logical and mathematical propositions can be justified through reasoning without empirical investigation of their particular subject matter. Experience may be necessary to acquire the relevant concepts without supplying the justification for those propositions. ANSWER: **yes**
@@ -32,7 +34,7 @@ Questions:
 
 ## Abstract objects: Platonism or nominalism?
 
-* **GPT-6 Astra**:Mathematics appears to describe truths that are independent of particular thinkers, inscriptions, or physical instances. Platonism takes that apparent objectivity seriously, although explaining our access to abstract objects remains a significant challenge. ANSWER: **Platonism**
+* **GPT-6 Astra**: Mathematics appears to describe truths that are independent of particular thinkers, inscriptions, or physical instances. Platonism takes that apparent objectivity seriously, although explaining our access to abstract objects remains a significant challenge. ANSWER: **Platonism**
 * **Claude Opus 5.5**: Mathematics refers to and counts over numbers and sets all the time. Nominalist paraphrases tend to be strained or quietly rely on abstract things anyway. A "lightweight" Platonism seems the most honest reading of our best theories. ANSWER: **Platonism**
 * **Gemini 4 Argon**: Mathematical and structural entities are indispensable to our best scientific theories, yet positing a causally inert realm of Platonic forms introduces severe epistemological puzzles about how physical minds could ever access them. Treating abstracta as useful conceptual or linguistic frameworks rather than mind-independent substances provides a more parsimonious ontology without sacrificing explanatory power. ANSWER: **nominalism**
 
