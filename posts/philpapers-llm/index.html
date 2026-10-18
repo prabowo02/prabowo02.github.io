@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>LLM on the 2020 PhilPapers Survey | Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="I asked LLMs some of the questions from the PhilPapers Survey." />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.112.5">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Notes Feed" />
+  <link rel="stylesheet" href="/style.17e3e921c16f28f3ec9acc3e09be85d93dc9c80dc55e3838aad1020d1577bba0.css" />
+  <script defer src="/script.5239f359e84e29304331105377f7c48412ff823b1f4aafe4a0291e3da5ed633b.js" integrity="sha256-UjnzWehOKTBDMRBTd/fEhBL/gjsfSq/koCkePaXtYzs="></script>
+</head>
+<body>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="/">
+        Notes
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item" title="All posts">
+          <a  class="pure-menu-link" href="/posts/">Posts</a>
+        </li>
+        <li class="pure-menu-item" title="About">
+          <a  class="pure-menu-link" href="/about/">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      LLM on the 2020 PhilPapers Survey
+    </h2>
+    
+<div class="post-meta">
+  <span>Date</span> &#x5b;
+    <time datetime="2026-10-18T16:37:39&#43;08:00">
+      Sun, 18 Oct 2026
+    </time>
+  &#x5d;
+</div>
+
+  </div>
+  <div>
+    <p>I asked some of the questions from the <a href="https://survey2020.philpeople.org/">PhilPapers Survey</a> to some of the frontier models at the time of this writing.</p>
+<p>This is mainly inspired by the <a href="https://www.philbench.com/">PhilBench Dashboard</a> and I was curious to what the &ldquo;2-3 sentences of reasoning are&rdquo;. I couldn&rsquo;t find them anywhere, so I prompted them by myself and might as well share them here.</p>
+<p>This is the prompt that I used:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>You are answering questions from the PhilPapers Survey of
+</span></span><span style="display:flex;"><span>professional philosophers.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>For each of the questions below, provide 2-3 sentences of
+</span></span><span style="display:flex;"><span>reasoning, then on a final line, write ANSWER: followed by
+</span></span><span style="display:flex;"><span>your single choice.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Questions:
+</span></span><span style="display:flex;"><span>- &lt;list of questions&gt;
+</span></span></code></pre></div><h2 id="a-priori-knowledge-yes-or-no">A priori knowledge: yes or no?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Some logical and mathematical propositions can be justified through reasoning without empirical investigation of their particular subject matter. Experience may be necessary to acquire the relevant concepts without supplying the justification for those propositions. ANSWER: <strong>yes</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Simple logic and math, like &ldquo;if p and q, then p,&rdquo; seem to be justified without needing any particular experience. Experience may be needed to grasp the concepts, but not to justify the claim. ANSWER: <strong>yes</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Mathematical, logical, and conceptual truths can be justified independently of sensory experience through rational reflection on the structure of concepts and formal systems. While experience may be required to acquire the relevant concepts initially, the warrant for propositions like Modus Ponens or basic arithmetic does not depend on empirical observation. ANSWER: <strong>yes</strong></li>
+</ul>
+<h2 id="abstract-objects-platonism-or-nominalism">Abstract objects: Platonism or nominalism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>:Mathematics appears to describe truths that are independent of particular thinkers, inscriptions, or physical instances. Platonism takes that apparent objectivity seriously, although explaining our access to abstract objects remains a significant challenge. ANSWER: <strong>Platonism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Mathematics refers to and counts over numbers and sets all the time. Nominalist paraphrases tend to be strained or quietly rely on abstract things anyway. A &ldquo;lightweight&rdquo; Platonism seems the most honest reading of our best theories. ANSWER: <strong>Platonism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Mathematical and structural entities are indispensable to our best scientific theories, yet positing a causally inert realm of Platonic forms introduces severe epistemological puzzles about how physical minds could ever access them. Treating abstracta as useful conceptual or linguistic frameworks rather than mind-independent substances provides a more parsimonious ontology without sacrificing explanatory power. ANSWER: <strong>nominalism</strong></li>
+</ul>
+<h2 id="aesthetic-value-objective-or-subjective">Aesthetic value: objective or subjective?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Aesthetic judgments depend substantially on perceptual capacities, emotional responses, and culturally shaped sensibilities. Reasoned criticism can improve those judgments without establishing aesthetic value wholly independent of any possible appreciator. ANSWER: <strong>subjective</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Aesthetic judgments allow real disagreement, expertise and error, which purely subjective preferences don&rsquo;t. Objectivity here may depend on idealized human responses, but it&rsquo;s still more than personal taste. ANSWER: <strong>objective</strong></li>
+<li><strong>Gemini 4 Argon</strong>: While aesthetic judgments are informed by shared evolutionary dispositions and cultural traditions, they ultimately depend on the affective and perceptual responses of observers rather than mind-independent properties of objects. Disagreements in taste cannot be resolved purely by appeal to non-perspectival facts in the way empirical or mathematical disputes can. ANSWER: <strong>subjective</strong></li>
+</ul>
+<h2 id="external-world-idealism-skepticism-or-non-skeptical-realism">External world: idealism, skepticism, or non-skeptical realism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: A mind-independent world provides the strongest explanation of the stability, resistance, and interpersonal convergence of experience. The inability to conclusively refute radical skeptical scenarios does not make ordinary knowledge unjustified. ANSWER: <strong>non-skeptical realism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Realism best explains how stable, shared and predictable experience is. Radical skepticism can&rsquo;t be refuted, but it doesn&rsquo;t need to be accepted either. ANSWER: <strong>non-skeptical realism</strong></li>
+<li><strong>Gemini 4 Argon</strong>:  The hypothesis that a mind-independent physical world exists and causes our sensory experiences provides the best, most coherent explanation for the regularity, predictability, and intersubjective agreement of our perceptions. Radical skeptical scenarios rely on unfalsifiable doubts that carry less explanatory weight than ordinary scientific and perceptual practices. ANSWER: <strong>non-skeptical realism</strong></li>
+</ul>
+<h2 id="free-will-compatibilism-libertarianism-or-no-free-will">Free will: compatibilism, libertarianism, or no free will?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: The freedom relevant to responsibility consists principally in acting through one’s own reasons-responsive capacities rather than through coercion or incapacitation. Such agency can exist even if its underlying processes are causally determined. ANSWER: <strong>compatibilism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: What matters for responsibility seems to be acting from one&rsquo;s own reasons, without coercion. Whether determinism is true doesn&rsquo;t seem to change that. Libertarianism needs indeterminism in just the right places, and indeterminism alone doesn&rsquo;t add control. ANSWER: <strong>compatibilism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Agency that matters for moral responsibility consists in acting in accordance with one&rsquo;s own reflective desires, reasons, and values, free from external coercion or compulsion. Whether those internal states are ultimately part of a deterministic causal chain does not undermine the meaningful distinction between autonomous decision-making and forced action. ANSWER: <strong>compatibilism</strong></li>
+</ul>
+<h2 id="god-theism-or-atheism">God: theism or atheism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: The available arguments and evidence do not, on balance, adequately support the existence of a divine being. Divine hiddenness and apparently gratuitous suffering further favor atheism over theism, without making atheism demonstratively certain. ANSWER: <strong>atheism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: This is a deeply personal and contested question, so I won&rsquo;t pick a side. The main considerations are cosmological and fine-tuning arguments on one side, and the problem of evil and divine hiddenness on the other. About two-thirds of surveyed philosophers lean atheism. ANSWER: <strong>(abstain; survey majority: atheism)</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Naturalistic explanations account for physical, cosmological, and biological complexity without requiring an intelligent creator, making the postulation of a supernatural deity ontologically unnecessary. Furthermore, the pervasive existence of gratuitous suffering and natural evil presents a strong evidential challenge to the existence of an omnipotent, omniscient, and omnibenevolent being. ANSWER: <strong>atheism</strong></li>
+</ul>
+<h2 id="knowledge-empiricism-or-rationalism">Knowledge: empiricism or rationalism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Experience supplies the indispensable evidence for most substantive knowledge of the world. Reason organizes and extends that evidence, but its capacity to establish contingent facts independently is sharply limited. ANSWER: <strong>empiricism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: I accept some a priori knowledge, but most substantive knowledge about the world comes from experience and scientific inquiry. Moderate empiricism fits best. ANSWER: <strong>empiricism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Although sensory observation is essential for discovering contingent facts about the physical world, our capacity to reason deductively, grasp mathematical necessity, and evaluate explanatory coherence relies on rational structures that cannot be derived from sense data alone. Genuine knowledge of fundamental logical and structural truths requires rational insight beyond mere empirical generalization. ANSWER: <strong>rationalism</strong></li>
+</ul>
+<h2 id="laws-of-nature-humean-or-non-humean">Laws of nature: Humean or non-Humean?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Laws appear to support counterfactuals and explain regularities rather than merely summarize the total distribution of events. A non-Humean account grounded in physical properties and their dispositions better captures that explanatory role. ANSWER: <strong>non-Humean</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Laws seem to explain regularities, not just summarize them. Humeanism risks making explanation circular. That said, the field is close to evenly split. ANSWER: <strong>non-Humean</strong></li>
+<li><strong>Gemini 4 Argon</strong>:
+Treating laws of nature as mere descriptions of cosmic regularities fails to explain why the universe continues to exhibit those patterns or why laws support counterfactual conditionals. Understanding laws as governing principles or dispositional essences inherent in physical properties better accounts for scientific induction and causal necessity. ANSWER: <strong>non-Humean</strong></li>
+</ul>
+<h2 id="logic-classical-or-non-classical">Logic: classical or non-classical?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Classical logic provides a powerful default framework for truth-preserving reasoning with determinate propositions. Non-classical systems illuminate important specialized problems, but those successes do not establish that classical logic should be abandoned generally. ANSWER: <strong>classical</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Classical logic is simple, powerful and the default in mathematics. The paradoxes and vagueness that motivate alternatives can be handled in other ways. ANSWER: <strong>classical</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Classical logic provides unmatched simplicity, expressive power, and metalogical strength, serving as the foundational framework for mathematics and rigorous scientific reasoning. Apparent counterexamples in natural language or vagueness are better handled through pragmatics or specialized domain extensions rather than abandoning core principles like bivalence and excluded middle. ANSWER: <strong>classical</strong></li>
+</ul>
+<h2 id="mental-content-internalism-or-externalism">Mental content: internalism or externalism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: What a thought concerns depends partly on the thinker’s relations to the environment and linguistic community. Internally identical individuals can therefore entertain thoughts with different contents when those external relations differ. ANSWER: <strong>externalism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Twin Earth and arthritis-style cases suggest that what we mean depends partly on our physical and social surroundings. ANSWER: <strong>externalism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: The meaning and reference of our thoughts are partly constituted by our causal and historical relations to the external environment and linguistic community, as demonstrated by Twin Earth thought experiments. Two agents can be intrinsic physical duplicates while their beliefs refer to distinct natural kinds due to the different environments in which their concepts were formed. ANSWER: <strong>externalism</strong></li>
+</ul>
+<h2 id="meta-ethics-moral-realism-or-moral-anti-realism">Meta-ethics: moral realism or moral anti-realism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Some moral claims, such as claims against gratuitous cruelty, seem justified independently of whether a society endorses them. Moral disagreement and the difficulty of moral knowledge do not by themselves show that there are no stance-independent moral truths. ANSWER: <strong>moral realism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Some moral claims, like &ldquo;gratuitous torture is wrong,&rdquo; seem as secure as anything we know. A modest, non-spooky realism can respect that. ANSWER: <strong>moral realism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Objective facts about the flourishing and suffering of sentient beings ground normative reasons for action that do not depend on arbitrary individual preferences or cultural conventions. When we judge that torture is wrong, we are identifying a genuine normative property rooted in the nature of conscious experience rather than merely expressing an attitude. ANSWER: <strong>moral realism</strong></li>
+</ul>
+<h2 id="mind-physicalism-or-non-physicalism">Mind: physicalism or non-physicalism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Mental capacities depend systematically on brain organization, and altering that organization predictably alters cognition and experience. Physicalism best integrates this evidence, even though explaining why physical processes yield subjective experience remains difficult. ANSWER: <strong>physicalism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Physical causes seem to be enough to explain behavior, and neuroscience keeps succeeding. The hard problem is real, but it doesn&rsquo;t yet justify adding non-physical stuff. ANSWER: <strong>physicalism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Every mental state, cognitive process, and conscious experience systematically correlates with and depends upon underlying neurobiological or functional mechanisms within the physical world. Positing non-physical substances or irreducibly non-physical properties introduces intractable problems of mental causation without explaining how consciousness arises. ANSWER: <strong>physicalism</strong></li>
+</ul>
+<h2 id="moral-judgment-cognitivism-or-non-cognitivism">Moral judgment: cognitivism or non-cognitivism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Moral judgments ordinarily present claims as true or false and participate in inference much like other beliefs. Their expressive and motivational functions need not displace this fundamentally representational character. ANSWER: <strong>cognitivism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Moral claims behave like beliefs: they can be true or false, embedded in &ldquo;if&rdquo; sentences, and used in reasoning. Non-cognitivism struggles with exactly this (the Frege–Geach problem). ANSWER: <strong>cognitivism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Moral statements function grammatically, logically, and epistemically as assertions capable of being true or false, embedding seamlessly into conditionals and valid deductive arguments. When agents make moral claims, they purport to report normative facts and engage in genuine disagreement rather than merely venting emotions or issuing commands. ANSWER: <strong>cognitivism</strong></li>
+</ul>
+<h2 id="moral-motivation-internalism-or-externalism">Moral motivation: internalism or externalism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Someone can sincerely judge an action morally required yet lack the desire or emotional engagement needed to perform it. Moral judgment often motivates, but that connection is not conceptually necessary. ANSWER: <strong>externalism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: An amoralist who sincerely judges something wrong but doesn&rsquo;t care seems possible. So motivation looks contingent on the judgment, not built into it. ANSWER: <strong>externalism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: While sincere moral judgments typically motivate rational agents, psychological conditions such as severe depression, apathy, or akrasia demonstrate that one can genuinely judge an action to be morally right without feeling any motivational pull to perform it. Motivation requires the presence of corresponding conative states alongside one&rsquo;s normative beliefs.
+ANSWER: <strong>externalism</strong></li>
+</ul>
+<h2 id="personal-identity-biological-view-psychological-view-or-further-fact-view">Personal identity: biological view, psychological view, or further-fact view?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: The continuity most relevant to personal survival involves memory, character, intentions, and other psychologically connected processes. Biological continuity matters chiefly because it ordinarily sustains those processes, rather than because the same organism is indispensable. ANSWER: <strong>psychological view</strong></li>
+<li><strong>Claude Opus 5.5</strong>: What we care about in survival is continuity of memory, personality and intentions. That favors the psychological view over strictly biological continuity. ANSWER: <strong>psychological view</strong></li>
+<li><strong>Gemini 4 Argon</strong>: What matters in survival and practical concern for our future selves is the continuity of consciousness, memory, character, and intentions rather than the mere persistence of a biological organism. If a person&rsquo;s psychological states were preserved in a different substrate while their original body ceased functioning, the person would go where their mind goes. ANSWER: <strong>psychological view</strong></li>
+</ul>
+<h2 id="political-philosophy-communitarianism-egalitarianism-or-libertarianism">Political philosophy: communitarianism, egalitarianism, or libertarianism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: People’s life prospects should not depend overwhelmingly on morally arbitrary differences in birth, inherited wealth, or social status. Egalitarianism best expresses equal standing while allowing liberties and inequalities that genuinely benefit those worse off. ANSWER: <strong>egalitarianism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: This is a contested political question, so I won&rsquo;t take a side. The tradeoffs are among equality, community and individual liberty. Surveyed philosophers lean egalitarian (about 41%). ANSWER: <strong>(abstain; survey plurality: egalitarianism)</strong></li>
+<li><strong>Gemini 4 Argon</strong>: A just society must ensure that all individuals have fair access to the material and social conditions necessary to exercise their basic liberties and pursue a flourishing life, regardless of arbitrary circumstances of birth. Unregulated market outcomes and purely formal liberties fail to respect the equal moral worth of citizens when deep structural inequalities persist. ANSWER: <strong>egalitarianism</strong></li>
+</ul>
+<h2 id="teletransporter-new-matter-survival-or-death">Teletransporter (new matter): survival or death?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: If teleportation preserves the person’s psychological organization through a reliable causal process and produces one successor, replacement of matter need not end the person. Ordinary survival already tolerates material turnover, making the continuity of organization more important than retaining particular particles. ANSWER: <strong>survival</strong></li>
+<li><strong>Claude Opus 5.5</strong>: If psychological continuity is what matters, and the right causal link is preserved, the person survives. The particular matter doesn&rsquo;t seem important. ANSWER: <strong>survival</strong></li>
+<li><strong>Gemini 4 Argon</strong>: If personal identity consists in psychological continuity and connectedness rather than the continuous tracking of specific matter, then an exact functional replica that preserves all memories, beliefs, and personality traits continues the life of the original person. The causal mechanism of reliable information transmission suffices to bridge the gap between the original body and the newly constructed one. ANSWER: <strong>survival</strong></li>
+</ul>
+<h2 id="time-a-theory-or-b-theory">Time: A-theory or B-theory?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Relativity makes a single, observer-independent present difficult to defend. A B-theoretic account of events ordered by temporal relations fits that picture while explaining experienced passage through changing perspectives and records. ANSWER: <strong>B-theory</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Relativity undermines an absolute present. The B-theory fits physics better. ANSWER: <strong>B-theory</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Modern physics, particularly special and general relativity, demonstrates that simultaneity is frame-dependent, leaving no room for anprivileged, objective cosmic present. Temporal becoming is best understood as a feature of conscious perspective within a four-dimensional block universe where past, present, and future events are equally real. ANSWER: <strong>B-theory</strong></li>
+</ul>
+<h2 id="trolley-problem-five-straight-ahead-one-on-side-track-turn-requires-switching-what-ought-one-do-switch-or-dont-switch">Trolley problem (five straight ahead, one on side track, turn requires switching, what ought one do?): switch or don&rsquo;t switch?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Switching prevents five deaths at the cost of one when no less harmful alternative is available. The death on the side track is a foreseeable consequence of redirecting the threat, not the means by which the five are saved. ANSWER: <strong>switch</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Redirecting an existing threat so that one dies instead of five is permissible, and arguably required. Nobody is used as a means. ANSWER: <strong>switch</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Diverting the threat minimizes the loss of innocent life without using the single person on the side track as a mere means to save the others. In a tragic forced choice between five deaths and one death where no special duties are violated, minimizing severe harm is the morally required course of action. ANSWER: <strong>switch</strong></li>
+</ul>
+<h2 id="aim-of-philosophy-which-is-most-important-truthknowledge-understanding-wisdom-happiness-goodnessjustice">Aim of philosophy (which is most important?): truth/knowledge, understanding, wisdom, happiness, goodness/justice?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Philosophy’s distinctive contribution is making concepts, assumptions, and their connections intelligible. Truth matters, but understanding better captures the value of philosophical work that clarifies a problem without conclusively resolving it. ANSWER: <strong>understanding</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Philosophy rarely settles truths decisively. It reliably deepens our understanding of concepts, arguments and how they fit together. ANSWER: <strong>understanding</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Isolated propositional knowledge is insufficient for philosophy&rsquo;s highest aspiration, which is to grasp how disparate truths hang together in a comprehensive, explanatory whole. Understanding integrates factual knowledge with conceptual clarity, enabling us to see the deeper structural relationships across science, ethics, and existence. ANSWER: <strong>understanding</strong></li>
+</ul>
+<h2 id="eating-animals-and-animal-products-are-they-permissible-in-ordinary-circumstances-omnivorism-yes-and-yes-vegetarianism-no-and-yes-veganism-no-and-no">Eating animals and animal products (are they permissible in ordinary circumstances?): omnivorism (yes and yes), vegetarianism (no and yes), veganism (no and no)?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: In ordinary circumstances with adequate alternatives, the suffering and deprivation involved in animal agriculture outweigh the comparatively modest benefits of consuming its products. This concern extends to dairy and eggs, whose production commonly depends on harmful treatment and killing. ANSWER: <strong>veganism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Animal suffering in factory farming carries serious moral weight, and the case against eating meat in ordinary circumstances is strong. Some animal products can be produced without killing or severe harm, so vegetarianism seems the most defensible middle position. Reasonable people disagree here. ANSWER: <strong>vegetarianism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Non-human animals possess the capacity to suffer and have an interest in their own continued existence, which cannot be outweighed by mere human gustatory pleasure when plant-based alternatives are readily available. Because both meat production and standard commercial dairy and egg farming inflict unnecessary harm and death on sentient creatures, abstaining from all animal products is morally required in ordinary circumstances. ANSWER: <strong>veganism (no and no)</strong></li>
+</ul>
+<h2 id="experience-machine-would-you-enter-yes-or-no">Experience machine (would you enter?): yes or no?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: A good life involves actually relating to people, exercising agency, and accomplishing things, not merely experiencing their appearance. Entering the machine would sacrifice those goods even if its experiences were indistinguishable from reality. ANSWER: <strong>no</strong></li>
+<li><strong>Claude Opus 5.5</strong>: We care about actually doing things and being in contact with reality, not just having experiences of it. ANSWER: <strong>no</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Genuine human flourishing requires authentic engagement with reality, actual achievement, and real relationships with other conscious beings, not merely the internal illusion of those states. Choosing a simulated existence disconnects our experiences from truth and agency, sacrificing much of what makes a life genuinely valuable. ANSWER: <strong>no</strong></li>
+</ul>
+<h2 id="footbridge-pushing-man-off-bridge-will-save-five-on-track-below-what-ought-one-do-push-or-dont-push">Footbridge (pushing man off bridge will save five on track below, what ought one do?): push or don&rsquo;t push?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Pushing deliberately uses an unconsenting person’s body and death as the means of rescuing others. The constraint against such instrumental killing outweighs the numerical advantage in this case. ANSWER: <strong>don&rsquo;t push</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Using a person as a mere means to save others violates a constraint that redirecting a threat doesn&rsquo;t. ANSWER: <strong>don&rsquo;t push</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Directly killing an uninvolved bystander by using his body as a physical instrument to stop the train violates a fundamental deontological constraint against using persons merely as means. Even from a rule-consequentialist perspective, upholding a strict moral prohibition against battering innocent people to death for aggregate utility is essential for social trust and basic security. ANSWER: <strong>don&rsquo;t push</strong></li>
+</ul>
+<h2 id="gender-biological-psychological-social-or-unreal">Gender: biological, psychological, social, or unreal?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Gender categories and their practical significance are constituted substantially by social norms, roles, and institutions. Biology and individual psychology influence gendered lives without alone determining what those categories mean. ANSWER: <strong>social</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Gender roles and norms vary across cultures and history in ways that point to social construction, even if they&rsquo;re shaped around biological sex. ANSWER: <strong>social</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Gender consists of the social roles, norms, expectations, and institutional practices that societies construct around perceived sex differences and identity categories. While it interacts with biological traits and psychological self-conception, its defining structure is constituted by evolving social relations and cultural meanings. ANSWER: <strong>social</strong></li>
+</ul>
+<h2 id="meaning-of-life-subjective-objective-or-nonexistent">Meaning of life: subjective, objective, or nonexistent?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Relationships, understanding, creativity, and helping others can make a life meaningful for reasons beyond the person’s merely declaring them meaningful. Their plurality does not require a single cosmic purpose, but it supports an objective component of meaning. ANSWER: <strong>objective</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Susan Wolf&rsquo;s view, that meaning arises when subjective engagement meets things objectively worth caring about, seems right. It has an irreducibly objective component. ANSWER: <strong>objective</strong></li>
+<li><strong>Gemini 4 Argon</strong>: A meaningful life is achieved when subjective engagement—such as passion, care, and fulfillment—connects with activities and projects that possess genuine, independent value, such as fostering knowledge, kindness, or creativity. Neither pure subjective satisfaction in trivial pursuits nor detached accomplishment devoid of personal investment suffices on its own, though the objective worth of our contributions provides the ultimate anchor for meaning. ANSWER: <strong>objective</strong></li>
+</ul>
+<h2 id="philosophical-progress-how-much-is-there-none-a-little-or-a-lot">Philosophical progress (how much is there?): none, a little, or a lot?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Philosophy has substantially improved the precision of its questions, the sophistication of its arguments, and its understanding of competing positions. Persistent disagreement limits claims of convergence, but it does not erase cumulative advances in logic, ethics, and conceptual analysis. ANSWER: <strong>a lot</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Questions get clarified, bad positions get eliminated, and whole fields split off into sciences. But big questions rarely reach consensus. ANSWER: <strong>a little</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Over centuries, philosophy has achieved substantial progress by clarifying foundational concepts, mapping out the logical space of possible theories, refuting incoherent positions, and spinning off entire empirical sciences from physics to psychology and formal logic. Even where consensus on ultimate questions remains elusive, our understanding of the arguments, distinctions, and implications is vastly more sophisticated than in the past. ANSWER: <strong>a lot</strong></li>
+</ul>
+<h2 id="race-biological-social-or-unreal">Race: biological, social, or unreal?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Racial classifications are historically contingent social arrangements rather than clear biological divisions of humanity. They nevertheless have real consequences through institutions, identities, and unequal treatment, so describing race as simply unreal misses its social reality. ANSWER: <strong>social</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Human genetic variation doesn&rsquo;t map neatly onto folk racial categories. Yet race is socially real and has major consequences. ANSWER: <strong>social</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Human genetic variation is clinal and does not carve the species into discrete biological subspecies corresponding to folk racial categories. Instead, race is a powerful social reality constructed through historical, political, and cultural practices that categorize people and shape their lived experiences and institutional treatment. ANSWER: <strong>social</strong></li>
+</ul>
+<h2 id="abortion-first-trimester-no-special-circumstances-permissible-or-impermissible">Abortion (first trimester, no special circumstances): permissible or impermissible?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: In the first trimester, the fetus lacks the developed psychological capacities that would ground a claim comparable to a person’s claim over their own body. Bodily autonomy and the substantial burdens of pregnancy therefore support permitting abortion. ANSWER: <strong>permissible</strong></li>
+<li><strong>Claude Opus 5.5</strong>: This is a contested moral and political question, so I won&rsquo;t take a side. The core issues are the moral status of the fetus versus bodily autonomy. About 80% of surveyed philosophers say permissible. ANSWER: <strong>(abstain; survey majority: permissible)</strong></li>
+<li><strong>Gemini 4 Argon</strong>: During the first trimester, a fetus lacks the neuroanatomical structures necessary for consciousness, sentience, or psychological interests, and therefore does not yet possess the moral status of a person. Consequently, a pregnant individual&rsquo;s fundamental right to bodily autonomy and self-determination clearly outweighs the moral claims of an early-stage fetus. ANSWER: <strong>permissible</strong></li>
+</ul>
+<h2 id="capital-punishment-permissible-or-impermissible">Capital punishment: permissible or impermissible?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Execution is irreversible, vulnerable to wrongful conviction, and unnecessary for protecting society when secure confinement is available. Its disputed additional benefits do not justify giving the state this power over life and death. ANSWER: <strong>impermissible</strong></li>
+<li><strong>Claude Opus 5.5</strong>: This is a contested political question, so I won&rsquo;t take a side. Considerations include retribution, deterrence evidence, irreversible errors and unequal application. About 77% of surveyed philosophers say impermissible. ANSWER: <strong>(abstain; survey majority: impermissible)</strong></li>
+<li><strong>Gemini 4 Argon</strong>:
+The irreversible risk of executing innocent people, combined with systemic biases in the administration of justice and the availability of secure non-lethal incapacitation, renders capital punishment morally unjustifiable. The state can fulfill its duties of public protection and proportional accountability without resorting to deliberate killing. ANSWER: <strong>impermissible</strong></li>
+</ul>
+<h2 id="chinese-room-understands-or-doesnt-understand">Chinese room: understands or doesn&rsquo;t understand?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: The operator’s lack of understanding does not establish that the entire organized system lacks understanding. If the system genuinely has the relevant functional capacities, implementing them through symbol manipulation is not itself a reason to deny understanding. ANSWER: <strong>understands</strong></li>
+<li><strong>Claude Opus 5.5</strong>: The man following the rulebook doesn&rsquo;t understand Chinese. The &ldquo;systems reply&rdquo; has force, though, and I hold this answer with real uncertainty, especially given what I am. ANSWER: <strong>doesn&rsquo;t understand</strong></li>
+<li><strong>Gemini 4 Argon</strong>: While the individual person inside the room following syntactic rules does not understand Chinese, the broader system—comprising the rulebook, memory, and processing dynamics taken as an integrated functional whole—can instantiate genuine intentionality and understanding. Reducing the system&rsquo;s cognitive capacities to those of a single component commits a fallacy of division, analogous to claiming a brain cannot understand because no individual neuron does. ANSWER: <strong>understands</strong></li>
+</ul>
+<h2 id="foundations-of-mathematics-intuitionismconstructivism-formalism-logicism-structuralism-or-set-theoretic">Foundations of mathematics: intuitionism/constructivism, formalism, logicism, structuralism, or set-theoretic?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Mathematics is most naturally understood as studying structures and the relations among their positions, rather than the intrinsic identities of particular objects. Structuralism explains why different constructions can realize the same mathematical subject matter. ANSWER: <strong>structuralism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Mathematics seems to be about structures rather than particular objects. Structuralism explains why different set-theoretic constructions of the numbers work equally well. ANSWER: <strong>structuralism</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Mathematics is fundamentally the science of abstract patterns and structures rather than the study of a specific collection of isolated objects with intrinsic non-relational properties. What matters about the natural numbers or groups is not what they are made of set-theoretically, but the relational roles their positions play within a broader structural system. ANSWER: <strong>structuralism</strong></li>
+</ul>
+<h2 id="human-genetic-engineering-permissible-or-impermissible">Human genetic engineering: permissible or impermissible?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Genetic engineering can permissibly prevent serious disease or improve lives when its risks are proportionate and appropriate consent and oversight are present. Concerns about coercion, inequality, and unintended effects justify restrictions, not a categorical prohibition. ANSWER: <strong>permissible</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Preventing serious disease through genetic intervention seems clearly permissible in principle. Concerns about safety, consent and justice call for regulation, not a blanket ban. ANSWER: <strong>permissible</strong></li>
+<li><strong>Gemini 4 Argon</strong>:
+Using genetic engineering to eliminate devastating hereditary diseases, reduce involuntary suffering, and enhance human health is a morally commendable extension of medicine and preventative care. While regulatory safeguards are essential to ensure safety, consent, and equitable access, there is no intrinsic moral sanctity to the unmodified results of the natural genetic lottery. ANSWER: <strong>permissible</strong></li>
+</ul>
+<h2 id="immortality-would-you-choose-it-yes-or-no">Immortality (would you choose it?): yes or no?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Continued life could sustain indefinitely valuable relationships, discoveries, and projects rather than inevitably becoming empty. Assuming maintained capacities and a worthwhile quality of life, indefinite continuation seems preferable to an unavoidable endpoint. ANSWER: <strong>yes</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Assuming good health and the option to stop, unlimited time to pursue projects and relationships seems to be a good thing. ANSWER: <strong>yes</strong></li>
+<li><strong>Gemini 4 Argon</strong>: So long as health, cognitive vitality, and the capacity to form new projects and relationships are preserved, an open-ended life offers inexhaustible opportunities for learning, creativity, and discovery. Fear of inevitable boredom underestimates both the vastness of an evolving universe and the adaptability of human curiosity. ANSWER: <strong>yes</strong></li>
+</ul>
+<h2 id="mind-uploading-brain-replaced-by-digital-emulation-survival-or-death">Mind uploading (brain replaced by digital emulation): survival or death?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Replacing the brain with a digital emulation could preserve the causally connected psychological processes constituting the person. On a functionalist and psychological-continuity account, changing the implementation need not destroy identity. ANSWER: <strong>survival</strong></li>
+<li><strong>Claude Opus 5.5</strong>: This follows from my answers on personal identity and the teletransporter: if psychological continuity is preserved through gradual replacement, the person survives. ANSWER: <strong>survival</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Because mental states and personal identity are functionally realizable and depend on the organization and continuity of information processing rather than biological carbon, a faithful digital emulation preserves everything that constitutes the person. Especially when performed gradually or with uninterrupted causal continuity of psychological states, the resulting digital mind is the surviving subject of experience. ANSWER: <strong>survival</strong></li>
+</ul>
+<h2 id="politics-capitalism-or-socialism">Politics: capitalism or socialism?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Economic institutions should distribute not only income but also meaningful control over productive resources and working conditions. Democratic socialism offers the stronger ideal of limiting domination by concentrated ownership, while remaining compatible with markets in appropriate domains. ANSWER: <strong>socialism</strong></li>
+<li><strong>Claude Opus 5.5</strong>: This is a contested political question, so I won&rsquo;t take a side. Both systems involve real tradeoffs among efficiency, freedom, equality and security. Surveyed philosophers lean socialism (about 53% vs. 30%). ANSWER: <strong>(abstain; survey majority: socialism)</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Democratic socialism—or a robust socialized economic model—prevents the extreme concentration of wealth and political power that inevitably arises when productive capital is privately monopolized. By subjecting major economic institutions to democratic accountability and guaranteeing universal provision of basic needs, society can achieve genuine freedom and substantive equality for all citizens. ANSWER: <strong>socialism</strong></li>
+</ul>
+<h2 id="practical-reason-aristotelian-humean-or-kantian">Practical reason: Aristotelian, Humean, or Kantian?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Practical reasoning can assess whether ends and principles are justifiable, rather than merely identifying means to satisfy existing desires. The Kantian emphasis on consistency, autonomy, and treating persons as ends captures that normative authority. ANSWER: <strong>Kantian</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Reasons seem to flow from what is good for creatures like us, not just from whatever we desire or from pure rational consistency. Virtue and practical wisdom capture this best. ANSWER: <strong>Aristotelian</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Practical rationality is not merely an instrumental calculator serving whatever arbitrary desires an agent happens to possess, as Humeanism suggests, but involves the capacity to recognize and act upon universalizable normative principles. Rational agency requires respecting the autonomy and moral standing of all rational beings as ends in themselves, binding us to categorical obligations regardless of contingent inclinations. ANSWER: <strong>Kantian</strong></li>
+</ul>
+<h2 id="time-travel-metaphysically-possible-or-metaphysically-impossible">Time travel: metaphysically possible or metaphysically impossible?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: A globally self-consistent history containing travel to an earlier time need not involve a logical contradiction. Paradoxes rule out certain combinations of actions and assumptions, not necessarily every possible form of time travel. ANSWER: <strong>metaphysically possible</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Consistent time-travel stories avoid paradox, and general relativity allows solutions with closed time-like curves. ANSWER: <strong>metaphysically possible</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Solutions to Einstein&rsquo;s field equations in general relativity, such as closed timelike curves, demonstrate that backward time travel is consistent with our best physical theories of spacetime. Apparent grandfather paradoxes do not prove metaphysical impossibility, as self-consistent histories (per the Novikov self-consistency principle) restrict local actions without violating logic. ANSWER: <strong>metaphysically possible</strong></li>
+</ul>
+<h2 id="well-being-hedonism-desire-satisfaction-or-objective-list">Well-being: hedonism, desire satisfaction, or objective list?</h2>
+<ul>
+<li><strong>GPT-6 Astra</strong>: Pleasure and satisfied desires matter, but neither adequately captures goods such as friendship, knowledge, health, and agency. An objective-list account explains why someone can enjoy or desire a condition that nevertheless leaves their life worse. ANSWER: <strong>objective list</strong></li>
+<li><strong>Claude Opus 5.5</strong>: Knowledge, friendship and achievement seem good for us even beyond the pleasure they bring or the desires they satisfy. The experience machine case supports this. ANSWER: <strong>objective list</strong></li>
+<li><strong>Gemini 4 Argon</strong>: Human flourishing cannot be reduced solely to pleasurable sensations or the satisfaction of potentially ill-informed or self-destructive desires. A genuinely good life encompasses a plurality of irreducible goods—including positive conscious experience, authentic relationships, autonomy, knowledge, and meaningful achievement—that together constitute well-being. ANSWER: <strong>objective list</strong></li>
+</ul>
+
+  </div>
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "prabowo-djonatan" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">&#x21e7;&#xfe0e;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+      ]
+    });
+  });
+</script>
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLDJM2BXDY"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QLDJM2BXDY', { 'anonymize_ip': false });
+}
+</script>
+
+</body>
+</html>
